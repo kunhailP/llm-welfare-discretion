@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Downloads pinned model revisions to the persistent volume, in priority order.
 set -u
-export HF_HOME=/workspace/hf HF_HUB_ENABLE_HF_TRANSFER=1
-PY=/workspace/venv/bin/python
+export HF_HOME=${HF_HOME:-/workspace/hf} HF_HUB_ENABLE_HF_TRANSFER=1
+PY=${PY:-/workspace/venv/bin/python}
 while read -r repo rev; do
   echo "[$(date -Is)] start $repo@$rev"
   $PY -c "from huggingface_hub import snapshot_download as s; print(s('$repo', revision='$rev', allow_patterns=['*.json','*.safetensors','*.txt','*.model','*.jinja','tekken*','*.py']))" && echo "[$(date -Is)] done $repo" || echo "[$(date -Is)] FAILED $repo"

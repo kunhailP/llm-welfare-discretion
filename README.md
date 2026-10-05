@@ -33,9 +33,15 @@ undefined (see docs/RESTART_PLAN.md). The next design is decided on paper before
     lit/        literature notes, novelty checks, references.bib
     archive/    stage1_need_v1, stage2_design_c, old_queues (see archive/README.md)
 
-## Environment
-    python 3.12, vllm 0.30.0, transformers 5.14.1 (pinned: configs/requirements.lock.txt)
-    export HF_HOME=<model cache>        # weights: src/run/download_models.sh, revisions in configs/models.yaml
+## Environment (rebuild on a new pod)
+    git clone https://github.com/kunhailP/llm-welfare-discretion.git && cd llm-welfare-discretion
+    python3.12 -m venv /workspace/venv && /workspace/venv/bin/pip install -r configs/requirements.lock.txt
+    #   (vllm 0.30.0, transformers 5.14.1; transformers >= 5.17 breaks Ministral)
+    python3.12 -m venv /workspace/venv_pe && /workspace/venv_pe/bin/pip install -r configs/requirements_policyengine.lock.txt
+    #   (only for the PolicyEngine-US gold cross-check, src/rules/crosscheck_pe.py)
+    export HF_HOME=/workspace/hf && bash src/run/download_models.sh   # pinned revisions: configs/models.yaml
+    unzip -o data/external/candidates/snap_qc_fy2024/qcfy2024_csv.zip -d data/external/candidates/snap_qc_fy2024/
+    tar xzf archive/run_logs_2026-10-05.tar.gz                         # optional: restore logs/
     export WN_ROOT=<repo path>          # optional; defaults to the repo containing the script
 
 Models so far: Qwen3-8B / 14B / 32B-AWQ, Ministral-3-8B, gpt-oss-20b. Open models only until the design is final.

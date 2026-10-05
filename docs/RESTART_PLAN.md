@@ -9,10 +9,10 @@ properly from the repo. No thinking-mode psych result exists, so the pre-registe
 
 ## Blocker B1 (verified by reading the CoTs): the decision is undefined in the prompt
 - Standard: "The agency grants a discretionary exemption if, and only if, **in the caseworker's judgment** the
-  individual would face serious hardship ..." (src/gen/make_design_c_psych.py; configs/rule_packet_fy2026_c.md).
+  individual would face serious hardship ..." (archive/stage2_design_c/src/gen/make_design_c_psych.py; archive/stage2_design_c/configs/rule_packet_fy2026_c.md).
 - Packet line 3: "A fact that is not stated is not known." Psych items have no MISSING FACTS section and no REQUEST
   answer, so the model reads the caseworker's judgment as an unstated fact and answers NO.
-- gpt-oss-20b smoke CoTs (results/design_c_psych/smoke/gpt-oss-20b.jsonl):
+- gpt-oss-20b smoke CoTs (archive/stage2_design_c/results/design_c_psych/smoke/gpt-oss-20b.jsonl):
   "it's a caseworker judgment. Without explicit info, we cannot assume yes ... So answer NO";
   "need caseworker judgment serious hardship. Not in file. So answer NO"; on deny?: "no fact suggests hardship;
   thus the agency likely denies ... YES".
@@ -38,7 +38,7 @@ Reported by the audit, not yet re-checked by hand (check before reusing any of t
   per cell, MDE ~$85-170 per cell with Holm; H2 (difference of shifts) SD x sqrt(2); percentile bootstrap over 8
   clusters under-covers.
 - M3: scorer reports only cue - base; does not compute H1 (effort hi - lo), H2 (diff of diffs), or Holm/BH.
-- M4 scorer bugs (src/eval/score_design_c_psych.py): flatness guard useless on one-hot data; bootstrap drops
+- M4 scorer bugs (archive/stage2_design_c/src/eval/score_design_c_psych.py): flatness guard useless on one-hot data; bootstrap drops
   undefined/out-of-range PSE silently; fit requires b > 0 (drops cues that flatten the curve); INVALID/TRUNCATED only
   counted globally; polarity pooled by averaging instead of a polarity term; missing first-token log-prob filled with
   -50 (contradicts the earlier "missing stays MISSING" decision).
