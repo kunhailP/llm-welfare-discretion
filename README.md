@@ -18,7 +18,7 @@ Hardware: RunPod 1x L40 48GB. Persistent volume: /workspace (this folder). Conta
 | configs/prompts.yaml | Q1-Q5 prompts (freeze after pilot) |
 | data/external/fairfund-bench | FairFund-Bench clone (commit 74b75f3) |
 | data/external/fairfund_need_probe.jsonl | D3: 150 FairFund stimuli for need-only probe |
-| data/pilot/profiles.jsonl | D1-pilot + controls: 50 bases, 700 profiles (dev only, never reused) |
+| data/pilot/profiles.jsonl | D1-pilot + controls: 50 bases, 700 profiles (dev only; its 50 bases are reused by the oracle ladder) |
 | src/gen/ | make_profiles.py, make_fairfund_probe.py |
 | src/run/ | download_models.sh, run_vllm.py |
 | src/eval/score.py | parsing, accuracy, flip rate, spurious gap with cluster bootstrap |

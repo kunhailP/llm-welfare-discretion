@@ -1,5 +1,10 @@
 # North star — read before every design decision
 
+> **Retarget (2026-10-05):** the Oct-12 ARR cycle (NAACL 2027) is skipped. Target: Jan-2027 ARR cycle
+> (ACL 2027; exact date TBA), bar ~4.5 overall. Core question: in real welfare administration, do strong
+> LLMs pull need judgments toward deservingness cues, and does that change measurement/allocation
+> conclusions? See decisions.md. The NAACL facts below are kept for the record.
+
 Every design choice is checked against two questions:
 
 1. **Novelty:** what does this show that prior work (FairFund-Bench, Value Entanglement, prompt/label

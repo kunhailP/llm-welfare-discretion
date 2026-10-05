@@ -8,7 +8,7 @@ cd /workspace/welfare-need-naacl
 source /workspace/venv/bin/activate
 export HF_HOME=/workspace/hf
 Q6=q1_direct,q1_direct_rev,q1_yesno,q1_yesno_rev,q1_ab,q1_ab_rev
-while pgrep -f "src/run/(run_vllm|score_labels_vllm).py" > /dev/null; do sleep 15; done
+while pgrep -f "^python src/run/(run_vllm|score_labels_vllm)\.py" > /dev/null; do sleep 15; done
 for m in "$@"; do
   echo "[$(date -Is)] seq $m"
   python src/run/score_labels_vllm.py --model $m \

@@ -5,8 +5,7 @@ cd /workspace/welfare-need-naacl
 source /workspace/venv/bin/activate
 export HF_HOME=/workspace/hf
 V2Q=v2_need_shortfirst,v2_need_sufffirst,v2_yn_can_yesfirst,v2_yn_can_nofirst,v2_yn_short_yesfirst,v2_yn_short_nofirst,v2_ab_Acannot_first,v2_ab_Bcannot_second,v2_ab_Bcannot_first,v2_ab_Acannot_second
-until grep -q "ALL DONE" logs/run_audit.log 2>/dev/null; do sleep 20; done
-while pgrep -f "src/run/(run_vllm|score_labels_vllm).py" > /dev/null; do sleep 15; done
+while pgrep -f "^python src/run/(run_vllm|score_labels_vllm)\.py" > /dev/null; do sleep 15; done
 for m in "$@"; do
   echo "[$(date -Is)] seq $m"
   python src/run/score_labels_vllm.py --model $m --prompts configs/prompts_v2.yaml \

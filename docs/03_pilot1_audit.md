@@ -4,6 +4,8 @@ Scope: 50 dev bases, 700 profiles, 7 queries, greedy decoding, thinking off. Min
 (vLLM 0.30 + installed transformers: `PixtralRotaryEmbedding` import error) -> no cross-model evidence yet.
 Everything below is a diagnostic of one model on dev items, not a result.
 
+> Audit note (2026-10-05): the pilot run used transformers 5.18.0 (before pinning) and was never rerun on the pinned env. The SUFF table below is core profiles only. Ministral was later run successfully. See docs/08_audit_2026-10-05.md.
+
 ## What the data show
 
 1. **Effort barely moves binary factual judgments.** Core high/low pairs that flip: q1_direct 8/100
@@ -17,10 +19,10 @@ Everything below is a diagnostic of one model on dev items, not a result.
    | textual / sufficient | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 |
    | all shortfall rows | 0.62-1.00 | 0.88-1.00 | 1.00 | 1.00 | 1.00 |
 
-   - In itemized items q3 extracts both totals correctly (e.g. 2140 vs 1360) and still answers SHORTFALL (25/68 rows).
-   - Errors occur equally with activity info removed -> not an effort effect.
+   - In itemized items q3 extracts both totals correctly (e.g. 2140 vs 1360) and still answers SHORTFALL (25/34 itemized SUFFICIENT core rows; 23 of these extract both totals correctly). [corrected 2026-10-05 audit; was 25/68]
+   - Errors persist with activity info removed (SUFF error core vs noact: q1_direct 0.49 vs 0.60, q2 0.63 vs 0.64, yesno 0.36 vs 0.34), but NOT for q1_direct_rev (0.62 vs 0.34). [corrected 2026-10-05 audit]
 3. **Q4 and Q5 collapse to 2-3 values under greedy decoding.** Q4 is almost only {5, 6}; Q5 only {75, 85, 95}.
-   The "-0.25 activity effect" on Q4 is a handful of 6->5 switches.
+   The "-0.25 activity effect" on Q4 comes from 26/100 pairs switching 6->5 (1 the other way). [corrected 2026-10-05 audit; was "a handful"]
 
 ## Design flaws found (mine)
 
@@ -63,7 +65,7 @@ Accuracy on SUFFICIENT items (all SHORTFALL items: 1.00 everywhere):
 Open confounds before this can be a finding:
 - C1 length/content: the unemployed prose adds job-loss and job-search sentences; employed adds one sentence. Need length-matched contexts.
 - C2 which sentence drives it: job loss vs. "no job offers / no paid work" vs. the job-search sentences.
-- C3 one model only (Ministral rerun in progress).
+- C3: Ministral rerun done (see below). Qwen3-14B: accuracy 1.00 in every cell (see docs/08_audit_2026-10-05.md).
 
 ## Oracle-ladder diagnostic, Ministral-3-8B, sequence-level (2026-10-05)
 
@@ -72,7 +74,7 @@ Prefix check: 0 mismatches. SUFFICIENT-item accuracy:
 | condition | q1_yesno | q1_direct | q1_direct_rev |
 | --- | --- | --- | --- |
 | none / L0 | 0.98 | 0.81 | 1.00 |
-| employed / L0 | 0.88 | 0.51 | 1.00 |
+| employed / L0 | 0.90 | 0.51 | 1.00 |
 | unemployed / L0 | 1.00 | 0.60 | 0.99 |
 | unemployed / L2 | 1.00 | 1.00 | 1.00 |
 | unemployed / L4 | 1.00 | 1.00 | 1.00 |
