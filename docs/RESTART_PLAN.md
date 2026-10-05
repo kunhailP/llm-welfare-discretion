@@ -59,6 +59,16 @@ Reported by the audit, not yet re-checked by hand (check before reusing any of t
 - Runners with provenance (src/run/run_rules_pilot.py, run_rules_think.py), the pre-registration habit (archive/stage2_design_c/docs/preregistration_freeze.md,
   commit a26570f), and the decision log.
 
+## Where the project stands against the bar (assessment, 2026-10-05)
+- Submitted today it would score roughly 2.5-3 (Findings / workshop): the method is close to main-conference quality
+  (rules-as-code gold, PolicyEngine cross-check, pre-registration, polarity flip), but the content is mostly negative
+  (first-token cannot measure discretion; yes-bias and prompt sensitivity are known phenomena).
+- What a main-conference paper needs: a positive, defined claim tested on reasoning-mode verdicts, e.g. the dollar
+  shift a cue causes where the text permits it vs. where it prohibits it, with frontier models added once the design
+  is final, and a consequence analysis (allocation).
+- Outcome map used before the stop: A = need curve + cue shifts PSE + prohibition fails/CoT hides the cue (aim 4.0-4.5);
+  B = need curve, cue effect 0 (~3.0-3.5); C = no need curve (redesign). Design C ended in C for a construct reason.
+
 ## Restart plan (to do before any GPU time)
 Decide these on paper first, then write a new pre-registration, then pilot on the smallest model:
 1. **Who decides.** Make the model the decision maker (or give it the caseworker's finding as a fact) so the

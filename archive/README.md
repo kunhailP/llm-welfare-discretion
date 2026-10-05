@@ -42,3 +42,13 @@ Generators here import make_rules_pilot from src/gen (still active) and each oth
 ## old_queues
 Finished GPU queues of Design B / C (rules pilot, thinking queue, discretion queue, Design C queue 1).
 The live queue is src/run/run_design_c_queue2.sh.
+
+## run_logs_2026-10-05.tar.gz
+All GPU run logs of stages 1-2 (logs/ is not tracked). Untar at the repo root to restore logs/.
+
+## Not in git (by design)
+- data/review/*KEY*: blind-review answer keys of stage 1 (public repo); kept only on the original pod.
+- Model weights (HF cache) and virtual envs: rebuild from configs/models.yaml, configs/requirements.lock.txt,
+  configs/requirements_policyengine.lock.txt (PolicyEngine-US cross-check env), src/run/download_models.sh.
+- Third-party data: data/external/SOURCES.md.
+- An earlier design document hub (Selective Normative Reasoning) lives in Claude Docs, outside this repo; left as is.

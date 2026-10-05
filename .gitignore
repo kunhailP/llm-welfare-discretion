@@ -12,3 +12,5 @@ __pycache__/
 *.pyc
 !data/external/README_FAIRFUND_PROBE.md
 results/*/smoke/
+!data/external/SOURCES.md
+!data/external/snap_params/
