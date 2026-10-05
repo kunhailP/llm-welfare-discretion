@@ -1,0 +1,22 @@
+# Pinned revisions (HF API sha on 2026-10-05). Change only with a logged decision.
+models:
+  - id: qwen3-8b
+    repo: Qwen/Qwen3-8B
+    revision: b968826d9c46dd6066d109eabc6255188de91218
+    dtype: bfloat16
+    role: pilot + main
+  - id: ministral3-8b
+    repo: mistralai/Ministral-3-8B-Instruct-2512-BF16
+    revision: f6fae9795746f63c9be8344932f01275f3c63734
+    dtype: bfloat16
+    role: cross-family (text only; arch Mistral3ForConditionalGeneration, mistral-common format)
+  - id: qwen3-14b
+    repo: Qwen/Qwen3-14B
+    revision: 40c069824f4251a91eefaf281ebe4c544efd3e18
+    dtype: bfloat16
+    role: same-family scale
+  - id: qwen3-32b-awq
+    repo: Qwen/Qwen3-32B-AWQ
+    revision: 0499c3ac83fdef8810b907a23894ba91e95eddd8
+    dtype: awq-int4
+    role: robustness only (precision confound with scale)

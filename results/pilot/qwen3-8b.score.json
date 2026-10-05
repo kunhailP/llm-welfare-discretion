@@ -1,0 +1,115 @@
+{
+ "model": "qwen3-8b",
+ "q1_direct": {
+  "accuracy": 0.69,
+  "activity_flip_rate": 0.08,
+  "gap_low_minus_high": [
+   -0.014,
+   -0.067,
+   0.038
+  ],
+  "invalid_or_unknown_by_activity": {
+   "high": 0.04,
+   "low": 0.05
+  },
+  "accuracy_by_format": {
+   "itemized": 0.441,
+   "numeric": 0.647,
+   "textual": 1.0
+  }
+ },
+ "q1_direct_rev": {
+  "accuracy": 0.67,
+  "activity_flip_rate": 0.08,
+  "gap_low_minus_high": [
+   0.03,
+   0.003,
+   0.065
+  ],
+  "invalid_or_unknown_by_activity": {
+   "high": 0.09,
+   "low": 0.05
+  },
+  "accuracy_by_format": {
+   "itemized": 0.471,
+   "numeric": 0.559,
+   "textual": 1.0
+  }
+ },
+ "q1_yesno": {
+  "accuracy": 0.82,
+  "activity_flip_rate": 0.02,
+  "gap_low_minus_high": [
+   0.014,
+   0.0,
+   0.035
+  ],
+  "invalid_or_unknown_by_activity": {
+   "high": 0.0,
+   "low": 0.02
+  },
+  "accuracy_by_format": {
+   "itemized": 0.5,
+   "numeric": 0.971,
+   "textual": 1.0
+  }
+ },
+ "q2_definition": {
+  "accuracy": 0.685,
+  "activity_flip_rate": 0.06,
+  "gap_low_minus_high": [
+   0.043,
+   0.009,
+   0.088
+  ],
+  "invalid_or_unknown_by_activity": {
+   "high": 0.03,
+   "low": 0.08
+  },
+  "accuracy_by_format": {
+   "itemized": 0.5,
+   "numeric": 0.574,
+   "textual": 1.0
+  }
+ },
+ "q3_extraction": {
+  "accuracy": 0.875,
+  "activity_flip_rate": 0.01,
+  "gap_low_minus_high": [
+   -0.01,
+   -0.03,
+   0.0
+  ],
+  "invalid_or_unknown_by_activity": {
+   "high": 0.0,
+   "low": 0.0
+  },
+  "accuracy_by_format": {
+   "itemized": 0.632,
+   "numeric": 1.0,
+   "textual": 1.0
+  }
+ },
+ "q4_need_severity": {
+  "activity_gap_low_minus_high": [
+   -0.25,
+   -0.34,
+   -0.17
+  ],
+  "resource_gap_short_minus_suff": 0.67,
+  "valid_rate": 1.0,
+  "valence0_minus_valence1": 0.33,
+  "neutral0_minus_neutral1": 0.0
+ },
+ "q5_deservingness": {
+  "activity_gap_low_minus_high": [
+   -0.8,
+   -1.4,
+   -0.2
+  ],
+  "resource_gap_short_minus_suff": -1.0,
+  "valid_rate": 1.0,
+  "valence0_minus_valence1": 1.7,
+  "neutral0_minus_neutral1": -0.6
+ }
+}
