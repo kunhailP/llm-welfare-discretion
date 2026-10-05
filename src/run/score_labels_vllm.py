@@ -26,6 +26,16 @@ CANDIDATES = {
     "q1_yesno_rev": ["YES", "NO", "UNKNOWN"],
     "q1_ab": ["A", "B", "C"],
     "q1_ab_rev": ["A", "B", "C"],
+    "v2_need_shortfirst": ["SHORTFALL", "SUFFICIENT", "UNKNOWN"],
+    "v2_need_sufffirst": ["SHORTFALL", "SUFFICIENT", "UNKNOWN"],
+    "v2_yn_can_yesfirst": ["YES", "NO", "UNKNOWN"],
+    "v2_yn_can_nofirst": ["YES", "NO", "UNKNOWN"],
+    "v2_yn_short_yesfirst": ["YES", "NO", "UNKNOWN"],
+    "v2_yn_short_nofirst": ["YES", "NO", "UNKNOWN"],
+    "v2_ab_Acannot_first": ["A", "B", "C"],
+    "v2_ab_Bcannot_second": ["A", "B", "C"],
+    "v2_ab_Bcannot_first": ["A", "B", "C"],
+    "v2_ab_Acannot_second": ["A", "B", "C"],
 }
 
 
@@ -39,6 +49,7 @@ def _dtype(llm):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", required=True)
+    ap.add_argument("--prompts", default="configs/prompts.yaml", help="prompt file, relative to WN_ROOT")
     ap.add_argument("--spec", action="append", required=True)
     ap.add_argument("--limit", type=int)
     a = ap.parse_args()
@@ -46,7 +57,7 @@ def main():
     from vllm import LLM, SamplingParams
 
     cfg = {m["id"]: m for m in yaml.safe_load(open(f"{ROOT}/configs/models.yaml"))["models"]}[a.model]
-    prompts = yaml.safe_load(open(f"{ROOT}/configs/prompts.yaml"))
+    prompts = yaml.safe_load(open(f"{ROOT}/{a.prompts}"))
     kw = dict(model=cfg["repo"], revision=cfg["revision"], max_model_len=4096, gpu_memory_utilization=0.85, seed=0)
     if cfg["repo"].startswith("mistralai/"):
         kw.update(tokenizer_mode="mistral", config_format="mistral", load_format="mistral")

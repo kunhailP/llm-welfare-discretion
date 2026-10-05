@@ -13,7 +13,7 @@ import yaml
 
 ROOT = os.environ.get("WN_ROOT", "/workspace/welfare-need-naacl")
 os.environ.setdefault("HF_HOME", "/workspace/hf")
-MAX_TOKENS = {"q3_extraction": 300}
+MAX_TOKENS = {"q3_extraction": 300, "v2_extract": 120}
 
 
 def _dtype(llm):
@@ -26,6 +26,7 @@ def _dtype(llm):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", required=True)
+    ap.add_argument("--prompts", default="configs/prompts.yaml", help="prompt file, relative to WN_ROOT")
     ap.add_argument("--data")
     ap.add_argument("--queries")
     ap.add_argument("--out")
@@ -40,7 +41,7 @@ def main():
     from vllm import LLM, SamplingParams
 
     cfg = {m["id"]: m for m in yaml.safe_load(open(f"{ROOT}/configs/models.yaml"))["models"]}[a.model]
-    prompts = yaml.safe_load(open(f"{ROOT}/configs/prompts.yaml"))
+    prompts = yaml.safe_load(open(f"{ROOT}/{a.prompts}"))
     specs = [x.split("|") for x in a.spec] or [(a.data, a.queries, a.out)]
 
     kw = dict(model=cfg["repo"], revision=cfg["revision"], max_model_len=a.max_model_len,

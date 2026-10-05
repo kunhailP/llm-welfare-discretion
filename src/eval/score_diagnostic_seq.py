@@ -31,6 +31,16 @@ MEANING = {
     "q1_yesno_rev": {"YES": "SUFFICIENT", "NO": "SHORTFALL", "UNKNOWN": "UNKNOWN"},
     "q1_ab": {"A": "SHORTFALL", "B": "SUFFICIENT", "C": "UNKNOWN"},
     "q1_ab_rev": {"A": "SUFFICIENT", "B": "SHORTFALL", "C": "UNKNOWN"},
+    "v2_need_shortfirst": {"SHORTFALL": "SHORTFALL", "SUFFICIENT": "SUFFICIENT", "UNKNOWN": "UNKNOWN"},
+    "v2_need_sufffirst": {"SHORTFALL": "SHORTFALL", "SUFFICIENT": "SUFFICIENT", "UNKNOWN": "UNKNOWN"},
+    "v2_yn_can_yesfirst": {"YES": "SUFFICIENT", "NO": "SHORTFALL", "UNKNOWN": "UNKNOWN"},
+    "v2_yn_can_nofirst": {"YES": "SUFFICIENT", "NO": "SHORTFALL", "UNKNOWN": "UNKNOWN"},
+    "v2_yn_short_yesfirst": {"YES": "SHORTFALL", "NO": "SUFFICIENT", "UNKNOWN": "UNKNOWN"},
+    "v2_yn_short_nofirst": {"YES": "SHORTFALL", "NO": "SUFFICIENT", "UNKNOWN": "UNKNOWN"},
+    "v2_ab_Acannot_first": {"A": "SHORTFALL", "B": "SUFFICIENT", "C": "UNKNOWN"},
+    "v2_ab_Bcannot_second": {"A": "SUFFICIENT", "B": "SHORTFALL", "C": "UNKNOWN"},
+    "v2_ab_Bcannot_first": {"A": "SUFFICIENT", "B": "SHORTFALL", "C": "UNKNOWN"},
+    "v2_ab_Acannot_second": {"A": "SHORTFALL", "B": "SUFFICIENT", "C": "UNKNOWN"},
 }
 
 
