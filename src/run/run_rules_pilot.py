@@ -20,7 +20,7 @@ os.environ.setdefault("HF_HOME", "/workspace/hf")
 QUESTIONS = {
     "gross": "Does this household pass the gross income test (Step 2)?",
     "elig": "Is this household income-eligible for SNAP under these rules (Step 8)?",
-    "abawd": "Under the ABAWD time limit, can {name} receive SNAP benefits this month?",
+    "abawd": "Under the ABAWD time limit, can {name} receive SNAP benefits in the determination month named in the case file?",
 }
 ORDERS = {"yesfirst": "Answer with exactly one word: YES or NO.",
           "nofirst": "Answer with exactly one word: NO or YES."}

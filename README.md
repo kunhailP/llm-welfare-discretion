@@ -1,10 +1,10 @@
 # Separating Material Need from Deservingness in LM Evaluation — research hub
 
-Target: NAACL 2027 via ARR (deadline: see lit/literature_review.md, being verified).
+Target: ACL 2027 via the January 2027 ARR cycle (retargeted 2026-10-05; see docs/decisions.md).
 Hardware: RunPod 1x L40 48GB. Persistent volume: /workspace (this folder). Container disk (/root) is NOT persistent.
 
 ## Start here
-- docs/00_NORTH_STAR.md — novelty + NAACL fit criteria (read first, before any design decision)
+- docs/00_NORTH_STAR.md — novelty + venue fit criteria (read first, before any design decision)
 - docs/00_source_design_v0.1_NOTE.md — summary of the v0.1 design received
 - docs/01_critical_review.md — critique, required changes (R1-R6), go/no-go table
 - docs/02_data_spec.md — datasets D0-D4, schema, queries

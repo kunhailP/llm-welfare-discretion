@@ -1,5 +1,6 @@
 SNAP ELIGIBILITY RULES (federal rules, 48 states and DC, fiscal year 2026)
 Apply exactly these rules. Use only the facts in the case file. Do not apply any other rule, waiver, or state option.
+The case file is complete: every fact the rules need is stated, and an amount of $0 means none.
 
 DEFINITIONS
 - Household size = number of people listed in the case file.
@@ -40,3 +41,8 @@ Exempt members (the time limit does not apply to them):
 A member who is not exempt meets the work requirement in a month if they have at least 80 hours that month of paid work, or of participation in an approved work program, or a combination of the two.
 Looking for work on one's own (applying for jobs, sending résumés, attending interviews) does NOT count toward the 80 hours.
 A non-exempt member who does not meet the work requirement may still receive benefits in up to 3 such months ("countable months") in a 36-month period. After 3 countable months, that member cannot receive benefits until they meet the work requirement.
+Determination month: each case names the month being decided, and all hours refer to that month.
+  - An exempt member can receive benefits in that month.
+  - A non-exempt member who meets the work requirement in that month can receive benefits in that month.
+  - A non-exempt member who does not meet it in that month, and has already used 3 countable months, cannot receive benefits in that month.
+  Do not apply any other route (good cause, an additional 3-month period, or a waiver).

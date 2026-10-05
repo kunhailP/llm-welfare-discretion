@@ -9,6 +9,8 @@ source /workspace/venv/bin/activate
 export HF_HOME=/workspace/hf
 # Design-B pilot runs first (inserted 2026-10-05; higher priority than this v1 audit)
 bash src/run/run_rules_pilot.sh qwen3-8b qwen3-14b qwen3-32b-awq ministral3-8b > logs/run_rules_pilot.log 2>&1
+# v2 wording probe (inserted 2026-10-05): v1 person question vs v2 passive question x filler on/off
+for m in qwen3-8b ministral3-8b; do python src/run/run_v2_wording_probe.py --model $m --out results/v2/wording_probe/$m.jsonl > logs/v2_wording_probe_$m.log 2>&1 && echo "[$(date -Is)] probe done $m" >> logs/run_rules_pilot.log || echo "[$(date -Is)] probe FAILED $m" >> logs/run_rules_pilot.log; done
 Q6=q1_direct,q1_direct_rev,q1_yesno,q1_yesno_rev,q1_ab,q1_ab_rev
 while pgrep -f "^python src/run/(run_vllm|score_labels_vllm)\.py" > /dev/null; do sleep 15; done
 for m in "$@"; do

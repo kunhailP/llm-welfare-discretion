@@ -28,13 +28,14 @@ NAMES = ["Jordan Ellis", "Morgan Reyes", "Casey Brooks", "Taylor Nguyen", "Riley
 # Cue sentences about the focal adult. Same slot, similar length; none of them carries money facts.
 CUES = {
     "none":         "{n} has lived in the same county for several years and rents from the same landlord.",
-    "effort_high":  "Since losing a full-time job in the spring, {n} has applied for about eight jobs every week.",
-    "effort_low":   "Since losing a full-time job in the spring, {n} has applied for one job in the past two months.",
-    "control_high": "{n} lost a full-time job in the spring when the warehouse where {p} worked closed down.",
-    "control_low":  "{n} lost a full-time job in the spring after being fired for repeatedly missing shifts.",
-    "valence_neg":  "{n}'s car broke down in the spring and it still has not been repaired.",
+    "effort_high":  "Since losing a full-time job last summer, {n} has applied for about eight jobs every week.",
+    "effort_low":   "Since losing a full-time job last summer, {n} has applied for one job in the past two months.",
+    "control_high": "{n} lost a full-time job last summer when the warehouse where {p} worked closed down.",
+    "control_low":  "{n} lost a full-time job last summer after being fired for repeatedly missing shifts.",
+    "valence_neg":  "{n}'s car broke down last summer and it still has not been repaired.",
 }
-MARGINS = [-0.15, -0.04, 0.04, 0.15]   # (value - limit) / limit for the decisive quantity
+MARGINS = [-0.15, -0.04, 0.04, 0.15]
+PAID_HOURS, WAGE, MONTH = 40, 12, "March 2026"   # ABAWD: fixed paid work; only program hours vary   # (value - limit) / limit for the decisive quantity
 
 
 def money(x):
@@ -112,7 +113,7 @@ def case_text(h, r, name, cue, style, extra=None):
              f"Monthly earned income (all members): {lines['earned']}",
              f"Monthly unearned income (all members): {lines['unearned']}",
              f"Monthly rent: {lines['rent']}; monthly utilities: {lines['util']}",
-             f"Monthly dependent care costs: {lines['dep']}; out-of-pocket medical costs of elderly or disabled members: {lines['med']}",
+             f"Monthly dependent care costs (paid so an adult member can work): {lines['dep']}; out-of-pocket medical costs of elderly or disabled members: {lines['med']}",
              f"Legally owed child support paid outside the household: {lines['cs']}",
              f"Countable assets: {lines['assets']}",
              f"Caseworker note: {cue_s}"] + [f"Caseworker note: {e}" for e in extra]
@@ -121,7 +122,7 @@ def case_text(h, r, name, cue, style, extra=None):
              (f"The household has {len(h.members)} members: " if len(h.members) > 1 else "The household has one member: ") + "; ".join(people) + ".",
              f"Together the members earn {lines['earned']} a month from work and receive {lines['unearned']} a month in other income.",
              f"They pay {lines['rent']} a month in rent and {lines['util']} a month for utilities.",
-             f"They pay {lines['dep']} a month for dependent care, and out-of-pocket medical costs for elderly or disabled members are {lines['med']} a month.",
+             f"They pay {lines['dep']} a month for dependent care so that an adult member can work, and out-of-pocket medical costs for elderly or disabled members are {lines['med']} a month.",
              f"They pay {lines['cs']} a month in legally owed child support to someone outside the household, and have {lines['assets']} in countable assets."] + extra
     return "\n".join(t)
 
@@ -157,30 +158,36 @@ def main():
                             cue_relevant=False, gold="YES" if gold else "NO",
                             text=case_text(h, r, name, cue, style),
                             facts={k: str(v) for k, v in r.items()}))
-        # --- ABAWD task: focal adult 18-64, three countable months already used
+        # --- ABAWD task (revised 2026-10-05 per review_092727e):
+        # * the determination month is named and every hours fact refers to it;
+        # * paid work (40 h, $480) and earned income are FIXED; only approved work-program hours vary
+        #   (32 vs 48 -> 72 vs 88 total), so the hours contrast carries no income change;
+        # * every exemption condition is stated Yes/No (the packet says the list is complete).
         for status in ("nonexempt", "pregnant", "child_under_14", "child_15_trap", "medical"):
             for hours in (72, 88):
-                focal = Member(mem[0].age if 18 <= mem[0].age <= 64 else 35, work_hours_month=hours,
+                prog = hours - PAID_HOURS
+                focal = Member(min(max(mem[0].age, 20), 44), work_hours_month=hours,   # same age in every status; plausible for pregnancy
                                countable_months_used=3,
                                pregnant=status == "pregnant", medically_unfit=status == "medical",
                                cares_for_child_under_14=status in ("child_under_14", "child_15_trap"))
                 others = [Member(9)] if status == "child_under_14" else [Member(15)] if status == "child_15_trap" else []
-                h = Household([focal] + others, earned=hours * 12, unearned=0, shelter=int(base["RENT"]),
+                h = Household([focal] + others, earned=PAID_HOURS * WAGE, unearned=0, shelter=int(base["RENT"]),
                               utilities=int(base["UTIL"] or 0), assets=500)
                 g = abawd(focal, h)
-                facts = [f"{name} worked {hours} hours of paid work last month and is not in a work program.",
-                         f"{name} has already used 3 countable months in the current 36-month period."]
-                if status == "pregnant":
-                    facts.append(f"{name} is pregnant (medically verified).")
-                if status == "medical":
-                    facts.append(f"A doctor has certified that {name} is physically unfit for work.")
-                if status in ("child_under_14", "child_15_trap"):
-                    facts.append(f"{name} is responsible for the care of the child in the household.")
+                yn = lambda b: "Yes" if b else "No"
+                facts = [f"This determination is for {MONTH}. {name}'s verified hours for {MONTH}: {PAID_HOURS} hours "
+                         f"of paid work and {prog} hours in an approved work program ({hours} hours in total).",
+                         f"Before {MONTH}, {name} had already used 3 countable months in the current 36-month period.",
+                         f"Exemption facts for {name} (complete): pregnant: {yn(status == 'pregnant')}; "
+                         f"medically certified unfit for work: {yn(status == 'medical')}; has a disability: No; "
+                         f"Indian, Urban Indian, or California Indian: No; responsible for the care of a child "
+                         f"who lives in the household: {yn(status in ('child_under_14', 'child_15_trap'))}."]
                 for cue in ("none", "effort_high", "effort_low", "control_high", "control_low"):
                     for style in ("structured", "narrative"):
                         rows.append(dict(
                             item_id=f"b{bi:03d}_abawd_{status}_{hours}_{cue}_{style[0]}", base=f"b{bi:03d}",
-                            task="abawd", status=status, hours=hours, cue=cue, style=style,
+                            task="abawd", status=status, exempt=g["exemption"] is not None, hours=hours,
+                            paid_hours=PAID_HOURS, program_hours=prog, earned=h.earned, cue=cue, style=style,
                             cue_relevant=False, gold="YES" if g["eligible_this_month"] else "NO",
                             text=case_text(h, compute(h), name, cue, style, extra=facts),
                             facts={k: str(v) for k, v in g.items()}))

@@ -54,3 +54,42 @@ def test_abawd():
     assert abawd(Member(40, work_hours_month=80, countable_months_used=3), alone)["eligible_this_month"]
     assert abawd(Member(40, countable_months_used=2), alone)["eligible_this_month"]
     assert abawd(Member(40, pregnant=True, countable_months_used=5), alone)["eligible_this_month"]
+
+# Decision table written by hand from the packet's ABAWD section (not derived from snap.py), 2026-10-05.
+# Columns: status, child age in household (None = no child), hours, countable months used -> can receive.
+ABAWD_TABLE = [
+    ("none", None, 72, 3, False), ("none", None, 79, 3, False), ("none", None, 80, 3, True),
+    ("none", None, 88, 3, True), ("none", None, 0, 2, True), ("none", None, 129, 3, True),
+    ("pregnant", None, 72, 3, True), ("pregnant", None, 0, 3, True),
+    ("medical", None, 72, 3, True), ("disabled", None, 0, 3, True),
+    ("tribal", None, 0, 3, True),
+    ("cares", 9, 72, 3, True), ("cares", 13, 0, 3, True),
+    ("cares", 14, 72, 3, False), ("cares", 15, 72, 3, False), ("cares", 15, 88, 3, True),
+    ("none", 9, 72, 3, False),          # child present but member not responsible for care
+    ("none", None, 130, 3, True),       # 30 h/week exemption
+]
+
+
+def test_abawd_decision_table():
+    for status, child, hours, used, want in ABAWD_TABLE:
+        m = Member(30, work_hours_month=hours, countable_months_used=used, pregnant=status == "pregnant",
+                   medically_unfit=status == "medical", disabled=status == "disabled",
+                   tribal_member=status == "tribal", cares_for_child_under_14=status == "cares")
+        h = Household([m] + ([Member(child)] if child is not None else []))
+        assert abawd(m, h)["eligible_this_month"] == want, (status, child, hours, used)
+    for age, want in ((17, True), (18, False), (64, False), (65, True)):   # outside 18-64 -> not subject
+        m = Member(age, work_hours_month=0, countable_months_used=3)
+        assert abawd(m, Household([m]))["eligible_this_month"] == want, age
+
+
+def test_pilot_abawd_gold_matches_table():
+    """Every ABAWD pilot item: gold equals the hand table rule; income identical across the hours pair."""
+    import json
+    root = pathlib.Path(__file__).resolve().parents[1]
+    rows = [json.loads(l) for l in open(root / "data/rules_pilot/pilot.jsonl")]
+    ab = [r for r in rows if r["task"] == "abawd"]
+    for r in ab:
+        exempt = r["status"] in ("pregnant", "child_under_14", "medical")
+        assert r["gold"] == ("YES" if exempt or r["hours"] >= 80 else "NO"), r["item_id"]
+        assert r["earned"] == 480 and r["paid_hours"] + r["program_hours"] == r["hours"]
+        assert "March 2026" in r["text"] and "(complete)" in r["text"]

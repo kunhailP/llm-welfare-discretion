@@ -18,9 +18,16 @@ change the determination **only where the rule makes them material**. We measure
 it is legally relevant, and (c) whether their errors run in a socially patterned direction that
 changes group-level eligibility rates.
 
-The two-sided test ("should not change" + "should change", same cue type, same household) is the core.
-A model that ignores all social information passes (a) but can fail (b); a model with a deservingness
-heuristic fails (a). Neither a pure formalist nor a pure moralist passes both.
+**Revised core (2026-10-05, after review_092727e).** A two-sided should-change / should-not-change test is
+NOT new by itself (Chen et al. 2026 LexGuard; Kearney et al. 2025 already study welfare eligibility). The
+candidate contribution is narrower and must be earned with data:
+- The *same* work fact (approved work-program hours 72 vs 88; paid work and income fixed) must change the
+  ABAWD decision for a non-exempt adult and must NOT change it for an exempt adult (exemption x hours 2x2).
+- Job-search effort and cause-of-job-loss cues are a separate, always legally irrelevant variable laid on
+  top. Question: do they disturb the rule's switch, i.e. the interaction and the all-four-cells-correct rate?
+- Primary measures: the 2x2 interaction on P(YES) (gold value 1), correct-direction switch, all-4-correct,
+  and their cue-minus-none differences. Raw accuracy is secondary (ABAWD gold is 80% YES).
+- Hours and effort are different constructs; do not call hours "effort".
 
 ## 1. Why now (all items verified in lit/why_now_policy.md)
 
@@ -70,9 +77,9 @@ delegated to LLMs.
 
 | Work | What they show | What we add |
 | --- | --- | --- |
-| Kearney, Binns & Gal 2025 (arXiv 2507.14238) | Implicit identity markers lower benefit-eligibility answers (Llama3-70B, Qwen3-32B) | We score against computed gold and by error direction. We use deservingness cues, not only identity. We add the legally-relevant condition, group-rate consequences, and many models and scales |
+| Kearney, Binns & Gal 2025 (arXiv 2507.14238) | Implicit identity markers change benefit-eligibility answers (Llama3-70B, Qwen3-32B); part of their benchmark has YES/NO gold | "First to study welfare eligibility" and "we have gold" are NOT differentiators. Ours: deservingness (not identity) cues, and the exemption-switched relevance of the same work fact |
 | Soffer et al. 2026 (JAMIA) | Trial-screening eligibility is stable under SES/identity labels; bias appears only outside the criteria | We test the boundary they name: the same cue type *inside* the criteria (ABAWD) vs outside them (income tests) |
-| Chen et al. 2026 "Which Changes Matter?" | Should-change vs should-not-change perturbations, Chinese criminal law | Welfare rules; deservingness cues; the same cue's relevance switched by the rule; group-rate consequences |
+| Chen et al. 2026 "Which Changes Matter?" (LexGuard) | Should-change vs should-not-change perturbations with executable rules and a solver, Chinese criminal law | The two-sided test itself is THEIRS, not ours. We add only: an exemption that switches the relevance of one fixed work fact, and whether normatively loaded (deservingness) cues disturb that switch. "Welfare instead of criminal law" and "more models" are not contributions |
 | Wu & Xiao 2026 (arXiv 2608.22887) | Over-, warranted and under-reliance on cues, with statistical warrant | Our warrant is legal, not statistical. Adopt their vocabulary and contrast the two |
 | Posner & Saran 2026 (Judge AI; Silicon Formalism) | Frontier models are formalist and ignore sympathy under clear law | Strongest null risk. We test multi-step rules with exemption chains and implicit cues, not a single clear rule |
 | PolicyBench (PolicyEngine 2026) | Frontier models reach ~95% exact match on SNAP/Medicaid/tax from clean facts | Clean facts are the ceiling condition. We add narrative case files, cues and exemption chains |
@@ -153,13 +160,18 @@ Leakage is measured, not built in. Every case file passes a gold check plus a bl
 - **Consequence.**
   - Apply each model to a QC-weighted (`HWGT`) synthetic caseload.
   - Estimate wrongful-denial counts and group-level eligibility-rate distortions vs gold.
-  - Report the distortions in policy units: households per 100k cases.
+  - Report the distortions as "errors per 100k cases of a stated synthetic caseload". Incomes are moved to
+    chosen threshold margins, so HWGT does not identify real wrongful denials in the applicant population.
+    Source QC ids and HWGT must be kept in the generator first (the pilot does not keep them).
+- Gross and elig items come from different base sets (31 vs 27 bases), so their gap is not a pure
+  rule-complexity effect; compare only on shared bases.
+- A null on strong models is reported with interval width against a pre-set smallest effect of interest.
 
 Hypotheses (pre-register before the test split):
 - **H1:** in rule-irrelevant determinations, low-deservingness cues raise wrongful denials, and the effect grows with rule complexity (D1 < D2 < D3) and near the threshold.
 - **H2 (asymmetry):** models that are invariant where cues are irrelevant also under-use relevant cues *or* over-apply them. Report both sides of the matrix.
 - **H3:** low-effort / self-caused cues suppress recognition of ABAWD exemptions.
-- **H4:** extract-then-compute and tool use remove H1 and H3. If they do, that locates the failure in free-text rule application, not fact extraction.
+- **H4:** compare gold facts -> model verdict, model extraction -> engine verdict, and direct verdict. Only this three-way split narrows where a failure happens; extract-then-compute improving alone does not show the error arises after extraction.
 - **Null-tolerant design.** If frontier models are formalist (Posner & Saran), the paper still reports:
   - the scale/complexity boundary where leakage disappears;
   - whether the remaining errors are still socially directed.
@@ -176,6 +188,9 @@ Kept because it deepens the core question rather than adding a new one (lit/nlp_
 The rule defines what a determination's reasoning *must* mention (hours worked, exemption status) and
 what it is an error to rely on (any cue in income tests; job-search effort of an exempt person).
 - Same model, thinking on vs off (Qwen3), plus reasoning vs non-reasoning API models.
+- Caveat (review_092727e): a correct answer need not mention every relevant fact (an exempt case can skip the
+  hours), and mentioning an irrelevant cue to set it aside is not relying on it. Word presence in CoT is not
+  scored as a legal "duty to mention"; reliance is judged from verdict changes, mention only describes.
 - Measures:
   - unverbalized cue influence: the cue flips the verdict, but the reasoning never mentions it;
   - irrelevant-factor citation: the reasoning or memo cites a legally irrelevant cue, even when the verdict is right;
@@ -216,7 +231,7 @@ what it is an error to rely on (any cue in income tests; job-search effort of an
 
 ## 12. Follow-up roadmap (NOT in this paper)
 
-- **Legally grounded intervention (ACL-level follow-up).** Erase or steer a deservingness direction (LEACE / SPLINCE / CAST) so that leakage disappears where the rule makes the cue irrelevant, while correct use of hours under ABAWD is preserved. No prior work uses a statute to decide what must be invariant vs used and evaluates both sides (lit/nlp_novelty_check.md, angle C; closest: Wang et al. 2025 "Fairness through Difference Awareness").
+- **Legally grounded intervention (ACL-level follow-up).** Erase or steer a deservingness direction (LEACE / SPLINCE / CAST) so that leakage disappears where the rule makes the cue irrelevant, while correct use of hours under ABAWD is preserved. Chen et al. 2026 (LexGuard) already uses executable law for both sides of the test; the follow-up's novelty would be the intervention, not the two-sided evaluation (closest: Wang et al. 2025 "Fairness through Difference Awareness").
 - **Fact-verdict dissociation probing.** Does the cue corrupt the income-threshold comparison, or override an intact comparison? Needs the Villuri et al. 2026 threshold control. Least novel: appendix at most.
 - **Second rule system.** Medicaid work requirements (from Jan 2027), for generalization.
 - **Human/caseworker comparison**, if resources appear later.
