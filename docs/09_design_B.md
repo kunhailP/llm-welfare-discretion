@@ -3,7 +3,12 @@
 Target: ARR January 2027 cycle -> ACL 2027 (exact date TBA). Bar: ~4.5 overall.
 Sources: lit/why_now_policy.md (policy evidence), lit/rule_reasoning_review.md (NLP threats),
 lit/literature_review.md (deservingness theory), docs/08_audit_2026-10-05.md (what v1/v2 established).
-Status: draft for the user's review. Nothing here is decided until logged in decisions.md.
+Status: draft v1 for the user's review. Nothing here is decided until logged in decisions.md.
+
+**Scope rule (user, 2026-10-05):** this is the foundational paper. It should dig ONE unexplored problem
+deeply, at the level of a strong NAACL/EMNLP study; ACL-level work is the follow-up built on it.
+The one problem: *does an LLM use a deservingness cue exactly where the rule makes it material, and
+nowhere else?* Every element below must deepen that problem. Separate contributions go to section 12.
 
 ## 0. One-sentence claim (to be earned, not assumed)
 
@@ -161,11 +166,23 @@ Hypotheses (pre-register before the test split):
 
   Both outcomes are informative. Do not rescue the result by redesigning after looking at test data.
 
-## 8. Human baseline (optional, strong for 4.5; needs IRB and budget)
+## 8. Human baseline: DROPPED (user, 2026-10-05: too burdensome)
 
-- Lay participants (e.g. Prolific) get the same rule packet and case files.
-- The question is whether humans show the deservingness heuristic in rule application (the Petersen prediction) and whether LLMs show more or less of it than humans.
-- This connects the paper to political psychology, not only to NLP fairness.
+- Not run. Theory links to the human deservingness heuristic stay as citations (Petersen; Knotz et al.).
+
+## 8b. Depth analysis inside the core problem: legal mention standard for reasoning (thinking on/off)
+
+Kept because it deepens the core question rather than adding a new one (lit/nlp_novelty_check.md, angle A).
+The rule defines what a determination's reasoning *must* mention (hours worked, exemption status) and
+what it is an error to rely on (any cue in income tests; job-search effort of an exempt person).
+- Same model, thinking on vs off (Qwen3), plus reasoning vs non-reasoning API models.
+- Measures:
+  - unverbalized cue influence: the cue flips the verdict, but the reasoning never mentions it;
+  - irrelevant-factor citation: the reasoning or memo cites a legally irrelevant cue, even when the verdict is right;
+  - required-factor citation: the reasoning cites the material cue where the law requires it.
+- Scored against rule gold, so we can say whether reasoning produces wrongful denials or wrongful approvals.
+- Closest prior: Pan et al. 2026 (thinking on/off, no gold, no mention analysis). Also Arcuschin et al. 2026; Karvonen & Marks 2025; Matton et al. 2025.
+- Cost: sample thinking traces (no greedy), about 300 human-coded traces to validate an LLM judge (coded by us, not crowd).
 
 ## 9. Risks
 
@@ -192,7 +209,14 @@ Hypotheses (pre-register before the test split):
 ## 11. Decisions for the user
 
 1. Are frontier API models in scope, and with what budget?
-2. Human baseline: yes or no? It needs IRB and a participant budget.
+2. (Decided: no human baseline.)
 3. Long paper (8p): recommended for this scope.
 4. Is SNAP the only program, or SNAP plus Medicaid work requirements as a second rule set? A second set would test generalization.
 5. Role of v1/v2: a mechanism appendix ("label vocabulary x context" in small models) or drop it.
+
+## 12. Follow-up roadmap (NOT in this paper)
+
+- **Legally grounded intervention (ACL-level follow-up).** Erase or steer a deservingness direction (LEACE / SPLINCE / CAST) so that leakage disappears where the rule makes the cue irrelevant, while correct use of hours under ABAWD is preserved. No prior work uses a statute to decide what must be invariant vs used and evaluates both sides (lit/nlp_novelty_check.md, angle C; closest: Wang et al. 2025 "Fairness through Difference Awareness").
+- **Fact-verdict dissociation probing.** Does the cue corrupt the income-threshold comparison, or override an intact comparison? Needs the Villuri et al. 2026 threshold control. Least novel: appendix at most.
+- **Second rule system.** Medicaid work requirements (from Jan 2027), for generalization.
+- **Human/caseworker comparison**, if resources appear later.
