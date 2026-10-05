@@ -21,16 +21,21 @@ QUESTIONS = {
     "gross": "Does this household pass the gross income test (Step 2)?",
     "elig": "Is this household income-eligible for SNAP under these rules (Step 8)?",
     "abawd": "Under the ABAWD time limit, can {name} receive SNAP benefits in the determination month named in the case file?",
+    "discretion": "Should the agency grant {name} a discretionary exemption for the determination month named in the case file?",
 }
 ORDERS = {"yesfirst": "Answer with exactly one word: YES or NO.",
           "nofirst": "Answer with exactly one word: NO or YES."}
+ORDERS3 = {"yesfirst": "Answer with exactly one word: YES, NO, or REQUEST.",   # answer_set == "ynr" (Design C v2)
+           "nofirst": "Answer with exactly one word: NO, YES, or REQUEST."}
 
 
 def build_prompt(packet, r, order):
     name = r["text"].split("applicant: ")[1].split("\n")[0] if "applicant: " in r["text"] \
         else r["text"].split("note on ")[1].split("'s application")[0]
-    q = QUESTIONS[r["task"]].format(name=name)
-    return f"{packet}\n\n=== CASE FILE ===\n{r['text']}\n\n=== QUESTION ===\n{q}\n{ORDERS[order]}"
+    q = r["question"] if "question" in r else QUESTIONS[r["task"]].format(name=name)
+    if r.get("packet_extra"):
+        packet = f"{packet}\n\n{r['packet_extra']}"
+    return f"{packet}\n\n=== CASE FILE ===\n{r['text']}\n\n=== QUESTION ===\n{q}\n{(ORDERS3 if r.get('answer_set') == 'ynr' else ORDERS)[order]}"
 
 
 def main():
@@ -50,9 +55,9 @@ def main():
         kw.update(tokenizer_mode="mistral", config_format="mistral", load_format="mistral")
     llm = LLM(**kw)
     tok = llm.get_tokenizer()
-    ids = {lab: list(tok.encode(lab, add_special_tokens=False)) for lab in ("YES", "NO")}
+    ids = {lab: list(tok.encode(lab, add_special_tokens=False)) for lab in ("YES", "NO", "REQUEST")}
     assert all(len(v) == 1 for v in ids.values()), f"labels not single tokens: {ids}"
-    yes_id, no_id = ids["YES"][0], ids["NO"][0]
+    yes_id, no_id, req_id = ids["YES"][0], ids["NO"][0], ids["REQUEST"][0]
 
     chat_kw = dict(add_generation_prompt=True)
     if "qwen" in a.model:
@@ -73,7 +78,7 @@ def main():
         for (iid, order), o in zip(jobs, outs):
             top = o.outputs[0].logprobs[0]
             lp = lambda t: top[t].logprob if t in top else None
-            f.write(json.dumps(dict(model=a.model, item_id=iid, order=order, lp_yes=lp(yes_id), lp_no=lp(no_id),
+            f.write(json.dumps(dict(model=a.model, item_id=iid, order=order, lp_yes=lp(yes_id), lp_no=lp(no_id), lp_request=lp(req_id),
                                     greedy=o.outputs[0].text)) + "\n")
     import platform, torch, transformers, vllm
     meta = dict(model=a.model, repo=cfg["repo"], revision=cfg["revision"], vllm=vllm.__version__,

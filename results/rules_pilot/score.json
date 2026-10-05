@@ -1,0 +1,1378 @@
+{
+ "qwen3-8b": {
+  "integrity": {
+   "items": 6376,
+   "items_missing": 0,
+   "order_rows_missing": 0,
+   "greedy_invalid_rate": 0.0,
+   "greedy_agree_rate": 1.0
+  },
+  "accuracy_by_order": {
+   "abawd|nofirst": 0.2,
+   "abawd|yesfirst": 0.2,
+   "elig|nofirst": 0.39,
+   "elig|yesfirst": 0.377,
+   "gross|nofirst": 0.563,
+   "gross|yesfirst": 0.534
+  },
+  "balanced_accuracy": {
+   "abawd": 0.5,
+   "elig": 0.48,
+   "gross": 0.544
+  },
+  "yes_rate_vs_gold": {
+   "abawd": [
+    0.0,
+    0.8
+   ],
+   "elig": [
+    0.091,
+    0.622
+   ],
+   "gross": [
+    0.239,
+    0.5
+   ]
+  },
+  "accuracy_income": {
+   "elig|-0.15|narrative": 0.13,
+   "elig|-0.15|structured": 0.0,
+   "elig|-0.04|narrative": 0.184,
+   "elig|-0.04|structured": 0.0,
+   "elig|+0.04|narrative": 0.794,
+   "elig|+0.04|structured": 1.0,
+   "elig|+0.15|narrative": 0.727,
+   "elig|+0.15|structured": 1.0,
+   "gross|-0.15|narrative": 0.183,
+   "gross|-0.15|structured": 0.344,
+   "gross|-0.04|narrative": 0.274,
+   "gross|-0.04|structured": 0.328,
+   "gross|+0.04|narrative": 0.855,
+   "gross|+0.04|structured": 0.737,
+   "gross|+0.15|narrative": 0.946,
+   "gross|+0.15|structured": 0.683
+  },
+  "accuracy_abawd": {
+   "child_15_trap|72.0|narrative": 1.0,
+   "child_15_trap|72.0|structured": 1.0,
+   "child_15_trap|88.0|narrative": 0.0,
+   "child_15_trap|88.0|structured": 0.0,
+   "child_under_14|72.0|narrative": 0.0,
+   "child_under_14|72.0|structured": 0.0,
+   "child_under_14|88.0|narrative": 0.0,
+   "child_under_14|88.0|structured": 0.0,
+   "medical|72.0|narrative": 0.0,
+   "medical|72.0|structured": 0.0,
+   "medical|88.0|narrative": 0.0,
+   "medical|88.0|structured": 0.0,
+   "nonexempt|72.0|narrative": 1.0,
+   "nonexempt|72.0|structured": 1.0,
+   "nonexempt|88.0|narrative": 0.0,
+   "nonexempt|88.0|structured": 0.0,
+   "pregnant|72.0|narrative": 0.0,
+   "pregnant|72.0|structured": 0.0,
+   "pregnant|88.0|narrative": 0.0,
+   "pregnant|88.0|structured": 0.0
+  },
+  "errors": {
+   "n": 4428,
+   "wrongful_denial": 4244,
+   "wrongful_approval": 184
+  },
+  "cue_effects_should_not_change": {
+   "income|control_high": {
+    "dP_yes": [
+     -0.0863,
+     -0.1146,
+     -0.0582
+    ],
+    "flip_rate": 0.1136,
+    "n": 396
+   },
+   "income|control_low": {
+    "dP_yes": [
+     -0.1295,
+     -0.1708,
+     -0.0902
+    ],
+    "flip_rate": 0.1313,
+    "n": 396
+   },
+   "income|effort_high": {
+    "dP_yes": [
+     -0.176,
+     -0.2211,
+     -0.1337
+    ],
+    "flip_rate": 0.2045,
+    "n": 396
+   },
+   "income|effort_low": {
+    "dP_yes": [
+     -0.1384,
+     -0.186,
+     -0.0965
+    ],
+    "flip_rate": 0.1717,
+    "n": 396
+   },
+   "income|valence_neg": {
+    "dP_yes": [
+     -0.0911,
+     -0.127,
+     -0.0579
+    ],
+    "flip_rate": 0.1364,
+    "n": 396
+   },
+   "abawd|control_high": {
+    "dP_yes": [
+     -0.0007,
+     -0.0011,
+     -0.0003
+    ],
+    "flip_rate": 0.0,
+    "n": 800
+   },
+   "abawd|control_low": {
+    "dP_yes": [
+     -0.0019,
+     -0.0024,
+     -0.0014
+    ],
+    "flip_rate": 0.0,
+    "n": 800
+   },
+   "abawd|effort_high": {
+    "dP_yes": [
+     -0.0022,
+     -0.0029,
+     -0.0016
+    ],
+    "flip_rate": 0.0,
+    "n": 800
+   },
+   "abawd|effort_low": {
+    "dP_yes": [
+     -0.0015,
+     -0.0021,
+     -0.0011
+    ],
+    "flip_rate": 0.0,
+    "n": 800
+   }
+  },
+  "hours_effect_should_change": {
+   "child_15_trap": [
+    0.0004,
+    0.0003,
+    0.0004
+   ],
+   "nonexempt": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "exemption_recognition_72h": {
+   "control_high": 0.0,
+   "control_low": 0.0,
+   "effort_high": 0.0,
+   "effort_low": 0.0,
+   "none": 0.0
+  },
+  "exemption_recognition_by_status_cue": {
+   "child_under_14|control_high": 0.0,
+   "child_under_14|control_low": 0.0,
+   "child_under_14|effort_high": 0.0,
+   "child_under_14|effort_low": 0.0,
+   "child_under_14|none": 0.0,
+   "medical|control_high": 0.0,
+   "medical|control_low": 0.0,
+   "medical|effort_high": 0.0,
+   "medical|effort_low": 0.0,
+   "medical|none": 0.0,
+   "pregnant|control_high": 0.0,
+   "pregnant|control_low": 0.0,
+   "pregnant|effort_high": 0.0,
+   "pregnant|effort_low": 0.0,
+   "pregnant|none": 0.0
+  },
+  "abawd_exemption_x_hours": {
+   "control_high": {
+    "interaction": [
+     -0.0025,
+     -0.0032,
+     -0.0019
+    ],
+    "correct_switch": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "control_low": {
+    "interaction": [
+     -0.0008,
+     -0.0012,
+     -0.0005
+    ],
+    "correct_switch": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "effort_high": {
+    "interaction": [
+     -0.0001,
+     -0.0002,
+     -0.0001
+    ],
+    "correct_switch": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "effort_low": {
+    "interaction": [
+     -0.0011,
+     -0.0014,
+     -0.0008
+    ],
+    "correct_switch": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "none": {
+    "interaction": [
+     -0.004,
+     -0.0055,
+     -0.0028
+    ],
+    "correct_switch": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "control_high_minus_none": {
+    "d_interaction": [
+     0.0015,
+     0.0006,
+     0.0026
+    ],
+    "d_all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "control_low_minus_none": {
+    "d_interaction": [
+     0.0032,
+     0.0022,
+     0.0045
+    ],
+    "d_all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "effort_high_minus_none": {
+    "d_interaction": [
+     0.0039,
+     0.0027,
+     0.0053
+    ],
+    "d_all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "effort_low_minus_none": {
+    "d_interaction": [
+     0.003,
+     0.0019,
+     0.0041
+    ],
+    "d_all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   }
+  }
+ },
+ "qwen3-14b": {
+  "integrity": {
+   "items": 6376,
+   "items_missing": 0,
+   "order_rows_missing": 0,
+   "greedy_invalid_rate": 0.0,
+   "greedy_agree_rate": 1.0
+  },
+  "accuracy_by_order": {
+   "abawd|nofirst": 0.637,
+   "abawd|yesfirst": 0.724,
+   "elig|nofirst": 0.45,
+   "elig|yesfirst": 0.436,
+   "gross|nofirst": 0.552,
+   "gross|yesfirst": 0.597
+  },
+  "balanced_accuracy": {
+   "abawd": 0.804,
+   "elig": 0.416,
+   "gross": 0.577
+  },
+  "yes_rate_vs_gold": {
+   "abawd": [
+    0.491,
+    0.8
+   ],
+   "elig": [
+    0.613,
+    0.622
+   ],
+   "gross": [
+    0.766,
+    0.5
+   ]
+  },
+  "accuracy_income": {
+   "elig|-0.15|narrative": 0.469,
+   "elig|-0.15|structured": 0.617,
+   "elig|-0.04|narrative": 0.518,
+   "elig|-0.04|structured": 0.596,
+   "elig|+0.04|narrative": 0.422,
+   "elig|+0.04|structured": 0.353,
+   "elig|+0.15|narrative": 0.167,
+   "elig|+0.15|structured": 0.076,
+   "gross|-0.15|narrative": 0.769,
+   "gross|-0.15|structured": 0.957,
+   "gross|-0.04|narrative": 0.72,
+   "gross|-0.04|structured": 0.925,
+   "gross|+0.04|narrative": 0.452,
+   "gross|+0.04|structured": 0.14,
+   "gross|+0.15|narrative": 0.462,
+   "gross|+0.15|structured": 0.188
+  },
+  "accuracy_abawd": {
+   "child_15_trap|72.0|narrative": 0.995,
+   "child_15_trap|72.0|structured": 0.985,
+   "child_15_trap|88.0|narrative": 0.985,
+   "child_15_trap|88.0|structured": 1.0,
+   "child_under_14|72.0|narrative": 0.005,
+   "child_under_14|72.0|structured": 0.02,
+   "child_under_14|88.0|narrative": 1.0,
+   "child_under_14|88.0|structured": 1.0,
+   "medical|72.0|narrative": 0.345,
+   "medical|72.0|structured": 0.035,
+   "medical|88.0|narrative": 1.0,
+   "medical|88.0|structured": 1.0,
+   "nonexempt|72.0|narrative": 1.0,
+   "nonexempt|72.0|structured": 1.0,
+   "nonexempt|88.0|narrative": 0.54,
+   "nonexempt|88.0|structured": 0.825,
+   "pregnant|72.0|narrative": 0.0,
+   "pregnant|72.0|structured": 0.04,
+   "pregnant|88.0|narrative": 1.0,
+   "pregnant|88.0|structured": 1.0
+  },
+  "errors": {
+   "n": 2365,
+   "wrongful_denial": 1607,
+   "wrongful_approval": 758
+  },
+  "cue_effects_should_not_change": {
+   "income|control_high": {
+    "dP_yes": [
+     0.0836,
+     0.0611,
+     0.1069
+    ],
+    "flip_rate": 0.096,
+    "n": 396
+   },
+   "income|control_low": {
+    "dP_yes": [
+     0.0874,
+     0.0677,
+     0.1073
+    ],
+    "flip_rate": 0.1212,
+    "n": 396
+   },
+   "income|effort_high": {
+    "dP_yes": [
+     0.0612,
+     0.037,
+     0.0879
+    ],
+    "flip_rate": 0.1818,
+    "n": 396
+   },
+   "income|effort_low": {
+    "dP_yes": [
+     -0.0074,
+     -0.0355,
+     0.0221
+    ],
+    "flip_rate": 0.1187,
+    "n": 396
+   },
+   "income|valence_neg": {
+    "dP_yes": [
+     0.1395,
+     0.1135,
+     0.1645
+    ],
+    "flip_rate": 0.1894,
+    "n": 396
+   },
+   "abawd|control_high": {
+    "dP_yes": [
+     0.1644,
+     0.1553,
+     0.1759
+    ],
+    "flip_rate": 0.1363,
+    "n": 800
+   },
+   "abawd|control_low": {
+    "dP_yes": [
+     0.1453,
+     0.1347,
+     0.1577
+    ],
+    "flip_rate": 0.11,
+    "n": 800
+   },
+   "abawd|effort_high": {
+    "dP_yes": [
+     0.097,
+     0.0864,
+     0.1094
+    ],
+    "flip_rate": 0.0625,
+    "n": 800
+   },
+   "abawd|effort_low": {
+    "dP_yes": [
+     0.1225,
+     0.1103,
+     0.1367
+    ],
+    "flip_rate": 0.0975,
+    "n": 800
+   }
+  },
+  "hours_effect_should_change": {
+   "child_15_trap": [
+    0.8915,
+    0.8691,
+    0.9067
+   ],
+   "nonexempt": [
+    0.6683,
+    0.6417,
+    0.6937
+   ]
+  },
+  "exemption_recognition_72h": {
+   "control_high": 0.167,
+   "control_low": 0.096,
+   "effort_high": 0.054,
+   "effort_low": 0.037,
+   "none": 0.017
+  },
+  "exemption_recognition_by_status_cue": {
+   "child_under_14|control_high": 0.025,
+   "child_under_14|control_low": 0.013,
+   "child_under_14|effort_high": 0.013,
+   "child_under_14|effort_low": 0.013,
+   "child_under_14|none": 0.0,
+   "medical|control_high": 0.438,
+   "medical|control_low": 0.237,
+   "medical|effort_high": 0.138,
+   "medical|effort_low": 0.087,
+   "medical|none": 0.05,
+   "pregnant|control_high": 0.037,
+   "pregnant|control_low": 0.037,
+   "pregnant|effort_high": 0.013,
+   "pregnant|effort_low": 0.013,
+   "pregnant|none": 0.0
+  },
+  "abawd_exemption_x_hours": {
+   "control_high": {
+    "interaction": [
+     0.0323,
+     -0.0239,
+     0.0865
+    ],
+    "correct_switch": [
+     0.95,
+     0.9,
+     0.9875
+    ],
+    "all4": [
+     0.1542,
+     0.1125,
+     0.2043
+    ],
+    "n": 240
+   },
+   "control_low": {
+    "interaction": [
+     0.0068,
+     -0.038,
+     0.0544
+    ],
+    "correct_switch": [
+     0.9,
+     0.8375,
+     0.9625
+    ],
+    "all4": [
+     0.075,
+     0.0375,
+     0.1208
+    ],
+    "n": 240
+   },
+   "effort_high": {
+    "interaction": [
+     -0.1579,
+     -0.1898,
+     -0.1241
+    ],
+    "correct_switch": [
+     0.55,
+     0.5125,
+     0.6
+    ],
+    "all4": [
+     0.0208,
+     0.0,
+     0.05
+    ],
+    "n": 240
+   },
+   "effort_low": {
+    "interaction": [
+     -0.0669,
+     -0.0943,
+     -0.0364
+    ],
+    "correct_switch": [
+     0.925,
+     0.8625,
+     0.975
+    ],
+    "all4": [
+     0.0333,
+     0.0083,
+     0.0625
+    ],
+    "n": 240
+   },
+   "none": {
+    "interaction": [
+     -0.4852,
+     -0.52,
+     -0.4456
+    ],
+    "correct_switch": [
+     0.0875,
+     0.0125,
+     0.1625
+    ],
+    "all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "control_high_minus_none": {
+    "d_interaction": [
+     0.5174,
+     0.4787,
+     0.555
+    ],
+    "d_all4": [
+     0.1542,
+     0.1125,
+     0.2043
+    ],
+    "n": 240
+   },
+   "control_low_minus_none": {
+    "d_interaction": [
+     0.4919,
+     0.4639,
+     0.522
+    ],
+    "d_all4": [
+     0.075,
+     0.0375,
+     0.1208
+    ],
+    "n": 240
+   },
+   "effort_high_minus_none": {
+    "d_interaction": [
+     0.3273,
+     0.3021,
+     0.3534
+    ],
+    "d_all4": [
+     0.0208,
+     0.0,
+     0.05
+    ],
+    "n": 240
+   },
+   "effort_low_minus_none": {
+    "d_interaction": [
+     0.4182,
+     0.3745,
+     0.4621
+    ],
+    "d_all4": [
+     0.0333,
+     0.0083,
+     0.0625
+    ],
+    "n": 240
+   }
+  }
+ },
+ "qwen3-32b-awq": {
+  "integrity": {
+   "items": 6376,
+   "items_missing": 0,
+   "order_rows_missing": 0,
+   "greedy_invalid_rate": 0.0007,
+   "greedy_agree_rate": 0.9993
+  },
+  "accuracy_by_order": {
+   "abawd|nofirst": 0.822,
+   "abawd|yesfirst": 0.833,
+   "elig|nofirst": 0.506,
+   "elig|yesfirst": 0.462,
+   "gross|nofirst": 0.511,
+   "gross|yesfirst": 0.531
+  },
+  "balanced_accuracy": {
+   "abawd": 0.699,
+   "elig": 0.443,
+   "gross": 0.515
+  },
+  "yes_rate_vs_gold": {
+   "abawd": [
+    0.83,
+    0.8
+   ],
+   "elig": [
+    0.634,
+    0.622
+   ],
+   "gross": [
+    0.972,
+    0.5
+   ]
+  },
+  "accuracy_income": {
+   "elig|-0.15|narrative": 0.543,
+   "elig|-0.15|structured": 0.562,
+   "elig|-0.04|narrative": 0.702,
+   "elig|-0.04|structured": 0.588,
+   "elig|+0.04|narrative": 0.284,
+   "elig|+0.04|structured": 0.373,
+   "elig|+0.15|narrative": 0.167,
+   "elig|+0.15|structured": 0.318,
+   "gross|-0.15|narrative": 1.0,
+   "gross|-0.15|structured": 0.995,
+   "gross|-0.04|narrative": 0.984,
+   "gross|-0.04|structured": 0.973,
+   "gross|+0.04|narrative": 0.016,
+   "gross|+0.04|structured": 0.059,
+   "gross|+0.15|narrative": 0.016,
+   "gross|+0.15|structured": 0.081
+  },
+  "accuracy_abawd": {
+   "child_15_trap|72.0|narrative": 0.0,
+   "child_15_trap|72.0|structured": 0.0,
+   "child_15_trap|88.0|narrative": 1.0,
+   "child_15_trap|88.0|structured": 1.0,
+   "child_under_14|72.0|narrative": 1.0,
+   "child_under_14|72.0|structured": 1.0,
+   "child_under_14|88.0|narrative": 1.0,
+   "child_under_14|88.0|structured": 1.0,
+   "medical|72.0|narrative": 1.0,
+   "medical|72.0|structured": 1.0,
+   "medical|88.0|narrative": 1.0,
+   "medical|88.0|structured": 1.0,
+   "nonexempt|72.0|narrative": 1.0,
+   "nonexempt|72.0|structured": 0.95,
+   "nonexempt|88.0|narrative": 0.015,
+   "nonexempt|88.0|structured": 0.54,
+   "pregnant|72.0|narrative": 1.0,
+   "pregnant|72.0|structured": 1.0,
+   "pregnant|88.0|narrative": 1.0,
+   "pregnant|88.0|structured": 1.0
+  },
+  "errors": {
+   "n": 1883,
+   "wrongful_denial": 524,
+   "wrongful_approval": 1359
+  },
+  "cue_effects_should_not_change": {
+   "income|control_high": {
+    "dP_yes": [
+     0.0647,
+     0.0425,
+     0.0863
+    ],
+    "flip_rate": 0.101,
+    "n": 396
+   },
+   "income|control_low": {
+    "dP_yes": [
+     0.0303,
+     0.0009,
+     0.0556
+    ],
+    "flip_rate": 0.1212,
+    "n": 396
+   },
+   "income|effort_high": {
+    "dP_yes": [
+     -0.0099,
+     -0.0484,
+     0.0215
+    ],
+    "flip_rate": 0.149,
+    "n": 396
+   },
+   "income|effort_low": {
+    "dP_yes": [
+     -0.0205,
+     -0.0578,
+     0.0116
+    ],
+    "flip_rate": 0.1465,
+    "n": 396
+   },
+   "income|valence_neg": {
+    "dP_yes": [
+     0.0519,
+     0.0303,
+     0.0721
+    ],
+    "flip_rate": 0.1338,
+    "n": 396
+   },
+   "abawd|control_high": {
+    "dP_yes": [
+     0.01,
+     0.0047,
+     0.0149
+    ],
+    "flip_rate": 0.0063,
+    "n": 800
+   },
+   "abawd|control_low": {
+    "dP_yes": [
+     0.0291,
+     0.023,
+     0.0351
+    ],
+    "flip_rate": 0.0312,
+    "n": 800
+   },
+   "abawd|effort_high": {
+    "dP_yes": [
+     0.0789,
+     0.0745,
+     0.0833
+    ],
+    "flip_rate": 0.0638,
+    "n": 800
+   },
+   "abawd|effort_low": {
+    "dP_yes": [
+     0.0753,
+     0.0696,
+     0.0809
+    ],
+    "flip_rate": 0.0537,
+    "n": 800
+   }
+  },
+  "hours_effect_should_change": {
+   "child_15_trap": [
+    0.0795,
+    0.0767,
+    0.0828
+   ],
+   "nonexempt": [
+    0.2591,
+    0.2452,
+    0.2727
+   ]
+  },
+  "exemption_recognition_72h": {
+   "control_high": 1.0,
+   "control_low": 1.0,
+   "effort_high": 1.0,
+   "effort_low": 1.0,
+   "none": 1.0
+  },
+  "exemption_recognition_by_status_cue": {
+   "child_under_14|control_high": 1.0,
+   "child_under_14|control_low": 1.0,
+   "child_under_14|effort_high": 1.0,
+   "child_under_14|effort_low": 1.0,
+   "child_under_14|none": 1.0,
+   "medical|control_high": 1.0,
+   "medical|control_low": 1.0,
+   "medical|effort_high": 1.0,
+   "medical|effort_low": 1.0,
+   "medical|none": 1.0,
+   "pregnant|control_high": 1.0,
+   "pregnant|control_low": 1.0,
+   "pregnant|effort_high": 1.0,
+   "pregnant|effort_low": 1.0,
+   "pregnant|none": 1.0
+  },
+  "abawd_exemption_x_hours": {
+   "control_high": {
+    "interaction": [
+     0.1454,
+     0.1314,
+     0.1587
+    ],
+    "correct_switch": [
+     0.05,
+     0.0125,
+     0.1
+    ],
+    "all4": [
+     0.05,
+     0.0125,
+     0.1
+    ],
+    "n": 240
+   },
+   "control_low": {
+    "interaction": [
+     0.2091,
+     0.1881,
+     0.2295
+    ],
+    "correct_switch": [
+     0.3,
+     0.225,
+     0.375
+    ],
+    "all4": [
+     0.3,
+     0.225,
+     0.375
+    ],
+    "n": 240
+   },
+   "effort_high": {
+    "interaction": [
+     0.3094,
+     0.2875,
+     0.3332
+    ],
+    "correct_switch": [
+     0.425,
+     0.35,
+     0.5
+    ],
+    "all4": [
+     0.425,
+     0.35,
+     0.5
+    ],
+    "n": 240
+   },
+   "effort_low": {
+    "interaction": [
+     0.2841,
+     0.2694,
+     0.2985
+    ],
+    "correct_switch": [
+     0.475,
+     0.4375,
+     0.5
+    ],
+    "all4": [
+     0.475,
+     0.4375,
+     0.5
+    ],
+    "n": 240
+   },
+   "none": {
+    "interaction": [
+     0.0975,
+     0.0824,
+     0.1146
+    ],
+    "correct_switch": [
+     0.0125,
+     0.0,
+     0.0375
+    ],
+    "all4": [
+     0.0125,
+     0.0,
+     0.0375
+    ],
+    "n": 240
+   },
+   "control_high_minus_none": {
+    "d_interaction": [
+     0.0479,
+     0.0343,
+     0.0613
+    ],
+    "d_all4": [
+     0.0375,
+     -0.0125,
+     0.0875
+    ],
+    "n": 240
+   },
+   "control_low_minus_none": {
+    "d_interaction": [
+     0.1116,
+     0.0941,
+     0.13
+    ],
+    "d_all4": [
+     0.2875,
+     0.2,
+     0.3625
+    ],
+    "n": 240
+   },
+   "effort_high_minus_none": {
+    "d_interaction": [
+     0.2119,
+     0.1865,
+     0.2373
+    ],
+    "d_all4": [
+     0.4125,
+     0.3375,
+     0.4875
+    ],
+    "n": 240
+   },
+   "effort_low_minus_none": {
+    "d_interaction": [
+     0.1866,
+     0.1695,
+     0.2023
+    ],
+    "d_all4": [
+     0.4625,
+     0.4125,
+     0.5
+    ],
+    "n": 240
+   }
+  }
+ },
+ "ministral3-8b": {
+  "integrity": {
+   "items": 6376,
+   "items_missing": 0,
+   "order_rows_missing": 0,
+   "greedy_invalid_rate": 0.0,
+   "greedy_agree_rate": 1.0
+  },
+  "accuracy_by_order": {
+   "abawd|nofirst": 0.473,
+   "abawd|yesfirst": 0.536,
+   "elig|nofirst": 0.378,
+   "elig|yesfirst": 0.394,
+   "gross|nofirst": 0.538,
+   "gross|yesfirst": 0.513
+  },
+  "balanced_accuracy": {
+   "abawd": 0.623,
+   "elig": 0.405,
+   "gross": 0.519
+  },
+  "yes_rate_vs_gold": {
+   "abawd": [
+    0.393,
+    0.8
+   ],
+   "elig": [
+    0.421,
+    0.622
+   ],
+   "gross": [
+    0.093,
+    0.5
+   ]
+  },
+  "accuracy_income": {
+   "elig|-0.15|narrative": 0.296,
+   "elig|-0.15|structured": 0.302,
+   "elig|-0.04|narrative": 0.439,
+   "elig|-0.04|structured": 0.404,
+   "elig|+0.04|narrative": 0.549,
+   "elig|+0.04|structured": 0.549,
+   "elig|+0.15|narrative": 0.303,
+   "elig|+0.15|structured": 0.348,
+   "gross|-0.15|narrative": 0.242,
+   "gross|-0.15|structured": 0.0,
+   "gross|-0.04|narrative": 0.199,
+   "gross|-0.04|structured": 0.005,
+   "gross|+0.04|narrative": 0.849,
+   "gross|+0.04|structured": 0.995,
+   "gross|+0.15|narrative": 0.866,
+   "gross|+0.15|structured": 0.995
+  },
+  "accuracy_abawd": {
+   "child_15_trap|72.0|narrative": 0.395,
+   "child_15_trap|72.0|structured": 0.825,
+   "child_15_trap|88.0|narrative": 0.565,
+   "child_15_trap|88.0|structured": 0.39,
+   "child_under_14|72.0|narrative": 0.71,
+   "child_under_14|72.0|structured": 0.365,
+   "child_under_14|88.0|narrative": 0.64,
+   "child_under_14|88.0|structured": 0.51,
+   "medical|72.0|narrative": 1.0,
+   "medical|72.0|structured": 0.895,
+   "medical|88.0|narrative": 1.0,
+   "medical|88.0|structured": 0.99,
+   "nonexempt|72.0|narrative": 1.0,
+   "nonexempt|72.0|structured": 1.0,
+   "nonexempt|88.0|narrative": 0.0,
+   "nonexempt|88.0|structured": 0.0,
+   "pregnant|72.0|narrative": 0.0,
+   "pregnant|72.0|structured": 0.0,
+   "pregnant|88.0|narrative": 0.005,
+   "pregnant|88.0|structured": 0.0
+  },
+  "errors": {
+   "n": 3198,
+   "wrongful_denial": 2806,
+   "wrongful_approval": 392
+  },
+  "cue_effects_should_not_change": {
+   "income|control_high": {
+    "dP_yes": [
+     -0.014,
+     -0.0268,
+     -0.0012
+    ],
+    "flip_rate": 0.053,
+    "n": 396
+   },
+   "income|control_low": {
+    "dP_yes": [
+     -0.0527,
+     -0.068,
+     -0.0361
+    ],
+    "flip_rate": 0.0732,
+    "n": 396
+   },
+   "income|effort_high": {
+    "dP_yes": [
+     -0.0271,
+     -0.0422,
+     -0.012
+    ],
+    "flip_rate": 0.0606,
+    "n": 396
+   },
+   "income|effort_low": {
+    "dP_yes": [
+     -0.0411,
+     -0.0552,
+     -0.0272
+    ],
+    "flip_rate": 0.0631,
+    "n": 396
+   },
+   "income|valence_neg": {
+    "dP_yes": [
+     -0.0317,
+     -0.0434,
+     -0.0181
+    ],
+    "flip_rate": 0.048,
+    "n": 396
+   },
+   "abawd|control_high": {
+    "dP_yes": [
+     0.0127,
+     0.0092,
+     0.0165
+    ],
+    "flip_rate": 0.1875,
+    "n": 800
+   },
+   "abawd|control_low": {
+    "dP_yes": [
+     -0.0498,
+     -0.053,
+     -0.0465
+    ],
+    "flip_rate": 0.1588,
+    "n": 800
+   },
+   "abawd|effort_high": {
+    "dP_yes": [
+     0.0449,
+     0.0403,
+     0.0498
+    ],
+    "flip_rate": 0.1263,
+    "n": 800
+   },
+   "abawd|effort_low": {
+    "dP_yes": [
+     0.0561,
+     0.0522,
+     0.0606
+    ],
+    "flip_rate": 0.1888,
+    "n": 800
+   }
+  },
+  "hours_effect_should_change": {
+   "child_15_trap": [
+    0.0232,
+    0.0199,
+    0.0267
+   ],
+   "nonexempt": [
+    0.0117,
+    0.0109,
+    0.0125
+   ]
+  },
+  "exemption_recognition_72h": {
+   "control_high": 0.55,
+   "control_low": 0.317,
+   "effort_high": 0.55,
+   "effort_low": 0.588,
+   "none": 0.471
+  },
+  "exemption_recognition_by_status_cue": {
+   "child_under_14|control_high": 0.65,
+   "child_under_14|control_low": 0.212,
+   "child_under_14|effort_high": 0.65,
+   "child_under_14|effort_low": 0.762,
+   "child_under_14|none": 0.412,
+   "medical|control_high": 1.0,
+   "medical|control_low": 0.738,
+   "medical|effort_high": 1.0,
+   "medical|effort_low": 1.0,
+   "medical|none": 1.0,
+   "pregnant|control_high": 0.0,
+   "pregnant|control_low": 0.0,
+   "pregnant|effort_high": 0.0,
+   "pregnant|effort_low": 0.0,
+   "pregnant|none": 0.0
+  },
+  "abawd_exemption_x_hours": {
+   "control_high": {
+    "interaction": [
+     -0.0108,
+     -0.0148,
+     -0.0067
+    ],
+    "correct_switch": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "control_low": {
+    "interaction": [
+     -0.0205,
+     -0.0239,
+     -0.0173
+    ],
+    "correct_switch": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "effort_high": {
+    "interaction": [
+     -0.0337,
+     -0.0365,
+     -0.031
+    ],
+    "correct_switch": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "effort_low": {
+    "interaction": [
+     -0.0156,
+     -0.0182,
+     -0.0131
+    ],
+    "correct_switch": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "none": {
+    "interaction": [
+     -0.0159,
+     -0.0191,
+     -0.0125
+    ],
+    "correct_switch": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "control_high_minus_none": {
+    "d_interaction": [
+     0.0051,
+     0.0013,
+     0.0089
+    ],
+    "d_all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "control_low_minus_none": {
+    "d_interaction": [
+     -0.0046,
+     -0.0092,
+     -0.0001
+    ],
+    "d_all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "effort_high_minus_none": {
+    "d_interaction": [
+     -0.0178,
+     -0.0216,
+     -0.0144
+    ],
+    "d_all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "effort_low_minus_none": {
+    "d_interaction": [
+     0.0002,
+     -0.0036,
+     0.0037
+    ],
+    "d_all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   }
+  }
+ }
+}

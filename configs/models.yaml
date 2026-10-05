@@ -20,3 +20,8 @@ models:
     revision: 0499c3ac83fdef8810b907a23894ba91e95eddd8
     dtype: awq-int4
     role: robustness only (precision confound with scale)
+  - id: gpt-oss-20b
+    repo: openai/gpt-oss-20b
+    revision: 6cee5e81ee83917806bbde320786a8fb61efebee
+    dtype: mxfp4
+    role: reasoning model, second family (thinking runs only; always reasons, so no first-token runs)
