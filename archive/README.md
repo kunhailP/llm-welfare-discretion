@@ -47,7 +47,7 @@ The live queue is src/run/run_design_c_queue2.sh.
 All GPU run logs of stages 1-2 (logs/ is not tracked). Untar at the repo root to restore logs/.
 
 ## Not in git (by design)
-- data/review/*KEY*: blind-review answer keys of stage 1 (public repo); kept only on the original pod.
+- (blind-review answer keys of stage 1 are now tracked in stage1_need_v1/data/review/; the blind review was abandoned)
 - Model weights (HF cache) and virtual envs: rebuild from configs/models.yaml, configs/requirements.lock.txt,
   configs/requirements_policyengine.lock.txt (PolicyEngine-US cross-check env), src/run/download_models.sh.
 - Third-party data: data/external/SOURCES.md.

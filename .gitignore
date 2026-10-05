@@ -2,8 +2,8 @@
 data/external/*
 !data/external/fairfund_need_probe.jsonl
 data/external/ref_repos/
-# Blind-review answer key must not be public while reviewers use the sheets
-**/review/*KEY*
+
+# (blind-review keys now tracked: stage 1 abandoned, user decision 2026-10-05)
 # Runtime artifacts
 logs/
 **/results/smoke/
