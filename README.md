@@ -15,10 +15,11 @@ legal instruction to ignore the cue remove it?
 | Rule-computable eligibility, thinking off (4 models) | income tests at chance; cue effects exist, but on near-chance verdicts | docs/10 §1-2 |
 | Same, thinking on (Qwen3-14B, 32B-AWQ) | income tests ~100% correct; cue effects 0 | docs/10 §5-6 |
 | Discretion, first-token (psych set + v2, 4 models) | enum standards followed (14B/32B 100%); open standards flat in need; cue "effects" are a polarity-dependent yes-bias | docs/11 Results 2-4 |
-| Discretion, thinking (primary test of H1-H3) | running (src/run/run_design_c_queue2.sh) | docs/13 |
+| Discretion, thinking (primary test of H1-H3) | **not run: Design C stopped after audit blocker B1 (decision undefined in the prompt)** | docs/14 |
 | Stage 1 (v1 need-vs-sufficiency probes) | explicit need items solved at 14B; 8B failures were format effects | archive/ |
 
 ## Read in this order
+0. **docs/14_audit_stop_and_restart.md: why Design C stopped and the restart plan (start here)**
 1. docs/00_NORTH_STAR.md: novelty + venue-fit criteria
 2. docs/decisions.md: decision log, newest first (source of truth)
 3. docs/13_preregistration_freeze.md: frozen task set, hypotheses H1-H3, analysis plan, pre-set fallback rule
