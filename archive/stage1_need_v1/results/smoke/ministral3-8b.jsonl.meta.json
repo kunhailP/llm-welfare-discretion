@@ -1,0 +1,1 @@
+{"model": "ministral3-8b", "n_calls": 28, "seconds": 3.3, "calls_per_sec": 8.38, "specs": [["data/pilot/profiles.jsonl", "q1_direct,q3_extraction", "results/smoke/ministral3-8b.jsonl"]]}

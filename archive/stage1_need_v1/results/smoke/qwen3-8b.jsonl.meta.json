@@ -1,0 +1,1 @@
+{"model": "qwen3-8b", "n_calls": 84, "seconds": 4.4, "calls_per_sec": 18.95, "data": "data/pilot/profiles.jsonl"}

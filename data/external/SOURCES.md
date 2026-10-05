@@ -1,12 +1,12 @@
 # External data: sources (not redistributed except the SNAP parameter PDFs)
 
-Re-download into data/external/ on a new machine. Details, licenses and inspection notes: lit/candidate_datasets.md,
+Re-download into data/external/ on a new machine (the SNAP parameter PDFs and the SNAP QC zip are already in git). Details, licenses and inspection notes: lit/candidate_datasets.md,
 lit/why_now_policy.md, lit/reference_works_zhao_freci.md.
 
 | local path | source | license / note |
 | --- | --- | --- |
 | snap_params/snap-fy26-incomeEligibilityStandards.pdf, snap-fy26maximumAllotments-deductions.pdf | USDA FNS, https://www.fns.usda.gov/sites/default/files/resource-files/ (FY2026 COLA) | U.S. federal work; **tracked in git** (gold for src/rules/snap.py) |
-| candidates/snap_qc_fy2024/ (qcfy2024_csv.zip -> qc_pub_fy2024.csv) | https://snapqcdata.net/datafiles (FY2024, revised 2026-08-18) | public-use file; used for household structures (src/gen/make_rules_pilot.py) |
+| candidates/snap_qc_fy2024/ (qcfy2024_csv.zip -> qc_pub_fy2024.csv) | https://snapqcdata.net/datafiles (FY2024, revised 2026-08-18) | U.S. federal public-use file; **zip tracked in git**; run `unzip data/external/candidates/snap_qc_fy2024/qcfy2024_csv.zip -d data/external/candidates/snap_qc_fy2024/` before src/gen/make_rules_pilot.py |
 | candidates/covid_deservingness_LPHMB7/ | Harvard Dataverse doi:10.7910/DVN/LPHMB7 | CC0 |
 | candidates/hsieh_kline_AOT2JW/ | Harvard Dataverse doi:10.7910/DVN/AOT2JW | CC0 |
 | candidates/jensen_petersen_TIXGF8/ | Harvard Dataverse doi:10.7910/DVN/TIXGF8 | CC0 |

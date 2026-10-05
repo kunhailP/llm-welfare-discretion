@@ -41,6 +41,7 @@ undefined (see docs/RESTART_PLAN.md). The next design is decided on paper before
 Models so far: Qwen3-8B / 14B / 32B-AWQ, Ministral-3-8B, gpt-oss-20b. Open models only until the design is final.
 
 ## Reproduce the rule-computable reference (Design B)
+    unzip -o data/external/candidates/snap_qc_fy2024/qcfy2024_csv.zip -d data/external/candidates/snap_qc_fy2024/
     python src/gen/make_rules_pilot.py --bases 40 --seed 11 --out data/rules_pilot/pilot.jsonl
     pytest tests                      # 9 rule tests
     python src/run/run_rules_pilot.py --model qwen3-14b --data data/rules_pilot/pilot.jsonl --out results/rules_pilot/qwen3-14b.jsonl

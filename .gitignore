@@ -6,11 +6,14 @@ data/external/ref_repos/
 # (blind-review keys now tracked: stage 1 abandoned, user decision 2026-10-05)
 # Runtime artifacts
 logs/
-**/results/smoke/
 models/
 __pycache__/
 *.pyc
 !data/external/README_FAIRFUND_PROBE.md
-results/*/smoke/
+
 !data/external/SOURCES.md
 !data/external/snap_params/
+!data/external/candidates/
+data/external/candidates/*
+!data/external/candidates/snap_qc_fy2024/
+data/external/candidates/snap_qc_fy2024/*.csv
