@@ -9,12 +9,12 @@ recommended thinking sampling (T=0.6, top_p=0.95, top_k=20), seed fixed. Final v
 
 Usage: python src/run/run_rules_think.py --model qwen3-14b --out results/rules_think/qwen3-14b.jsonl
 """
-import argparse, json, os, random, re, sys, time
+import argparse, json, os, pathlib, random, re, sys, time
 from collections import defaultdict
 
 import yaml
 
-ROOT = os.environ.get("WN_ROOT", "/workspace/welfare-need-naacl")
+ROOT = os.environ.get("WN_ROOT", str(pathlib.Path(__file__).resolve().parents[2]))
 os.environ.setdefault("HF_HOME", "/workspace/hf")
 sys.path.insert(0, f"{ROOT}/src/run")
 from run_rules_pilot import QUESTIONS  # noqa: E402

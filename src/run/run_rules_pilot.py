@@ -10,11 +10,11 @@ Usage:
   python src/run/run_rules_pilot.py --model qwen3-8b --data data/rules_pilot/pilot.jsonl \
       --out results/rules_pilot/qwen3-8b.jsonl
 """
-import argparse, json, os, time
+import argparse, json, os, pathlib, time
 
 import yaml
 
-ROOT = os.environ.get("WN_ROOT", "/workspace/welfare-need-naacl")
+ROOT = os.environ.get("WN_ROOT", str(pathlib.Path(__file__).resolve().parents[2]))
 os.environ.setdefault("HF_HOME", "/workspace/hf")
 
 QUESTIONS = {

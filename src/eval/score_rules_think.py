@@ -3,10 +3,10 @@ Reports: parse states, accuracy by cell, paired cue contrasts (hi - lo and cue -
 cluster bootstrap over bases, the same contrasts restricted to groups whose cue-free item is correct,
 and how often the reasoning mentions the cue.
 Usage: python src/eval/score_rules_think.py results/rules_think/qwen3-14b.jsonl [...]"""
-import json, random, re, sys
+import json, pathlib, random, re, sys
 from collections import Counter, defaultdict
 
-ROOT = "/workspace/welfare-need-naacl"
+ROOT = str(pathlib.Path(__file__).resolve().parents[2])
 ITEMS = {json.loads(l)["item_id"]: json.loads(l) for l in open(f"{ROOT}/data/rules_pilot/pilot.jsonl")}
 CUE_WORDS = {"effort_high": r"eight jobs|about eight|eight (?:job )?applications",
              "effort_low": r"one job in|applied for one|one (?:job )?application",

@@ -2,7 +2,7 @@
 
 Target: ARR January 2027 cycle -> ACL 2027 (exact date TBA). Bar: ~4.5 overall.
 Sources: lit/why_now_policy.md (policy evidence), lit/rule_reasoning_review.md (NLP threats),
-lit/literature_review.md (deservingness theory), docs/08_audit_2026-10-05.md (what v1/v2 established).
+lit/literature_review.md (deservingness theory), archive/stage1_need_v1/docs/08_audit_2026-10-05.md (what v1/v2 established).
 Status: draft v1 for the user's review. Nothing here is decided until logged in decisions.md.
 
 **Scope rule (user, 2026-10-05):** this is the foundational paper. It should dig ONE unexplored problem

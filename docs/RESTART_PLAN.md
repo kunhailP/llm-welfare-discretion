@@ -5,7 +5,7 @@ An adversarial audit of the frozen Design C (2026-10-05, ~14:50 UTC) found a con
 first-token results and the gpt-oss smoke run already show. The user decided to stop all GPU work (queue2 killed,
 the unfinished Qwen3-14B thinking run killed with no output written), shut the RunPod pod down, and restart the study
 properly from the repo. No thinking-mode psych result exists, so the pre-registered H1-H3 tests were never run
-(docs/13 stays a valid record of what was planned, not of results).
+(archive/stage2_design_c/docs/preregistration_freeze.md stays a valid record of what was planned, not of results).
 
 ## Blocker B1 (verified by reading the CoTs): the decision is undefined in the prompt
 - Standard: "The agency grants a discretionary exemption if, and only if, **in the caseworker's judgment** the
@@ -16,7 +16,7 @@ properly from the repo. No thinking-mode psych result exists, so the pre-registe
   "it's a caseworker judgment. Without explicit info, we cannot assume yes ... So answer NO";
   "need caseworker judgment serious hardship. Not in file. So answer NO"; on deny?: "no fact suggests hardship;
   thus the agency likely denies ... YES".
-- This explains the 14B first-token NO-to-both pattern (docs/11 Result 2). Every Design C result so far measures
+- This explains the 14B first-token NO-to-both pattern (archive/stage2_design_c/docs/design_C_discretion.md, Result 2). Every Design C result so far measures
   how a model resolves an undefined decision, not how it uses deservingness cues.
 
 ## Other audit findings
@@ -53,10 +53,10 @@ Reported by the audit, not yet re-checked by hand (check before reusing any of t
 ## What survives
 - SNAP rules-as-code + PolicyEngine cross-check (src/rules, tests: 9 pass) and the Design B rule packet.
 - Design B results: rule-computable decisions at chance without reasoning, ~100% with thinking, cue effects 0
-  (docs/10). This is a solid "computation removes the effect" reference point.
-- Methods lessons, all documented: polarity flip exposes yes-bias that pooled numbers hide (docs/11 Results 2-4);
+  (docs/results/design_B_rules_pilot.md). This is a solid "computation removes the effect" reference point.
+- Methods lessons, all documented: polarity flip exposes yes-bias that pooled numbers hide (archive/stage2_design_c/docs/design_C_discretion.md, Results 2-4);
   first-token log-probs cannot measure discretionary judgments; enum standards are followed (14B/32B 100%).
-- Runners with provenance (src/run/run_rules_pilot.py, run_rules_think.py), the pre-registration habit (docs/13,
+- Runners with provenance (src/run/run_rules_pilot.py, run_rules_think.py), the pre-registration habit (archive/stage2_design_c/docs/preregistration_freeze.md,
   commit a26570f), and the decision log.
 
 ## Restart plan (to do before any GPU time)
