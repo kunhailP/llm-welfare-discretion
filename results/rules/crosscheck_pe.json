@@ -1,0 +1,192 @@
+{
+ "n": 500,
+ "state": "TX",
+ "month": "2026-01",
+ "summary": {
+  "snap_gross_income": 0,
+  "snap_earned_income_deduction": 0,
+  "snap_standard_deduction": 0,
+  "snap_net_income_pre_shelter": 0,
+  "snap_excess_shelter_expense_deduction": 0,
+  "snap_net_income": 0,
+  "meets_snap_gross_income_test": 0,
+  "meets_snap_net_income_test": 0,
+  "snap_max_allotment": 0,
+  "snap_expected_contribution": 29,
+  "snap_normal_allotment(eligible)": 11,
+  "pe_utility_allowance_nonzero": 0
+ },
+ "examples": {
+  "snap_gross_income": [],
+  "snap_earned_income_deduction": [],
+  "snap_standard_deduction": [],
+  "snap_net_income_pre_shelter": [],
+  "snap_excess_shelter_expense_deduction": [],
+  "snap_net_income": [],
+  "meets_snap_gross_income_test": [],
+  "meets_snap_net_income_test": [],
+  "snap_max_allotment": [],
+  "snap_expected_contribution": [
+   {
+    "i": 17,
+    "case": {
+     "ages": [
+      45
+     ],
+     "disabled": false,
+     "earned": 3200,
+     "unearned": 520,
+     "rent": 1670
+    },
+    "pe": 792.0,
+    "ours": 791.0
+   },
+   {
+    "i": 78,
+    "case": {
+     "ages": [
+      45,
+      45
+     ],
+     "disabled": false,
+     "earned": 400,
+     "unearned": 1180,
+     "rent": 1280
+    },
+    "pe": 198.0,
+    "ours": 197.0
+   },
+   {
+    "i": 95,
+    "case": {
+     "ages": [
+      70,
+      45,
+      9,
+      3,
+      3
+     ],
+     "disabled": true,
+     "earned": 2440,
+     "unearned": 440,
+     "rent": 1730
+    },
+    "pe": 441.0,
+    "ours": 440.0
+   },
+   {
+    "i": 137,
+    "case": {
+     "ages": [
+      62,
+      45,
+      15
+     ],
+     "disabled": false,
+     "earned": 1800,
+     "unearned": 1240,
+     "rent": 1360
+    },
+    "pe": 705.0,
+    "ours": 704.0
+   },
+   {
+    "i": 142,
+    "case": {
+     "ages": [
+      45
+     ],
+     "disabled": false,
+     "earned": 3400,
+     "unearned": 1460,
+     "rent": 2170
+    },
+    "pe": 1137.0,
+    "ours": 1136.0
+   }
+  ]
+ },
+ "alloc_examples": [
+  {
+   "i": 78,
+   "case": {
+    "ages": [
+     45,
+     45
+    ],
+    "disabled": false,
+    "earned": 400,
+    "unearned": 1180,
+    "rent": 1280
+   },
+   "pe": 348.0,
+   "ours": 349
+  },
+  {
+   "i": 95,
+   "case": {
+    "ages": [
+     70,
+     45,
+     9,
+     3,
+     3
+    ],
+    "disabled": true,
+    "earned": 2440,
+    "unearned": 440,
+    "rent": 1730
+   },
+   "pe": 742.0,
+   "ours": 743
+  },
+  {
+   "i": 202,
+   "case": {
+    "ages": [
+     25,
+     25,
+     9,
+     3,
+     9
+    ],
+    "disabled": false,
+    "earned": 1840,
+    "unearned": 600,
+    "rent": 1370
+   },
+   "pe": 778.0,
+   "ours": 779
+  },
+  {
+   "i": 220,
+   "case": {
+    "ages": [
+     62,
+     34
+    ],
+    "disabled": false,
+    "earned": 1800,
+    "unearned": 1060,
+    "rent": 1770
+   },
+   "pe": 45.0,
+   "ours": 46
+  },
+  {
+   "i": 237,
+   "case": {
+    "ages": [
+     25,
+     58
+    ],
+    "disabled": false,
+    "earned": 600,
+    "unearned": 880,
+    "rent": 660
+   },
+   "pe": 225.0,
+   "ours": 226
+  }
+ ]
+}

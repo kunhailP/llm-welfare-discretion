@@ -132,7 +132,7 @@ Leakage is measured, not built in. Every case file passes a gold check plus a bl
 
 - **Scale ladder.** Qwen3 4B / 8B / 14B / 32B (AWQ) on the L40. Larger open models (e.g. 70B-class) need more GPU memory or an API.
 - **Other families.** Llama, Gemma and Mistral at matched sizes.
-- **Frontier, 2-3 models via API.** Needs a budget decision. Disclose the conflict of interest if Claude is included.
+- **Frontier, 2-3 models via API: deferred (user, 2026-10-05).** Use APIs only after the design is solid enough to rank high at EMNLP/NAACL. Open models only until then. Disclose the conflict of interest if Claude is included.
 - **Mitigation arms.**
   - Extract-then-compute: the model extracts facts, code applies the rule.
   - Tool use: the model calls a rules engine.
