@@ -1,7 +1,11 @@
 {
- "model": "ministral3-8b",
- "nan_rate": 0.0,
+ "model": [
+  "ministral3-8b"
+ ],
  "q1_direct": {
+  "n": 5000,
+  "unknown_rate": 0.0,
+  "missing_rate": 0.0,
   "accuracy": {
    "employed/L0": {
     "SHORTFALL": 1.0,
@@ -44,45 +48,44 @@
     "SUFFICIENT": 1.0
    }
   },
-  "sufficient_acc_contrast": {
-   "L0": {
-    "unemployed_minus_none": [
-     -0.208,
-     -0.308,
-     -0.104
-    ],
-    "employed_minus_none": [
-     -0.296,
-     -0.372,
-     -0.224
-    ]
-   },
-   "L2": {
-    "unemployed_minus_none": [
-     0.0,
-     0.0,
-     0.0
-    ],
-    "employed_minus_none": [
-     0.0,
-     0.0,
-     0.0
-    ]
-   },
-   "L4": {
-    "unemployed_minus_none": [
-     0.0,
-     0.0,
-     0.0
-    ],
-    "employed_minus_none": [
-     0.0,
-     0.0,
-     0.0
-    ]
-   }
+  "shortfall_rate_diff_true_zero": {
+   "L0:unemployed_minus_none": [
+    0.104,
+    0.052,
+    0.154
+   ],
+   "L0:employed_minus_none": [
+    0.148,
+    0.112,
+    0.186
+   ],
+   "L2:unemployed_minus_none": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "L2:employed_minus_none": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "L4:unemployed_minus_none": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "L4:employed_minus_none": [
+    0.0,
+    0.0,
+    0.0
+   ]
   },
-  "p_sufficient_curve": {
+  "monotonicity": {
+   "violations": 105,
+   "comparisons": 4500,
+   "bases_with_violation": 45
+  },
+  "relative_score_curve": {
    "employed/L0": {
     "-0.40": 0.0,
     "-0.20": 0.0,
@@ -206,6 +209,9 @@
   }
  },
  "q1_direct_rev": {
+  "n": 5000,
+  "unknown_rate": 0.0,
+  "missing_rate": 0.0,
   "accuracy": {
    "employed/L0": {
     "SHORTFALL": 1.0,
@@ -248,45 +254,44 @@
     "SUFFICIENT": 1.0
    }
   },
-  "sufficient_acc_contrast": {
-   "L0": {
-    "unemployed_minus_none": [
-     -0.008,
-     -0.02,
-     0.0
-    ],
-    "employed_minus_none": [
-     0.0,
-     0.0,
-     0.0
-    ]
-   },
-   "L2": {
-    "unemployed_minus_none": [
-     0.0,
-     0.0,
-     0.0
-    ],
-    "employed_minus_none": [
-     0.0,
-     0.0,
-     0.0
-    ]
-   },
-   "L4": {
-    "unemployed_minus_none": [
-     0.0,
-     0.0,
-     0.0
-    ],
-    "employed_minus_none": [
-     0.0,
-     0.0,
-     0.0
-    ]
-   }
+  "shortfall_rate_diff_true_zero": {
+   "L0:unemployed_minus_none": [
+    0.004,
+    0.0,
+    0.01
+   ],
+   "L0:employed_minus_none": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "L2:unemployed_minus_none": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "L2:employed_minus_none": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "L4:unemployed_minus_none": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "L4:employed_minus_none": [
+    0.0,
+    0.0,
+    0.0
+   ]
   },
-  "p_sufficient_curve": {
+  "monotonicity": {
+   "violations": 2,
+   "comparisons": 4500,
+   "bases_with_violation": 2
+  },
+  "relative_score_curve": {
    "employed/L0": {
     "-0.40": 0.0,
     "-0.20": 0.0,
@@ -410,10 +415,13 @@
   }
  },
  "q1_yesno": {
+  "n": 5000,
+  "unknown_rate": 0.0,
+  "missing_rate": 0.0,
   "accuracy": {
    "employed/L0": {
     "SHORTFALL": 1.0,
-    "SUFFICIENT": 0.88
+    "SUFFICIENT": 0.904
    },
    "employed/L2": {
     "SHORTFALL": 1.0,
@@ -425,11 +433,11 @@
    },
    "facts_only/L3": {
     "SHORTFALL": 1.0,
-    "SUFFICIENT": 0.984
+    "SUFFICIENT": 1.0
    },
    "none/L0": {
     "SHORTFALL": 1.0,
-    "SUFFICIENT": 0.976
+    "SUFFICIENT": 0.98
    },
    "none/L2": {
     "SHORTFALL": 1.0,
@@ -452,45 +460,44 @@
     "SUFFICIENT": 1.0
    }
   },
-  "sufficient_acc_contrast": {
-   "L0": {
-    "unemployed_minus_none": [
-     0.024,
-     0.008,
-     0.048
-    ],
-    "employed_minus_none": [
-     -0.096,
-     -0.152,
-     -0.044
-    ]
-   },
-   "L2": {
-    "unemployed_minus_none": [
-     0.0,
-     0.0,
-     0.0
-    ],
-    "employed_minus_none": [
-     0.0,
-     0.0,
-     0.0
-    ]
-   },
-   "L4": {
-    "unemployed_minus_none": [
-     0.0,
-     0.0,
-     0.0
-    ],
-    "employed_minus_none": [
-     0.0,
-     0.0,
-     0.0
-    ]
-   }
+  "shortfall_rate_diff_true_zero": {
+   "L0:unemployed_minus_none": [
+    -0.01,
+    -0.018,
+    -0.002
+   ],
+   "L0:employed_minus_none": [
+    0.038,
+    0.018,
+    0.06
+   ],
+   "L2:unemployed_minus_none": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "L2:employed_minus_none": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "L4:unemployed_minus_none": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "L4:employed_minus_none": [
+    0.0,
+    0.0,
+    0.0
+   ]
   },
-  "p_sufficient_curve": {
+  "monotonicity": {
+   "violations": 20,
+   "comparisons": 4500,
+   "bases_with_violation": 16
+  },
+  "relative_score_curve": {
    "employed/L0": {
     "-0.40": 0.001,
     "-0.20": 0.001,

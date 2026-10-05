@@ -11,9 +11,16 @@ import time
 
 import yaml
 
-ROOT = "/workspace/welfare-need-naacl"
+ROOT = os.environ.get("WN_ROOT", "/workspace/welfare-need-naacl")
 os.environ.setdefault("HF_HOME", "/workspace/hf")
 MAX_TOKENS = {"q3_extraction": 300}
+
+
+def _dtype(llm):
+    try:
+        return str(llm.llm_engine.model_config.dtype)
+    except Exception as e:  # provenance must never break a finished run
+        return f"unavailable ({type(e).__name__})"
 
 
 def main():
@@ -69,7 +76,16 @@ def main():
                                     n_prompt_tokens=len(o.prompt_token_ids), n_output_tokens=len(c.token_ids))) + "\n")
     for f in files.values():
         f.close()
-    meta = dict(model=a.model, n_calls=len(jobs), seconds=round(dt, 1), calls_per_sec=round(len(jobs) / dt, 2), specs=specs)
+    import platform
+    import torch
+    import transformers
+    import vllm
+    meta = dict(model=a.model, repo=cfg["repo"], revision=cfg["revision"], dtype=_dtype(llm),
+                vllm=vllm.__version__, transformers=transformers.__version__, torch=torch.__version__,
+                python=platform.python_version(), sampling="greedy, temperature 0",
+                first_token_logprobs=a.first_token_logprobs, chat_kwargs=chat_kw,
+                example_rendered_messages=convs[0] if convs else None,
+                n_calls=len(jobs), seconds=round(dt, 1), calls_per_sec=round(len(jobs) / dt, 2), specs=specs)
     print(json.dumps(meta))
     for out in files:
         with open(out + ".meta.json", "w") as f:

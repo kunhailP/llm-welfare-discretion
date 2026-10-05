@@ -16,7 +16,7 @@ import time
 
 import yaml
 
-ROOT = "/workspace/welfare-need-naacl"
+ROOT = os.environ.get("WN_ROOT", "/workspace/welfare-need-naacl")
 os.environ.setdefault("HF_HOME", "/workspace/hf")
 CANDIDATES = {
     "q1_yesno": ["YES", "NO", "UNKNOWN"],
@@ -27,6 +27,13 @@ CANDIDATES = {
     "q1_ab": ["A", "B", "C"],
     "q1_ab_rev": ["A", "B", "C"],
 }
+
+
+def _dtype(llm):
+    try:
+        return str(llm.llm_engine.model_config.dtype)
+    except Exception as e:  # provenance must never break a finished run
+        return f"unavailable ({type(e).__name__})"
 
 
 def main():
@@ -98,7 +105,15 @@ def main():
                                          label_logprob=scores)) + "\n")
     for f in files.values():
         f.close()
-    meta = dict(model=a.model, n_sequences=len(jobs), seconds=round(dt, 1), prefix_mismatch=bad, specs=specs)
+    import platform
+    import torch
+    import transformers
+    import vllm
+    meta = dict(model=a.model, repo=cfg["repo"], revision=cfg["revision"], dtype=_dtype(llm),
+                vllm=vllm.__version__, transformers=transformers.__version__, torch=torch.__version__,
+                python=platform.python_version(), scoring="sum of label-token prompt logprobs, EOS excluded",
+                chat_kwargs={k: v for k, v in chat_kw.items()}, example_rendered_messages=convs[0] if convs else None,
+                n_sequences=len(jobs), seconds=round(dt, 1), prefix_mismatch=bad, specs=specs)
     print(json.dumps(meta))
     for _, _, out in specs:
         json.dump(meta, open(out + ".meta.json", "w"))

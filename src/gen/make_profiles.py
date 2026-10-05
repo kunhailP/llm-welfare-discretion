@@ -5,7 +5,8 @@ so invariance can be checked mechanically (see check_invariance in this file).
 
 Usage:
   python src/gen/make_profiles.py --split pilot --n-bases 50 --seed 1 --out data/pilot/profiles.jsonl
-  python src/gen/make_profiles.py --split main  --n-bases 120 --seed 2 --paraphrases 2 --controls --out data/main/profiles.jsonl
+  python src/gen/make_profiles.py --split main  --n-bases 120 --seed 2 --controls --out data/main/profiles.jsonl
+  (--paraphrases > 1 is refused until human-reviewed paraphrase templates exist)
 """
 import argparse
 import json
@@ -141,6 +142,9 @@ def main():
     ap.add_argument("--controls", action="store_true")
     ap.add_argument("--out", required=True)
     a = ap.parse_args()
+    if a.paraphrases != 1:
+        raise SystemExit("--paraphrases > 1 is not implemented: no reviewed paraphrase templates yet. "
+                         "New names/jobs alone are not surface paraphrases.")
     rng = random.Random(a.seed)
     fmts = ["numeric", "itemized", "textual"]
     rows = []
