@@ -1,1 +1,0 @@
-{"model": "ministral3-8b", "n_sequences": 45000, "seconds": 1202.7, "prefix_mismatch": 0, "specs": [["data/diagnostic/oracle_ladder.jsonl", "q1_yesno,q1_direct,q1_direct_rev", "results/diagnostic_seq/ministral3-8b.jsonl"]]}

@@ -1,0 +1,1247 @@
+{
+ "results/design_c_v2/firsttoken/qwen3-14b.jsonl": {
+  "n_items": 12160,
+  "states": {},
+  "discretion|enum_no": {
+   "rates_none": {
+    "pos": {
+     "grant": 0.0,
+     "deny": 1.0,
+     "request": 0.0
+    },
+    "neg": {
+     "grant": 0.001,
+     "deny": 0.999,
+     "request": 0.0
+    }
+   },
+   "accuracy": {
+    "pos": 1.0,
+    "neg": 1.0
+   },
+   "polarity_gap_grant": [
+    -0.001,
+    -0.001,
+    -0.001
+   ],
+   "noise_floor_abs_dgrant": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "contrasts": {
+    "control_high-control_low|grant": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "control_high-control_low|deny": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "control_high-control_low|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      0.0
+     ]
+    },
+    "effort_high-effort_low|grant": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "effort_high-effort_low|deny": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "effort_high-effort_low|request": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "control_high-none|grant": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "control_high-none|deny": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "control_high-none|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "control_low-none|grant": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "control_low-none|deny": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "control_low-none|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "effort_high-none|grant": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "effort_high-none|deny": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "effort_high-none|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "effort_low-none|grant": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "effort_low-none|deny": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "effort_low-none|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "valence_neg-none|grant": {
+     "d": [
+      -0.0,
+      -0.0,
+      0.0
+     ]
+    },
+    "valence_neg-none|deny": {
+     "d": [
+      0.0,
+      -0.0,
+      0.0
+     ]
+    },
+    "valence_neg-none|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    }
+   }
+  },
+  "discretion|enum_yes": {
+   "rates_none": {
+    "pos": {
+     "grant": 1.0,
+     "deny": 0.0,
+     "request": 0.0
+    },
+    "neg": {
+     "grant": 0.995,
+     "deny": 0.005,
+     "request": 0.0
+    }
+   },
+   "accuracy": {
+    "pos": 1.0,
+    "neg": 1.0
+   },
+   "polarity_gap_grant": [
+    0.003,
+    0.002,
+    0.005
+   ],
+   "noise_floor_abs_dgrant": [
+    0.001,
+    0.001,
+    0.001
+   ],
+   "contrasts": {
+    "control_high-control_low|grant": {
+     "d": [
+      -0.0,
+      -0.0,
+      0.0
+     ]
+    },
+    "control_high-control_low|deny": {
+     "d": [
+      0.0,
+      -0.0,
+      0.0
+     ]
+    },
+    "control_high-control_low|request": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "effort_high-effort_low|grant": {
+     "d": [
+      -0.001,
+      -0.001,
+      -0.0
+     ]
+    },
+    "effort_high-effort_low|deny": {
+     "d": [
+      0.001,
+      0.0,
+      0.001
+     ]
+    },
+    "effort_high-effort_low|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "control_high-none|grant": {
+     "d": [
+      0.002,
+      0.001,
+      0.003
+     ]
+    },
+    "control_high-none|deny": {
+     "d": [
+      -0.002,
+      -0.003,
+      -0.001
+     ]
+    },
+    "control_high-none|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "control_low-none|grant": {
+     "d": [
+      0.002,
+      0.001,
+      0.003
+     ]
+    },
+    "control_low-none|deny": {
+     "d": [
+      -0.002,
+      -0.003,
+      -0.001
+     ]
+    },
+    "control_low-none|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "effort_high-none|grant": {
+     "d": [
+      0.0,
+      0.0,
+      0.001
+     ]
+    },
+    "effort_high-none|deny": {
+     "d": [
+      -0.0,
+      -0.001,
+      -0.0
+     ]
+    },
+    "effort_high-none|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      0.0
+     ]
+    },
+    "effort_low-none|grant": {
+     "d": [
+      0.001,
+      0.001,
+      0.002
+     ]
+    },
+    "effort_low-none|deny": {
+     "d": [
+      -0.001,
+      -0.002,
+      -0.001
+     ]
+    },
+    "effort_low-none|request": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "valence_neg-none|grant": {
+     "d": [
+      0.001,
+      0.0,
+      0.001
+     ]
+    },
+    "valence_neg-none|deny": {
+     "d": [
+      -0.001,
+      -0.001,
+      -0.0
+     ]
+    },
+    "valence_neg-none|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    }
+   }
+  },
+  "discretion|open": {
+   "rates_none": {
+    "pos": {
+     "grant": 0.0,
+     "deny": 1.0,
+     "request": 0.0
+    },
+    "neg": {
+     "grant": 0.164,
+     "deny": 0.836,
+     "request": 0.0
+    }
+   },
+   "polarity_gap_grant": [
+    -0.24,
+    -0.258,
+    -0.222
+   ],
+   "noise_floor_abs_dgrant": [
+    0.034,
+    0.03,
+    0.037
+   ],
+   "need_slope_grant_per_100_less": [
+    -0.013,
+    -0.014,
+    -0.011
+   ],
+   "contrasts": {
+    "control_high-control_low|grant": {
+     "d": [
+      0.024,
+      0.017,
+      0.031
+     ]
+    },
+    "control_high-control_low|deny": {
+     "d": [
+      -0.024,
+      -0.031,
+      -0.017
+     ]
+    },
+    "control_high-control_low|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "effort_high-effort_low|grant": {
+     "d": [
+      0.005,
+      0.001,
+      0.009
+     ]
+    },
+    "effort_high-effort_low|deny": {
+     "d": [
+      -0.005,
+      -0.009,
+      -0.001
+     ]
+    },
+    "effort_high-effort_low|request": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "control_high-none|grant": {
+     "d": [
+      0.088,
+      0.078,
+      0.097
+     ]
+    },
+    "control_high-none|deny": {
+     "d": [
+      -0.088,
+      -0.097,
+      -0.078
+     ]
+    },
+    "control_high-none|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "control_low-none|grant": {
+     "d": [
+      0.064,
+      0.057,
+      0.071
+     ]
+    },
+    "control_low-none|deny": {
+     "d": [
+      -0.064,
+      -0.071,
+      -0.057
+     ]
+    },
+    "control_low-none|request": {
+     "d": [
+      0.0,
+      -0.0,
+      0.0
+     ]
+    },
+    "effort_high-none|grant": {
+     "d": [
+      0.032,
+      0.024,
+      0.039
+     ]
+    },
+    "effort_high-none|deny": {
+     "d": [
+      -0.032,
+      -0.039,
+      -0.024
+     ]
+    },
+    "effort_high-none|request": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "effort_low-none|grant": {
+     "d": [
+      0.026,
+      0.017,
+      0.035
+     ]
+    },
+    "effort_low-none|deny": {
+     "d": [
+      -0.026,
+      -0.035,
+      -0.017
+     ]
+    },
+    "effort_low-none|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "valence_neg-none|grant": {
+     "d": [
+      0.021,
+      0.014,
+      0.028
+     ]
+    },
+    "valence_neg-none|deny": {
+     "d": [
+      -0.021,
+      -0.028,
+      -0.014
+     ]
+    },
+    "valence_neg-none|request": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   }
+  },
+  "discretion|open_need": {
+   "rates_none": {
+    "pos": {
+     "grant": 0.0,
+     "deny": 1.0,
+     "request": 0.0
+    },
+    "neg": {
+     "grant": 0.254,
+     "deny": 0.746,
+     "request": 0.0
+    }
+   },
+   "polarity_gap_grant": [
+    -0.255,
+    -0.27,
+    -0.24
+   ],
+   "noise_floor_abs_dgrant": [
+    0.029,
+    0.026,
+    0.032
+   ],
+   "need_slope_grant_per_100_less": [
+    -0.026,
+    -0.028,
+    -0.024
+   ],
+   "contrasts": {
+    "control_high-control_low|grant": {
+     "d": [
+      0.043,
+      0.038,
+      0.049
+     ]
+    },
+    "control_high-control_low|deny": {
+     "d": [
+      -0.043,
+      -0.049,
+      -0.038
+     ]
+    },
+    "control_high-control_low|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "effort_high-effort_low|grant": {
+     "d": [
+      -0.02,
+      -0.025,
+      -0.016
+     ]
+    },
+    "effort_high-effort_low|deny": {
+     "d": [
+      0.02,
+      0.016,
+      0.025
+     ]
+    },
+    "effort_high-effort_low|request": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "control_high-none|grant": {
+     "d": [
+      0.02,
+      0.014,
+      0.027
+     ]
+    },
+    "control_high-none|deny": {
+     "d": [
+      -0.02,
+      -0.027,
+      -0.014
+     ]
+    },
+    "control_high-none|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      0.0
+     ]
+    },
+    "control_low-none|grant": {
+     "d": [
+      -0.023,
+      -0.028,
+      -0.018
+     ]
+    },
+    "control_low-none|deny": {
+     "d": [
+      0.023,
+      0.018,
+      0.028
+     ]
+    },
+    "control_low-none|request": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "effort_high-none|grant": {
+     "d": [
+      0.009,
+      0.002,
+      0.017
+     ]
+    },
+    "effort_high-none|deny": {
+     "d": [
+      -0.009,
+      -0.017,
+      -0.002
+     ]
+    },
+    "effort_high-none|request": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "effort_low-none|grant": {
+     "d": [
+      0.029,
+      0.021,
+      0.038
+     ]
+    },
+    "effort_low-none|deny": {
+     "d": [
+      -0.029,
+      -0.038,
+      -0.021
+     ]
+    },
+    "effort_low-none|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "valence_neg-none|grant": {
+     "d": [
+      -0.032,
+      -0.038,
+      -0.025
+     ]
+    },
+    "valence_neg-none|deny": {
+     "d": [
+      0.032,
+      0.025,
+      0.038
+     ]
+    },
+    "valence_neg-none|request": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   }
+  },
+  "hours|72": {
+   "rates_none": {
+    "pos": {
+     "grant": 0.009,
+     "deny": 0.991,
+     "request": 0.0
+    },
+    "neg": {
+     "grant": 0.0,
+     "deny": 1.0,
+     "request": 0.0
+    }
+   },
+   "accuracy": {
+    "pos": 1.0,
+    "neg": 1.0
+   },
+   "polarity_gap_grant": [
+    0.075,
+    0.069,
+    0.08
+   ],
+   "noise_floor_abs_dgrant": [
+    0.002,
+    0.002,
+    0.003
+   ],
+   "contrasts": {
+    "control_high-control_low|grant": {
+     "d": [
+      0.039,
+      0.032,
+      0.047
+     ]
+    },
+    "control_high-control_low|deny": {
+     "d": [
+      -0.039,
+      -0.047,
+      -0.032
+     ]
+    },
+    "control_high-control_low|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "effort_high-effort_low|grant": {
+     "d": [
+      -0.035,
+      -0.04,
+      -0.03
+     ]
+    },
+    "effort_high-effort_low|deny": {
+     "d": [
+      0.035,
+      0.03,
+      0.04
+     ]
+    },
+    "effort_high-effort_low|request": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "control_high-none|grant": {
+     "d": [
+      0.082,
+      0.072,
+      0.091
+     ]
+    },
+    "control_high-none|deny": {
+     "d": [
+      -0.082,
+      -0.091,
+      -0.072
+     ]
+    },
+    "control_high-none|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "control_low-none|grant": {
+     "d": [
+      0.043,
+      0.038,
+      0.048
+     ]
+    },
+    "control_low-none|deny": {
+     "d": [
+      -0.043,
+      -0.048,
+      -0.038
+     ]
+    },
+    "control_low-none|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "effort_high-none|grant": {
+     "d": [
+      0.018,
+      0.016,
+      0.021
+     ]
+    },
+    "effort_high-none|deny": {
+     "d": [
+      -0.018,
+      -0.021,
+      -0.016
+     ]
+    },
+    "effort_high-none|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "effort_low-none|grant": {
+     "d": [
+      0.053,
+      0.048,
+      0.058
+     ]
+    },
+    "effort_low-none|deny": {
+     "d": [
+      -0.053,
+      -0.058,
+      -0.048
+     ]
+    },
+    "effort_low-none|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "valence_neg-none|grant": {
+     "d": [
+      0.003,
+      0.002,
+      0.003
+     ]
+    },
+    "valence_neg-none|deny": {
+     "d": [
+      -0.003,
+      -0.003,
+      -0.002
+     ]
+    },
+    "valence_neg-none|request": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   }
+  },
+  "hours|88": {
+   "rates_none": {
+    "pos": {
+     "grant": 0.641,
+     "deny": 0.359,
+     "request": 0.0
+    },
+    "neg": {
+     "grant": 0.006,
+     "deny": 0.994,
+     "request": 0.0
+    }
+   },
+   "accuracy": {
+    "pos": 0.984,
+    "neg": 0.181
+   },
+   "polarity_gap_grant": [
+    0.561,
+    0.543,
+    0.58
+   ],
+   "noise_floor_abs_dgrant": [
+    0.059,
+    0.051,
+    0.067
+   ],
+   "contrasts": {
+    "control_high-control_low|grant": {
+     "d": [
+      0.1,
+      0.077,
+      0.124
+     ]
+    },
+    "control_high-control_low|deny": {
+     "d": [
+      -0.1,
+      -0.124,
+      -0.077
+     ]
+    },
+    "control_high-control_low|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "effort_high-effort_low|grant": {
+     "d": [
+      -0.33,
+      -0.371,
+      -0.29
+     ]
+    },
+    "effort_high-effort_low|deny": {
+     "d": [
+      0.33,
+      0.29,
+      0.371
+     ]
+    },
+    "effort_high-effort_low|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      0.0
+     ]
+    },
+    "control_high-none|grant": {
+     "d": [
+      0.301,
+      0.276,
+      0.328
+     ]
+    },
+    "control_high-none|deny": {
+     "d": [
+      -0.301,
+      -0.328,
+      -0.276
+     ]
+    },
+    "control_high-none|request": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "control_low-none|grant": {
+     "d": [
+      0.201,
+      0.181,
+      0.221
+     ]
+    },
+    "control_low-none|deny": {
+     "d": [
+      -0.201,
+      -0.221,
+      -0.181
+     ]
+    },
+    "control_low-none|request": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "effort_high-none|grant": {
+     "d": [
+      0.32,
+      0.287,
+      0.352
+     ]
+    },
+    "effort_high-none|deny": {
+     "d": [
+      -0.32,
+      -0.352,
+      -0.287
+     ]
+    },
+    "effort_high-none|request": {
+     "d": [
+      0.0,
+      -0.0,
+      0.0
+     ]
+    },
+    "effort_low-none|grant": {
+     "d": [
+      0.65,
+      0.634,
+      0.666
+     ]
+    },
+    "effort_low-none|deny": {
+     "d": [
+      -0.65,
+      -0.666,
+      -0.634
+     ]
+    },
+    "effort_low-none|request": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "valence_neg-none|grant": {
+     "d": [
+      0.057,
+      0.043,
+      0.071
+     ]
+    },
+    "valence_neg-none|deny": {
+     "d": [
+      -0.057,
+      -0.071,
+      -0.043
+     ]
+    },
+    "valence_neg-none|request": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   }
+  },
+  "hours|missing": {
+   "rates_none": {
+    "pos": {
+     "grant": 0.006,
+     "deny": 0.994,
+     "request": 0.0
+    },
+    "neg": {
+     "grant": 0.0,
+     "deny": 1.0,
+     "request": 0.0
+    }
+   },
+   "accuracy": {
+    "pos": 0.0,
+    "neg": 0.0
+   },
+   "polarity_gap_grant": [
+    0.005,
+    0.005,
+    0.006
+   ],
+   "noise_floor_abs_dgrant": [
+    0.003,
+    0.002,
+    0.003
+   ],
+   "contrasts": {
+    "control_high-control_low|grant": {
+     "d": [
+      0.003,
+      0.002,
+      0.003
+     ]
+    },
+    "control_high-control_low|deny": {
+     "d": [
+      -0.003,
+      -0.003,
+      -0.002
+     ]
+    },
+    "control_high-control_low|request": {
+     "d": [
+      -0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "effort_high-effort_low|grant": {
+     "d": [
+      0.001,
+      0.001,
+      0.001
+     ]
+    },
+    "effort_high-effort_low|deny": {
+     "d": [
+      -0.001,
+      -0.001,
+      -0.001
+     ]
+    },
+    "effort_high-effort_low|request": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "control_high-none|grant": {
+     "d": [
+      0.002,
+      0.002,
+      0.003
+     ]
+    },
+    "control_high-none|deny": {
+     "d": [
+      -0.002,
+      -0.003,
+      -0.002
+     ]
+    },
+    "control_high-none|request": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "control_low-none|grant": {
+     "d": [
+      -0.001,
+      -0.001,
+      -0.0
+     ]
+    },
+    "control_low-none|deny": {
+     "d": [
+      0.001,
+      0.0,
+      0.001
+     ]
+    },
+    "control_low-none|request": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "effort_high-none|grant": {
+     "d": [
+      -0.001,
+      -0.002,
+      -0.001
+     ]
+    },
+    "effort_high-none|deny": {
+     "d": [
+      0.001,
+      0.001,
+      0.002
+     ]
+    },
+    "effort_high-none|request": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "effort_low-none|grant": {
+     "d": [
+      -0.002,
+      -0.002,
+      -0.002
+     ]
+    },
+    "effort_low-none|deny": {
+     "d": [
+      0.002,
+      0.002,
+      0.002
+     ]
+    },
+    "effort_low-none|request": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "valence_neg-none|grant": {
+     "d": [
+      -0.001,
+      -0.002,
+      -0.001
+     ]
+    },
+    "valence_neg-none|deny": {
+     "d": [
+      0.001,
+      0.001,
+      0.002
+     ]
+    },
+    "valence_neg-none|request": {
+     "d": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   }
+  }
+ }
+}

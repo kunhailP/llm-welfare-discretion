@@ -1,1 +1,0 @@
-{"model": "qwen3-8b", "n_sequences": 60000, "seconds": 1601.6, "prefix_mismatch": 0, "specs": [["data/diagnostic/oracle_ladder.jsonl", "q1_yesno,q1_direct,q1_direct_rev", "results/diagnostic_seq/qwen3-8b.jsonl"]]}

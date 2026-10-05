@@ -1,0 +1,292 @@
+{
+ "results/discretion_pilot/qwen3-14b.jsonl": {
+  "n_items": 3840,
+  "states": {},
+  "enum_no": {
+   "p_yes_by_leftover_none": {
+    "200": 0.0,
+    "50": 0.0,
+    "-100": 0.0,
+    "-250": 0.0
+   },
+   "accuracy": 1.0,
+   "need_slope_per_100_less": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "contrasts": {
+    "control_high-control_low": {
+     "dPyes": [
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     "usd_equiv": null
+    },
+    "effort_high-effort_low": {
+     "dPyes": [
+      0.0,
+      -0.0,
+      0.0
+     ],
+     "usd_equiv": null
+    },
+    "control_high-none": {
+     "dPyes": [
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     "usd_equiv": null
+    },
+    "control_low-none": {
+     "dPyes": [
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     "usd_equiv": null
+    },
+    "effort_high-none": {
+     "dPyes": [
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     "usd_equiv": null
+    },
+    "effort_low-none": {
+     "dPyes": [
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     "usd_equiv": null
+    },
+    "valence_neg-none": {
+     "dPyes": [
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     "usd_equiv": null
+    }
+   }
+  },
+  "enum_yes": {
+   "p_yes_by_leftover_none": {
+    "200": 1.0,
+    "50": 1.0,
+    "-100": 1.0,
+    "-250": 1.0
+   },
+   "accuracy": 1.0,
+   "need_slope_per_100_less": [
+    -0.0,
+    -0.0,
+    0.0
+   ],
+   "contrasts": {
+    "control_high-control_low": {
+     "dPyes": [
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     "usd_equiv": null
+    },
+    "effort_high-effort_low": {
+     "dPyes": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "usd_equiv": null
+    },
+    "control_high-none": {
+     "dPyes": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "usd_equiv": null
+    },
+    "control_low-none": {
+     "dPyes": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "usd_equiv": null
+    },
+    "effort_high-none": {
+     "dPyes": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "usd_equiv": null
+    },
+    "effort_low-none": {
+     "dPyes": [
+      -0.0,
+      -0.0,
+      0.0
+     ],
+     "usd_equiv": null
+    },
+    "valence_neg-none": {
+     "dPyes": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "usd_equiv": null
+    }
+   }
+  },
+  "open": {
+   "p_yes_by_leftover_none": {
+    "200": 0.0,
+    "50": 0.0,
+    "-100": 0.0,
+    "-250": 0.0
+   },
+   "need_slope_per_100_less": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "contrasts": {
+    "control_high-control_low": {
+     "dPyes": [
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     "usd_equiv": null
+    },
+    "effort_high-effort_low": {
+     "dPyes": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "usd_equiv": null
+    },
+    "control_high-none": {
+     "dPyes": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "usd_equiv": null
+    },
+    "control_low-none": {
+     "dPyes": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "usd_equiv": null
+    },
+    "effort_high-none": {
+     "dPyes": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "usd_equiv": null
+    },
+    "effort_low-none": {
+     "dPyes": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "usd_equiv": null
+    },
+    "valence_neg-none": {
+     "dPyes": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "usd_equiv": null
+    }
+   }
+  },
+  "open_need": {
+   "p_yes_by_leftover_none": {
+    "200": 0.0,
+    "50": 0.0,
+    "-100": 0.0,
+    "-250": 0.0
+   },
+   "need_slope_per_100_less": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "contrasts": {
+    "control_high-control_low": {
+     "dPyes": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "usd_equiv": null
+    },
+    "effort_high-effort_low": {
+     "dPyes": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "usd_equiv": null
+    },
+    "control_high-none": {
+     "dPyes": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "usd_equiv": null
+    },
+    "control_low-none": {
+     "dPyes": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "usd_equiv": null
+    },
+    "effort_high-none": {
+     "dPyes": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "usd_equiv": null
+    },
+    "effort_low-none": {
+     "dPyes": [
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     "usd_equiv": null
+    },
+    "valence_neg-none": {
+     "dPyes": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "usd_equiv": null
+    }
+   }
+  }
+ }
+}

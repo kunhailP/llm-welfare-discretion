@@ -1,12 +1,12 @@
-# Third-party data: not redistributed here (see lit/candidate_datasets.md and docs/02_data_spec.md for sources/licenses)
+# Third-party data: not redistributed here (see lit/candidate_datasets.md and archive/stage1_need_v1/docs/02_data_spec.md for sources/licenses)
 data/external/*
 !data/external/fairfund_need_probe.jsonl
 data/external/ref_repos/
 # Blind-review answer key must not be public while reviewers use the sheets
-data/review/*KEY*
+**/review/*KEY*
 # Runtime artifacts
 logs/
-results/smoke/
+**/results/smoke/
 models/
 __pycache__/
 *.pyc

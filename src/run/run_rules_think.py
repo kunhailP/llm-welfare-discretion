@@ -61,7 +61,10 @@ def build_prompt(packet, r, order):
     return f"{packet}\n\n=== CASE FILE ===\n{r['text']}\n\n=== QUESTION ===\n{q}\n{(ORDERS3 if r.get('answer_set') == 'ynr' else ORDERS)[order]}"
 
 
-def parse(text):
+def parse(text, thinking=True):
+    if not thinking:   # same prompt, Qwen3 thinking switch off: the whole output is the visible reasoning + answer
+        m = re.findall(r"ANSWER:\s*\**\s*(YES|NO|REQUEST)\b", text, flags=re.I)
+        return (m[-1].upper() if m else "INVALID"), "", text
     for sep in ("</think>", "<|channel|>final<|message|>", "assistantfinal"):   # Qwen3 / gpt-oss raw / gpt-oss decoded
         if sep in text:
             think, ans = text.split(sep, 1)
@@ -80,6 +83,8 @@ def main():
     ap.add_argument("--packet", default="configs/rule_packet_fy2026.md")
     ap.add_argument("--max-tokens", type=int, default=8192)
     ap.add_argument("--limit", type=int)
+    ap.add_argument("--thinking", choices=["on", "off"], default="on",
+                    help="Qwen3 only: off = same step-by-step prompt and parser, thinking switch off (protocol ladder)")
     ap.add_argument("--reasoning-effort", default="medium", help="gpt-oss only")
     ap.add_argument("--seed", type=int, default=0, help="sampling seed (seed baseline for thinking runs)")
     ap.add_argument("--no-subsample", action="store_true", help="run every row of --data; order alternates by base")
@@ -90,7 +95,7 @@ def main():
     cfg = {m["id"]: m for m in yaml.safe_load(open(f"{ROOT}/configs/models.yaml"))["models"]}[a.model]
     llm = LLM(model=cfg["repo"], revision=cfg["revision"], max_model_len=a.max_tokens + 4096,
               gpu_memory_utilization=0.90, seed=0, enable_prefix_caching=True)
-    tmpl = {"enable_thinking": True} if "qwen" in a.model else {"reasoning_effort": a.reasoning_effort}
+    tmpl = {"enable_thinking": a.thinking == "on"} if "qwen" in a.model else {"reasoning_effort": a.reasoning_effort}
     chat_kw = dict(add_generation_prompt=True, chat_template_kwargs=tmpl)
     packet = open(f"{ROOT}/{a.packet}").read().strip()
     rows = [json.loads(l) for l in open(f"{ROOT}/{a.data}")]
@@ -110,14 +115,14 @@ def main():
     with open(a.out, "w") as f:
         for (r, order), o in zip(jobs, outs):
             text = o.outputs[0].text
-            verdict, think, ans = parse(text)
+            verdict, think, ans = parse(text, thinking=not ("qwen" in a.model and a.thinking == "off"))
             f.write(json.dumps(dict(model=a.model, item_id=r["item_id"], order=order, verdict=verdict,
                                     n_tokens=len(o.outputs[0].token_ids), finish=o.outputs[0].finish_reason,
                                     think=think, answer=ans)) + "\n")
     import platform, torch, transformers, vllm
     meta = dict(model=a.model, repo=cfg["repo"], revision=cfg["revision"], vllm=vllm.__version__,
                 transformers=transformers.__version__, torch=torch.__version__, python=platform.python_version(),
-                packet=a.packet, chat_kwargs=chat_kw, sampling=repr(sp), n=len(jobs), seconds=round(dt, 1),
+                packet=a.packet, chat_kwargs=chat_kw, sampling=repr(sp), thinking=a.thinking, seed=a.seed, n=len(jobs), seconds=round(dt, 1),
                 example_prompt=convs[0][0]["content"], data=a.data)
     json.dump(meta, open(a.out + ".meta.json", "w"))
     print(json.dumps({k: v for k, v in meta.items() if k != "example_prompt"}))

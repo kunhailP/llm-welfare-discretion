@@ -1,1 +1,0 @@
-{"model": "ministral3-8b", "n_calls": 15000, "seconds": 117.9, "calls_per_sec": 127.27, "specs": [["data/diagnostic/oracle_ladder.jsonl", "q1_yesno,q1_direct,q1_direct_rev", "results/diagnostic/ministral3-8b.jsonl"]]}

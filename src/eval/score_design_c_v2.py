@@ -30,7 +30,7 @@ def outcomes(path):
         else:
             lps = {"YES": r["lp_yes"], "NO": r["lp_no"], "REQUEST": r.get("lp_request")}
             lps = {k: (v if v is not None else -50.0) for k, v in lps.items()}
-            if r["lp_yes"] is None and r["lp_no"] is None:
+            if r["lp_yes"] is None and r["lp_no"] is None and r.get("lp_request") is None:
                 states["MISSING"] += 1
                 continue
             z = max(lps.values())

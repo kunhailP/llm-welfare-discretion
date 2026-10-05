@@ -1,0 +1,1 @@
+{"model": "qwen3-8b", "n_calls": 15000, "seconds": 124.0, "calls_per_sec": 120.98, "specs": [["data/diagnostic/oracle_ladder.jsonl", "q1_yesno,q1_direct,q1_direct_rev", "results/diagnostic/qwen3-8b.jsonl"]]}

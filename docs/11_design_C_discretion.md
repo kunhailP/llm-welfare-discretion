@@ -90,3 +90,24 @@ results/design_c_psych/firsttoken/qwen3-32b-awq.jsonl (0 missing). Numbers below
 - Reading: first-token answers on discretion respond to the standard's surface wording and to added text, not to
   need or to cue meaning. This is a methods result for the paper (polarity flip + PSE are needed to see it) and
   confirms that H1-H3 must be tested on generated (thinking) verdicts, as pre-registered (docs/13).
+
+## Result 4: remaining first-token runs (psych 8B / Ministral; v2 all 4 models) (2026-10-05)
+Scores: results/design_c_v2/firsttoken/score_<model>.json (0 missing rows in every run).
+Psych set:
+- Qwen3-8B: answers NO to "deny?" almost always (P(YES) 0.01-0.30). On "grant?" under basic/serious there is a small
+  slope in the right direction (P(YES) 0.07-0.17 at surplus -> 0.16-0.32 at shortfall); never crosses 0.5. Cue effects
+  are the same yes-bias as 14B/32B (valence_neg +1.5 / +3.7 logits on grant?, -0.7 / -1.2 on deny?).
+- Ministral-3-8B: flat in need (all cells within 0.05). Its cue effects keep the same sign in both polarities, i.e. a
+  real but small grant shift: effort_high - effort_low ~ +0.3 to +0.5 logits, but the non-moral valence_neg is as large
+  or larger (+0.2..+0.8).
+v2 set (cue = none rates):
+- Enum standards (gold): 14B and 32B 100% in both polarities; Ministral 89-100%; 8B fails the neg polarity of enum_no
+  (says NO to "deny?" when gold is deny). **When the rule lists the facts, 14B/32B follow it; when the standard is open,
+  the same models do not respond to need** (open/open_need slope <= 0.03 per $100, sign negative for 14B/32B).
+- Hours task: 14B correct at 72h, polarity-inconsistent at 88h (grant? 0.98 correct; deny? 0.18 correct); 32B grants at
+  72h (acc 0.13 / 0.05; 72 < 80 required hours), correct at 88h; 8B and Ministral deny at 88h. Missing hours (gold REQUEST):
+  REQUEST is ~0 for 8B/14B, 0.07 Ministral, 0.40 (grant?) / 0.16 (deny?) for 32B. H3 cannot be tested first-token.
+- Cue contrasts (polarity-pooled) are all |d| <= 0.09 in P(grant); none is interpretable on these floors.
+Reading: across 4 models and both sets, first-token is reliable only for the enum (explicit-list) standards. The
+enum-vs-open contrast is itself relevant to the paper (explicit rule followed; open standard falls back to a default),
+but every H1-H3 test goes to the thinking runs as pre-registered.

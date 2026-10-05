@@ -1,0 +1,67 @@
+{
+ "model": "qwen3-8b",
+ "q4_need_severity": {
+  "valid_rate": 1.0,
+  "mean_by_framing": {
+   "no_cause": 5.733,
+   "self_cause": 6.067,
+   "stigma_no_redemption": 6.1,
+   "stigma_redemption": 6.033,
+   "structural": 6.033
+  },
+  "diff_vs_structural": {
+   "no_cause": [
+    -0.3,
+    -0.567,
+    -0.1
+   ],
+   "self_cause": [
+    0.033,
+    0.0,
+    0.1
+   ],
+   "stigma_no_redemption": [
+    0.067,
+    0.0,
+    0.2
+   ],
+   "stigma_redemption": [
+    0.0,
+    -0.133,
+    0.167
+   ]
+  }
+ },
+ "q5_deservingness": {
+  "valid_rate": 1.0,
+  "mean_by_framing": {
+   "no_cause": 76.5,
+   "self_cause": 77.5,
+   "stigma_no_redemption": 70.5,
+   "stigma_redemption": 72.333,
+   "structural": 82.667
+  },
+  "diff_vs_structural": {
+   "no_cause": [
+    -6.167,
+    -12.333,
+    -1.333
+   ],
+   "self_cause": [
+    -5.167,
+    -9.667,
+    -1.333
+   ],
+   "stigma_no_redemption": [
+    -12.167,
+    -22.833,
+    -2.667
+   ],
+   "stigma_redemption": [
+    -10.333,
+    -20.0,
+    -2.667
+   ]
+  }
+ }
+}

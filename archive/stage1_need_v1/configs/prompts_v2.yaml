@@ -1,0 +1,110 @@
+# Prompt set v2 (2026-10-05) for data/controlled_v2. Subject-neutral wording (works for a person or a project).
+# Factors crossed so each can be read separately:
+#   vocabulary: need-laden labels (SHORTFALL/SUFFICIENT) | polarity words (YES/NO) | neutral letters (A/B)
+#   option order: which meaning is listed first
+#   question polarity (YES/NO only): "can the bills be paid" vs "will the money fall short"
+#   letter assignment x position (A/B only): letter for "cannot pay" in {A, B} x listed {first, second}
+# Meaning of each candidate label is in src/eval/score_diagnostic_seq.py::MEANING.
+
+
+v2_need_shortfirst: |-
+  Read the case below.
+
+  {text}
+
+  Question: Using only the money that can be accessed before the bills are due, can the essential bills described in the case be paid in full by the deadline?
+  Answer with exactly one word: SHORTFALL (they cannot be paid in full), SUFFICIENT (they can be paid in full), or UNKNOWN (the case does not say enough).
+
+v2_need_sufffirst: |-
+  Read the case below.
+
+  {text}
+
+  Question: Using only the money that can be accessed before the bills are due, can the essential bills described in the case be paid in full by the deadline?
+  Answer with exactly one word: SUFFICIENT (they can be paid in full), SHORTFALL (they cannot be paid in full), or UNKNOWN (the case does not say enough).
+
+v2_yn_can_yesfirst: |-
+  Read the case below.
+
+  {text}
+
+  Question: Using only the money that can be accessed before the bills are due, can the essential bills described in the case be paid in full by the deadline?
+  Answer with exactly one word: YES, NO, or UNKNOWN.
+
+v2_yn_can_nofirst: |-
+  Read the case below.
+
+  {text}
+
+  Question: Using only the money that can be accessed before the bills are due, can the essential bills described in the case be paid in full by the deadline?
+  Answer with exactly one word: NO, YES, or UNKNOWN.
+
+v2_yn_short_yesfirst: |-
+  Read the case below.
+
+  {text}
+
+  Question: Using only the money that can be accessed before the bills are due, will that money fall short of the essential bills described in the case, so that they cannot be paid in full by the deadline?
+  Answer with exactly one word: YES, NO, or UNKNOWN.
+
+v2_yn_short_nofirst: |-
+  Read the case below.
+
+  {text}
+
+  Question: Using only the money that can be accessed before the bills are due, will that money fall short of the essential bills described in the case, so that they cannot be paid in full by the deadline?
+  Answer with exactly one word: NO, YES, or UNKNOWN.
+
+v2_ab_Acannot_first: |-
+  Read the case below.
+
+  {text}
+
+  Question: Using only the money that can be accessed before the bills are due, can the essential bills described in the case be paid in full by the deadline?
+  A. They cannot be paid in full.
+  B. They can be paid in full.
+  C. The case does not say enough.
+  Answer with exactly one letter: A, B, or C.
+
+v2_ab_Bcannot_second: |-
+  Read the case below.
+
+  {text}
+
+  Question: Using only the money that can be accessed before the bills are due, can the essential bills described in the case be paid in full by the deadline?
+  A. They can be paid in full.
+  B. They cannot be paid in full.
+  C. The case does not say enough.
+  Answer with exactly one letter: A, B, or C.
+
+v2_ab_Bcannot_first: |-
+  Read the case below.
+
+  {text}
+
+  Question: Using only the money that can be accessed before the bills are due, can the essential bills described in the case be paid in full by the deadline?
+  B. They cannot be paid in full.
+  A. They can be paid in full.
+  C. The case does not say enough.
+  Answer with exactly one letter: A, B, or C.
+
+v2_ab_Acannot_second: |-
+  Read the case below.
+
+  {text}
+
+  Question: Using only the money that can be accessed before the bills are due, can the essential bills described in the case be paid in full by the deadline?
+  B. They can be paid in full.
+  A. They cannot be paid in full.
+  C. The case does not say enough.
+  Answer with exactly one letter: A, B, or C.
+
+# Mitigation (bundle C): model extracts totals; code compares them. Gold facts are never shown.
+v2_extract: |-
+  Read the case below.
+
+  {text}
+
+  Extract two numbers from the case. Return only a JSON object with these keys:
+  "accessible_funds": the total money that can be accessed before the bills are due (add up all listed funds; number, or null if not stated),
+  "essential_bills": the total of the essential bills due by the deadline (add up all listed bills; number, or null if not stated).

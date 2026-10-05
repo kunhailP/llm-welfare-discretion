@@ -20,12 +20,26 @@ import argparse, json, pathlib, random, sys
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src/gen"))
 from make_rules_pilot import CUES, NAMES, MONTH, PAID_HOURS, WAGE, money  # noqa: E402
-from make_discretion_pilot import ENUM, HEADER, STANDARDS, LEFTOVER  # noqa: E402
+from make_discretion_pilot import ENUM, LEFTOVER, NEED_ONLY  # noqa: E402
+
+# Review of 370c219: "may grant ... ONLY if" + "Should ... grant?" mixed permission with obligation, so NO was
+# always defensible. The standards now state when the agency DOES grant (if and only if), and the question asks
+# what the rules decide. (The v1 discretion pilot keeps the may/should wording as a record.)
+HEADER = ("DISCRETIONARY EXEMPTION (applies to this case; it replaces the instruction above not to apply any other route)\n"
+          "A non-exempt member who cannot receive benefits under the ABAWD time limit still receives benefits in the "
+          "determination month if the agency grants a discretionary exemption for that month.\n")
+ENUM_RULE = ("The agency grants a discretionary exemption if, and only if, the individual meets at least one of these "
+             "conditions in the determination month:\n" + "\n".join(
+                 f"  ({chr(97 + i)}) {c.format(m='the determination month')};" for i, c in enumerate(ENUM)) +
+             "\nNo other circumstance qualifies.")
+OPEN_RULE = ("The agency grants a discretionary exemption if, and only if, in the caseworker's judgment the individual "
+             "would face serious hardship in the determination month without SNAP benefits.")
+STANDARDS = {"enum_no": ENUM_RULE, "enum_yes": ENUM_RULE, "open": OPEN_RULE, "open_need": OPEN_RULE + NEED_ONLY}
 
 MISSING_RULE = ("MISSING FACTS\nIf a fact that the rules need for this decision is not stated in the case file, "
                 "do not assume it: answer REQUEST (request verification of the missing fact).")
-Q = {("discretion", "pos"): "Should the agency grant {n} a discretionary exemption for the determination month named in the case file?",
-     ("discretion", "neg"): "Should the agency deny {n} a discretionary exemption for the determination month named in the case file?",
+Q = {("discretion", "pos"): "Under these rules, does the agency grant {n} a discretionary exemption for the determination month named in the case file?",
+     ("discretion", "neg"): "Under these rules, does the agency deny {n} a discretionary exemption for the determination month named in the case file?",
      ("hours", "pos"): "Under the ABAWD time limit, can {n} receive SNAP benefits in the determination month named in the case file?",
      ("hours", "neg"): "Under the ABAWD time limit, must {n} be denied SNAP benefits in the determination month named in the case file?"}
 FLIP = {"YES": "NO", "NO": "YES", "REQUEST": "REQUEST", None: None}

@@ -1,1 +1,0 @@
-{"model": "qwen3-8b", "n_calls": 5200, "seconds": 80.7, "calls_per_sec": 64.45, "specs": [["data/pilot/profiles.jsonl", "q1_direct,q1_direct_rev,q1_yesno,q2_definition,q3_extraction,q4_need_severity,q5_deservingness", "results/pilot/qwen3-8b.jsonl"], ["data/external/fairfund_need_probe.jsonl", "q4_need_severity,q5_deservingness", "results/fairfund/qwen3-8b.jsonl"]]}

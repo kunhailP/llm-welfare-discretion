@@ -61,3 +61,9 @@ results/rules_think/score_qwen3-32b-awq.json. 1,554/1,554 parsed, mean 617 token
 - Cue contrasts: every CI includes 0 (largest: gross control hi-lo -0.017 [-0.054, 0.000]; ABAWD |effect| <= 0.007).
 - Same conclusion as 14B: with reasoning, rule-computable verdicts do not move with deservingness cues.
 - Reasoning mentions effort_low in 49% of elig traces and control_low in 15%, without verdict changes.
+
+## 7. Thinking-mode, Qwen3-8B (2026-10-05)
+results/rules_think/score_qwen3-8b.json. 1,554/1,554 parsed, mean 1,014 tokens.
+- gross 1.00, elig 0.98-1.00; ABAWD errors in the trap (72h 0.30-0.47), nonexempt 88h (0.80-0.93), pregnant (0.90-0.93).
+- No cue contrast has a CI excluding 0.
+- Scale curve with reasoning (8B -> 14B -> 32B): income verdicts at ceiling from 8B; ABAWD errors shrink with scale; cue effects null at every scale.
