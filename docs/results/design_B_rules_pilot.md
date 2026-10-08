@@ -230,8 +230,9 @@ results/rules_think/agreement/*_off_vs_free.json; verdict-scale contrasts: resul
 | Ministral-3-8B | 1,536 | 236 | 1.00 / 0.98 / 0.67 (0.56) | gross 0/0; 0/0. elig 1/1; 3/4 | 19/14; 26/22 | 0.994 / 0.964 / 0.639 |
 - No Qwen output is under 40 tokens; Ministral has 131 (of 1,554). Given permission to generate, the models reason step by step on their
   own; the outputs look like the step rung's.
-- Rule outcome: **(a) permission to generate suffices** for 14B and Ministral and for every gross contrast; 32B eligibility controllability
-  is graded (5 flips, between the step rung's 6 and the thinking rung's 0). The direct readout's cue effects therefore come from the
+- Rule outcome: **(a) permission to generate suffices** for 14B and for every gross contrast; graded for 32B eligibility controllability
+  (5 flips, 4/1) and for Ministral eligibility effort (7 flips, 3/4, net -0.014): both exceed the rule's 3-flip cap although the net
+  effect is small (correction 2026-10-08 after the round-6 review: v4 Appendix F had called Ministral 'permission suffices'). The direct readout's cue effects therefore come from the
   one-word instruction forbidding the computation, not from the absence of an instruction to compute, and not from the thinking switch.
 - ABAWD outside the trap is as unstable as on the step rung (cue-free flip rate vs the step rung 0.12 / 0.15 / 0.40); 14B shows a one-seed
   controllability asymmetry (18/8) of the kind already seen for 8B thinking-on and 32B step; one seed cannot pass the leak criterion.
