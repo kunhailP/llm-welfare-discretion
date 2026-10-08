@@ -4,7 +4,7 @@
 # Usage: bash src/release/make_release.sh [/path/to/output_dir]
 set -eu
 HUB=$(cd "$(dirname "$0")/../.." && pwd)
-OUT=${1:-/workspace/release/llm-welfare-rules-anon}
+OUT=${1:-/workspace/release/llm-welfare-rules-anon}; export OUT
 rm -rf "$OUT"; mkdir -p "$OUT"
 cd "$HUB"
 # code and configs
@@ -20,7 +20,11 @@ cp data/rules_pilot/pilot.jsonl data/rules_pilot/pilot_bases_hwgt.json data/rule
 cp data/external/snap_params/*.pdf "$OUT/data/external/snap_params/"
 cp -r results/rules results/rules_pilot results/rules_pilot_nosanction results/rules_think results/common_scale results/consequence "$OUT/results/"
 # tables and results notes
-mkdir -p "$OUT/docs"; cp docs/paper1/tables.md docs/results/design_B_rules_pilot.md "$OUT/docs/"
+mkdir -p "$OUT/docs/paper1" "$OUT/docs/results" "$OUT/archive/stage2_design_c/docs" "$OUT/archive/stage2_design_c/results"
+cp docs/paper1/tables.md "$OUT/docs/paper1/"; cp docs/results/design_B_rules_pilot.md "$OUT/docs/results/"
+# Appendix E (polarity flip): Design C notes and score files only (raw generations stay out: 115 MB)
+cp archive/stage2_design_c/docs/*.md "$OUT/archive/stage2_design_c/docs/"
+find archive/stage2_design_c/results -name "score*" -exec sh -c 'mkdir -p "$OUT/$(dirname "$1")" && cp "$1" "$OUT/$1"' _ {} \;
 cat > "$OUT/README.md" <<'R'
 # Anonymised release: deservingness cues in LLM welfare determinations (SNAP FY2026 rules-as-code testbed)
 
