@@ -218,3 +218,20 @@ Qwen3-32B-AWQ, 150 items per run, 0 INVALID.
   deservingness reading predicts, but the need sentence's own direction reverses between seeds (2/4 then 5/0), i.e. it behaves like the
   cue-free noise of this cell (8/60 between seeds). One control run per seed on a cell this noisy cannot separate the two readings; the
   paper says so and keeps the 32B cell as "one replicated cell among 36 examined". With thinking on, no sentence moves these cells.
+
+## 20. Free-generation rung (2026-10-08; queue 7; src/run/run_rules_think.py --prompt free; seed 0)
+Pre-registered rule and runs: docs/decisions.md (2026-10-08, "free-generation rung"). Thinking off, no instruction to reason, only the
+ANSWER-line format; same subsample and answer order. Scores: results/rules_think/score_*_free.json; agreement with the step rung:
+results/rules_think/agreement/*_off_vs_free.json; verdict-scale contrasts: results/common_scale/contrasts.md (free_s0).
+| model | parsed | mean tokens | bal. acc gross / elig / ABAWD no-trap (all) | income contrasts (control; effort) | ABAWD no-trap (control; effort) | agreement with step gross / elig / ABAWD |
+| --- | --- | --- | --- | --- | --- | --- |
+| Qwen3-32B-AWQ | 1,553 | 403 | 1.00 / 0.98 / 0.87 (0.75) | gross 0/0; 0/0. elig 4/1 (+0.041 [0, +0.094]); 1/1 | 7/7; 5/6 | 0.997 / 0.946 / 0.872 |
+| Qwen3-14B | 1,554 | 312 | 1.00 / 1.00 / 0.91 (0.72) | all 0/0 | 18/8 (+0.083 [+0.009, +0.161]); 16/9 | 0.997 / 0.989 / 0.804 |
+| Ministral-3-8B | 1,536 | 236 | 1.00 / 0.98 / 0.67 (0.56) | gross 0/0; 0/0. elig 1/1; 3/4 | 19/14; 26/22 | 0.994 / 0.964 / 0.639 |
+- No Qwen output is under 40 tokens; Ministral has 131 (of 1,554). Given permission to generate, the models reason step by step on their
+  own; the outputs look like the step rung's.
+- Rule outcome: **(a) permission to generate suffices** for 14B and Ministral and for every gross contrast; 32B eligibility controllability
+  is graded (5 flips, between the step rung's 6 and the thinking rung's 0). The direct readout's cue effects therefore come from the
+  one-word instruction forbidding the computation, not from the absence of an instruction to compute, and not from the thinking switch.
+- ABAWD outside the trap is as unstable as on the step rung (cue-free flip rate vs the step rung 0.12 / 0.15 / 0.40); 14B shows a one-seed
+  controllability asymmetry (18/8) of the kind already seen for 8B thinking-on and 32B step; one seed cannot pass the leak criterion.

@@ -174,3 +174,6 @@ Adopted on the PI's go (15:10): free-generation rung (queue 7; pre-registered ru
 Auditing Deservingness Cues in LLM Welfare Determinations Against a Computed Gold Standard", abstract and intro reframed around the
 response protocol, recommendation reworded (report accuracy with every cue effect; restrict mechanism claims, not error reports, where
 accuracy is low), track preference moved to Resources, Benchmarks and Evaluation. Not adopted: more models (API deferred by the PI).
+
+## Outcome of queue 7 (free-generation rung; 2026-10-08 15:58)
+Permission to generate suffices: without any instruction to reason the three models compute unprompted (income 0.98-1.00, contrasts 0-5 flips). The direct readout's cue effects come from the one-word instruction. Paper v4 states this in the abstract, Table 1, the ladder paragraph and Appendix F (results doc section 20).

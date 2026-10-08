@@ -62,18 +62,7 @@ this disclosure. ACL treats undisclosed content-creating use as inappropriate us
   Analytics, and NLP for Social Good"; secondary "Resources, Benchmarks, and Evaluation".
 - Keywords: decision audit; deservingness; welfare eligibility; rules-as-code; first-token vs generated readout; chain-of-thought;
   SNAP; fairness evaluation.
-- Short abstract (about 190 words, for the form; the PDF keeps the full one):
-  "Language models are entering welfare eligibility work. We test whether legally irrelevant deservingness cues (job-search effort,
-  controllability of job loss) move their determinations on a SNAP FY2026 rules-as-code testbed with computed, independently
-  cross-checked gold labels. The answer depends on the readout. With direct first-token answers, four open models are at chance on
-  the income tests and wrongly deny 24-63% of eligible near-threshold households before any cue; cues then move verdicts, mostly in
-  task- and model-specific directions, with one exception that holds in all four models: a blameless job loss raises the
-  eligibility verdict. A hardship sentence with no deservingness content moves verdicts as much. Asked to compute step by step, the
-  same models are at ceiling and paired cue contrasts flip 0-3 of 60-74 pairs with no sign that survives a second seed; every zero
-  is bounded. A same-prompt ladder shows that asking for computation, not the thinking switch, removes most of the effect; one cell
-  passes a pre-stated leak criterion, and a second model's same-sized asymmetry disappears at the next seed. Audits of LLM benefit
-  decisions must use the deployment readout, pair cues, fix a leak criterion before looking, and report effects only where the
-  model is competent. We release the testbed."
+- Abstract for the form: use the PDF abstract (v4, 273 words; paper/main.tex).
 - Supplementary: software = llm-welfare-rules-anon-software.zip; data = llm-welfare-rules-anon-data.zip (built by
   src/release/make_release.sh; both pass the identifier check). No external links (no Dropbox-type trackers allowed).
 - Preprint option: no anonymity period; choose the binding "no non-anonymous preprint" option only if the PI will not post to arXiv
