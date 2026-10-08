@@ -48,7 +48,7 @@ if grep -rIl -iE "kunhail|/root/" "$OUT" ; then echo "IDENTIFIERS FOUND (above):
 # ARR wants software and data as two separate single archives; results go with the data.
 B=$(basename "$OUT"); D=$(dirname "$OUT")
 rm -rf "$D/$B-software" "$D/$B-data"; mkdir -p "$D/$B-software" "$D/$B-data"
-cp -r "$OUT/src" "$OUT/configs" "$OUT/tests" "$OUT/docs" "$OUT/README.md" "$D/$B-software/"
+cp -r "$OUT/src" "$OUT/configs" "$OUT/tests" "$OUT/docs" "$OUT/archive" "$OUT/archive" "$OUT/README.md" "$D/$B-software/"
 cp -r "$OUT/data" "$OUT/results" "$D/$B-data/"; cp "$OUT/README.md" "$D/$B-data/"
 ( cd "$D" && rm -f "$B.zip" "$B-software.zip" "$B-data.zip" && zip -qr "$B.zip" "$B" && zip -qr "$B-software.zip" "$B-software" && zip -qr "$B-data.zip" "$B-data" )
 du -sh "$OUT" "$OUT.zip" "$D/$B-software.zip" "$D/$B-data.zip"; echo "release at $OUT.zip (+ -software.zip and -data.zip for the ARR upload)"
