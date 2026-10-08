@@ -28,6 +28,8 @@ find archive/stage2_design_c/results -name "score*" -exec sh -c 'mkdir -p "$OUT/
 cat > "$OUT/README.md" <<'R'
 # Anonymised release: deservingness cues in LLM welfare determinations (SNAP FY2026 rules-as-code testbed)
 
+Licence: code (src/, tests/, configs/) MIT; generated items, model outputs, scores and notes (data/, results/, docs/, archive/) CC BY 4.0. The SNAP QC public-use file and FNS documents are U.S. federal public-domain works and are not redistributed here except the FNS parameter PDFs.
+
 Code, items, model outputs and scores for the paper. Reproduce:
     unzip the SNAP QC FY2024 public-use CSV (https://snapqcdata.net/datafiles) into data/external/candidates/snap_qc_fy2024/
     python src/gen/make_rules_pilot.py --bases 40 --seed 11 --out data/rules_pilot/pilot.jsonl    # byte-identical to the shipped file
@@ -48,7 +50,7 @@ if grep -rIl -iE "kunhail|/root/" "$OUT" ; then echo "IDENTIFIERS FOUND (above):
 # ARR wants software and data as two separate single archives; results go with the data.
 B=$(basename "$OUT"); D=$(dirname "$OUT")
 rm -rf "$D/$B-software" "$D/$B-data"; mkdir -p "$D/$B-software" "$D/$B-data"
-cp -r "$OUT/src" "$OUT/configs" "$OUT/tests" "$OUT/docs" "$OUT/archive" "$OUT/archive" "$OUT/README.md" "$D/$B-software/"
+cp -r "$OUT/src" "$OUT/configs" "$OUT/tests" "$OUT/docs" "$OUT/archive" "$OUT/README.md" "$D/$B-software/"
 cp -r "$OUT/data" "$OUT/results" "$D/$B-data/"; cp "$OUT/README.md" "$D/$B-data/"
 ( cd "$D" && rm -f "$B.zip" "$B-software.zip" "$B-data.zip" && zip -qr "$B.zip" "$B" && zip -qr "$B-software.zip" "$B-software" && zip -qr "$B-data.zip" "$B-data" )
 du -sh "$OUT" "$OUT.zip" "$D/$B-software.zip" "$D/$B-data.zip"; echo "release at $OUT.zip (+ -software.zip and -data.zip for the ARR upload)"

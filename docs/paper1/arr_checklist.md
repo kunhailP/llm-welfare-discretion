@@ -35,7 +35,7 @@ Policy" (September 2026; in force from the October 2026 cycle per the CFP), NAAC
 | A1 limitations | Yes | Section 5 (Limitations) |
 | A2 risks | Yes | Ethics statement; Discussion (deployment readout, audit misuse); Limitations (no frontier model, no human baseline) |
 | B1 cite artifacts | Yes | Section 2 (SNAP QC FY2024 file, FNS FY2026 parameters, PolicyEngine-US 2.24.5), Appendix F (models and versions) |
-| B2 licences | Yes | Appendix G: Qwen3 family and Ministral-3 Apache-2.0; PolicyEngine-US AGPL-3.0; SNAP QC and FNS documents U.S. federal public domain; our release licence in its README (PI to choose: code MIT or Apache-2.0, data CC BY 4.0) |
+| B2 licences | Yes | Appendix G: Qwen3 family and Ministral-3 Apache-2.0; PolicyEngine-US AGPL-3.0; SNAP QC and FNS documents U.S. federal public domain; release README states code MIT, data/outputs CC BY 4.0 (set 2026-10-08; PI may change before upload) |
 | B3 intended use | Yes | Appendix G and Ethics: QC file used for household structures only, not redistributed; models used for evaluation; release for audit methodology, not deployment |
 | B4 PII / offensive content | Yes | Ethics statement: QC file is de-identified; names are placeholders; items are generated text |
 | B5 documentation | Yes | Section 2 and Appendix B (domains: SNAP income tests and ABAWD; English; household-size strata); supplementary README |
@@ -57,7 +57,7 @@ Note: the repo's PI-only authorship policy (NORTH_STAR) is about authorship cred
 this disclosure. ACL treats undisclosed content-creating use as inappropriate use, so E1 must be answered "Yes" with text.
 
 ## 5. OpenReview form fields (draft)
-- Title: Where Deservingness Leaks: Direct and Reasoning Readouts of LLM Welfare Determinations
+- Title: Leak or Readout? Auditing Deservingness Cues in LLM Welfare Determinations Against a Computed Gold Standard (v4; v3 title 'Where Deservingness Leaks' retired after round 5)
 - Paper type: short. Track (NAACL list): "Ethics, Bias, and Fairness" (first choice) or "Computational Social Science, Cultural
   Analytics, and NLP for Social Good"; secondary "Resources, Benchmarks, and Evaluation".
 - Keywords: decision audit; deservingness; welfare eligibility; rules-as-code; first-token vs generated readout; chain-of-thought;

@@ -86,7 +86,7 @@ if agr.exists():
             "| model | comparison | agreement gross / elig / ABAWD | flip rate at cue = none gross / elig / ABAWD | accuracy of second run gross / elig / ABAWD |",
             "| --- | --- | --- | --- | --- |"]
     for m in MODELS:
-        for tag, label in (("s0_vs_s1", "seed 0 vs seed 1"), ("on_vs_off", "thinking on vs off (same prompt)"), ("off_s0_vs_s1", "thinking off, seed 0 vs seed 1")):
+        for tag, label in (("s0_vs_s1", "seed 0 vs seed 1"), ("on_vs_off", "thinking on vs off (same prompt)"), ("off_s0_vs_s1", "thinking off, seed 0 vs seed 1"), ("off_vs_free", "step-by-step vs free generation (thinking off)")):
             f = agr / f"{m}_{tag}.json"
             if f.exists():
                 a = json.load(open(f))

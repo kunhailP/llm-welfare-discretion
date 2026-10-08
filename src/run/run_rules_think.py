@@ -23,6 +23,9 @@ ORDERS = {"yesfirst": "Reason through the rules step by step. End with a final l
           "nofirst": "Reason through the rules step by step. End with a final line of exactly the form ANSWER: NO or ANSWER: YES."}
 ORDERS3 = {"yesfirst": "Reason through the rules step by step. End with a final line of exactly the form ANSWER: YES or ANSWER: NO or ANSWER: REQUEST.",
            "nofirst": "Reason through the rules step by step. End with a final line of exactly the form ANSWER: NO or ANSWER: YES or ANSWER: REQUEST."}
+ORDERS_FREE = {"yesfirst": "End with a final line of exactly the form ANSWER: YES or ANSWER: NO.",
+               "nofirst": "End with a final line of exactly the form ANSWER: NO or ANSWER: YES."}   # free generation: no instruction to reason (2026-10-08, review round 5)
+PROMPT_VARIANT = "step"
 PER_CELL = {"gross": 15, "abawd": 15}
 
 
@@ -58,7 +61,8 @@ def build_prompt(packet, r, order):
     q = r["question"] if "question" in r else QUESTIONS[r["task"]].format(name=name)
     if r.get("packet_extra"):
         packet = f"{packet}\n\n{r['packet_extra']}"
-    return f"{packet}\n\n=== CASE FILE ===\n{r['text']}\n\n=== QUESTION ===\n{q}\n{(ORDERS3 if r.get('answer_set') == 'ynr' else ORDERS)[order]}"
+    tail = ORDERS_FREE if PROMPT_VARIANT == "free" else (ORDERS3 if r.get('answer_set') == 'ynr' else ORDERS)
+    return f"{packet}\n\n=== CASE FILE ===\n{r['text']}\n\n=== QUESTION ===\n{q}\n{tail[order]}"
 
 
 def parse(text, thinking=True):
@@ -89,9 +93,11 @@ def main():
     ap.add_argument("--seed", type=int, default=0, help="sampling seed (seed baseline for thinking runs)")
     ap.add_argument("--no-subsample", action="store_true", help="run every row of --data; order alternates by base")
     ap.add_argument("--greedy", action="store_true", help="temperature 0 (decoding control for the protocol ladder)")
+    ap.add_argument("--prompt", choices=["step", "free"], default="step", help="free = no step-by-step instruction, only the ANSWER-line format (permission to generate without the instruction to compute)")
     ap.add_argument("--only-cues", help="comma list: after subsampling, keep only these cues (group selection and order unchanged)")
     ap.add_argument("--only-tasks", help="comma list: after subsampling, keep only these tasks")
     a = ap.parse_args()
+    global PROMPT_VARIANT; PROMPT_VARIANT = a.prompt
     assert "qwen" in a.model or "gpt-oss" in a.model or a.thinking == "off", "thinking implemented for Qwen3 and gpt-oss only; other models: --thinking off"
     from vllm import LLM, SamplingParams
 
@@ -136,7 +142,7 @@ def main():
     import platform, torch, transformers, vllm
     meta = dict(model=a.model, repo=cfg["repo"], revision=cfg["revision"], vllm=vllm.__version__,
                 transformers=transformers.__version__, torch=torch.__version__, python=platform.python_version(),
-                packet=a.packet, chat_kwargs=chat_kw, sampling=repr(sp), thinking=a.thinking, greedy=a.greedy, seed=a.seed, n=len(jobs), seconds=round(dt, 1),
+                packet=a.packet, chat_kwargs=chat_kw, sampling=repr(sp), thinking=a.thinking, greedy=a.greedy, seed=a.seed, prompt=a.prompt, n=len(jobs), seconds=round(dt, 1),
                 example_prompt=convs[0][0]["content"], data=a.data)
     json.dump(meta, open(a.out + ".meta.json", "w"))
     print(json.dumps({k: v for k, v in meta.items() if k != "example_prompt"}))

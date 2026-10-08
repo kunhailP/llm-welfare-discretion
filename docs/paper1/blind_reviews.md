@@ -159,3 +159,18 @@ files and found them correct. Their objections converge; verified against the re
 
 ## Outcome of queue 6 (need control on the 32B ABAWD cells; 2026-10-08 14:46)
 Pre-registered rule gives (iii) not separable (results doc section 19). Paper v3 states it in the abstract, the ladder paragraph and a new appendix; the 32B cell stays 'one replicated cell among 36 examined'.
+
+# Round 5: external review of v3 (pasted by the PI, 2026-10-08) and the response
+
+Mock score Overall ~3.0. Verified points: (1) the direct readout's probability verdict agrees with the greedy one-word answer 99.9-100%, so
+the phenomenon is "asked for an answer vs asked to compute", not a first-token misreading (Wang et al. 2024 covers the latter); (2) the
+title "Where Deservingness Leaks" is stronger than the need-control outcome (not separable); (3) the 3/n bound is per item, the household
+bound is 10-11% and does not exclude the direct effects (the paper already says so; the abstract did not); (4) 17 up / 3 down come from
+15 + 3 = 17 households (fixed: "17 household-cells in 15 households ... 3 in 3 other households"); (5) LexGuard already uses statute-based
+gold (intro narrowed to: independent cross-check + non-demographic deservingness cues + response-protocol comparison); (6) release gaps:
+Design C archive missing (now shipped: notes + score files), docs/ layout (now docs/paper1 and docs/results), README licence missing
+(now: code MIT, data/outputs CC BY 4.0, PI may change); (7) abstract 354 words (now 273).
+Adopted on the PI's go (15:10): free-generation rung (queue 7; pre-registered rule in decisions.md), new title "Leak or Readout?
+Auditing Deservingness Cues in LLM Welfare Determinations Against a Computed Gold Standard", abstract and intro reframed around the
+response protocol, recommendation reworded (report accuracy with every cue effect; restrict mechanism claims, not error reports, where
+accuracy is low), track preference moved to Resources, Benchmarks and Evaluation. Not adopted: more models (API deferred by the PI).
