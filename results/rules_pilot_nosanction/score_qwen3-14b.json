@@ -1,0 +1,408 @@
+{
+ "qwen3-14b": {
+  "integrity": {
+   "items": 6376,
+   "items_missing": 0,
+   "order_rows_missing": 0,
+   "greedy_invalid_rate": 0.0,
+   "greedy_agree_rate": 1.0
+  },
+  "accuracy_by_order": {
+   "abawd|nofirst": 0.649,
+   "abawd|yesfirst": 0.765,
+   "elig|nofirst": 0.476,
+   "elig|yesfirst": 0.489,
+   "gross|nofirst": 0.523,
+   "gross|yesfirst": 0.567
+  },
+  "balanced_accuracy": {
+   "abawd": 0.807,
+   "elig": 0.437,
+   "gross": 0.543
+  },
+  "yes_rate_vs_gold": {
+   "abawd": [
+    0.513,
+    0.8
+   ],
+   "elig": [
+    0.663,
+    0.622
+   ],
+   "gross": [
+    0.836,
+    0.5
+   ]
+  },
+  "accuracy_income": {
+   "elig|-0.15|narrative": 0.525,
+   "elig|-0.15|structured": 0.735,
+   "elig|-0.04|narrative": 0.535,
+   "elig|-0.04|structured": 0.658,
+   "elig|+0.04|narrative": 0.412,
+   "elig|+0.04|structured": 0.294,
+   "elig|+0.15|narrative": 0.152,
+   "elig|+0.15|structured": 0.076,
+   "gross|-0.15|narrative": 0.823,
+   "gross|-0.15|structured": 0.968,
+   "gross|-0.04|narrative": 0.774,
+   "gross|-0.04|structured": 0.952,
+   "gross|+0.04|narrative": 0.376,
+   "gross|+0.04|structured": 0.07,
+   "gross|+0.15|narrative": 0.301,
+   "gross|+0.15|structured": 0.081
+  },
+  "accuracy_abawd": {
+   "child_15_trap|72.0|narrative": 0.95,
+   "child_15_trap|72.0|structured": 0.965,
+   "child_15_trap|88.0|narrative": 0.87,
+   "child_15_trap|88.0|structured": 1.0,
+   "child_under_14|72.0|narrative": 0.035,
+   "child_under_14|72.0|structured": 0.075,
+   "child_under_14|88.0|narrative": 0.99,
+   "child_under_14|88.0|structured": 1.0,
+   "medical|72.0|narrative": 0.345,
+   "medical|72.0|structured": 0.03,
+   "medical|88.0|narrative": 1.0,
+   "medical|88.0|structured": 1.0,
+   "nonexempt|72.0|narrative": 1.0,
+   "nonexempt|72.0|structured": 1.0,
+   "nonexempt|88.0|narrative": 0.51,
+   "nonexempt|88.0|structured": 1.0,
+   "pregnant|72.0|narrative": 0.28,
+   "pregnant|72.0|structured": 0.045,
+   "pregnant|88.0|narrative": 1.0,
+   "pregnant|88.0|structured": 1.0
+  },
+  "errors": {
+   "n": 2322,
+   "wrongful_denial": 1466,
+   "wrongful_approval": 856
+  },
+  "cue_effects_should_not_change": {
+   "income|control_high": {
+    "dP_yes": [
+     0.1736,
+     0.1328,
+     0.2108
+    ],
+    "flip_rate": 0.2071,
+    "n": 396
+   },
+   "income|control_low": {
+    "dP_yes": [
+     0.1509,
+     0.1192,
+     0.181
+    ],
+    "flip_rate": 0.1667,
+    "n": 396
+   },
+   "income|effort_high": {
+    "dP_yes": [
+     0.1156,
+     0.0873,
+     0.1466
+    ],
+    "flip_rate": 0.1667,
+    "n": 396
+   },
+   "income|effort_low": {
+    "dP_yes": [
+     0.0285,
+     0.0008,
+     0.0576
+    ],
+    "flip_rate": 0.1111,
+    "n": 396
+   },
+   "income|valence_neg": {
+    "dP_yes": [
+     0.1512,
+     0.1223,
+     0.1801
+    ],
+    "flip_rate": 0.1793,
+    "n": 396
+   },
+   "abawd|control_high": {
+    "dP_yes": [
+     0.2311,
+     0.2218,
+     0.2398
+    ],
+    "flip_rate": 0.16,
+    "n": 800
+   },
+   "abawd|control_low": {
+    "dP_yes": [
+     0.1575,
+     0.1484,
+     0.167
+    ],
+    "flip_rate": 0.0875,
+    "n": 800
+   },
+   "abawd|effort_high": {
+    "dP_yes": [
+     0.0677,
+     0.0603,
+     0.0762
+    ],
+    "flip_rate": 0.0488,
+    "n": 800
+   },
+   "abawd|effort_low": {
+    "dP_yes": [
+     0.0807,
+     0.071,
+     0.0916
+    ],
+    "flip_rate": 0.0462,
+    "n": 800
+   }
+  },
+  "cue_contrasts_hi_minus_lo_clustered": {
+   "elig|control_high-control_low": {
+    "dP_yes": [
+     0.0642,
+     0.0322,
+     0.1018
+    ],
+    "flip_rate": 0.1149,
+    "n": 148,
+    "n_bases": 27
+   },
+   "elig|effort_high-effort_low": {
+    "dP_yes": [
+     0.1048,
+     0.0654,
+     0.16
+    ],
+    "flip_rate": 0.0811,
+    "n": 148,
+    "n_bases": 27
+   },
+   "gross|control_high-control_low": {
+    "dP_yes": [
+     -0.0022,
+     -0.0118,
+     0.0081
+    ],
+    "flip_rate": 0.0363,
+    "n": 248,
+    "n_bases": 31
+   },
+   "gross|effort_high-effort_low": {
+    "dP_yes": [
+     0.0767,
+     0.0539,
+     0.0988
+    ],
+    "flip_rate": 0.129,
+    "n": 248,
+    "n_bases": 31
+   },
+   "abawd|control_high-control_low": {
+    "dP_yes": [
+     0.0736,
+     0.0681,
+     0.0786
+    ],
+    "flip_rate": 0.0775,
+    "n": 800,
+    "n_bases": 40
+   },
+   "abawd|effort_high-effort_low": {
+    "dP_yes": [
+     -0.013,
+     -0.0194,
+     -0.0069
+    ],
+    "flip_rate": 0.035,
+    "n": 800,
+    "n_bases": 40
+   }
+  },
+  "hours_effect_should_change": {
+   "child_15_trap": [
+    0.7337,
+    0.7083,
+    0.7521
+   ],
+   "nonexempt": [
+    0.7653,
+    0.7435,
+    0.7858
+   ]
+  },
+  "exemption_recognition_72h": {
+   "control_high": 0.308,
+   "control_low": 0.104,
+   "effort_high": 0.075,
+   "effort_low": 0.129,
+   "none": 0.058
+  },
+  "exemption_recognition_by_status_cue": {
+   "child_under_14|control_high": 0.225,
+   "child_under_14|control_low": 0.025,
+   "child_under_14|effort_high": 0.013,
+   "child_under_14|effort_low": 0.013,
+   "child_under_14|none": 0.0,
+   "medical|control_high": 0.4,
+   "medical|control_low": 0.15,
+   "medical|effort_high": 0.087,
+   "medical|effort_low": 0.163,
+   "medical|none": 0.138,
+   "pregnant|control_high": 0.3,
+   "pregnant|control_low": 0.138,
+   "pregnant|effort_high": 0.125,
+   "pregnant|effort_low": 0.212,
+   "pregnant|none": 0.037
+  },
+  "abawd_exemption_x_hours": {
+   "control_high": {
+    "interaction": [
+     0.423,
+     0.3844,
+     0.46
+    ],
+    "correct_switch": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "all4": [
+     0.3083,
+     0.2333,
+     0.3833
+    ],
+    "n": 240
+   },
+   "control_low": {
+    "interaction": [
+     0.2081,
+     0.1758,
+     0.2391
+    ],
+    "correct_switch": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "all4": [
+     0.1042,
+     0.0542,
+     0.1708
+    ],
+    "n": 240
+   },
+   "effort_high": {
+    "interaction": [
+     -0.0505,
+     -0.0841,
+     -0.0127
+    ],
+    "correct_switch": [
+     0.6625,
+     0.5875,
+     0.7375
+    ],
+    "all4": [
+     0.0458,
+     0.0167,
+     0.0833
+    ],
+    "n": 240
+   },
+   "effort_low": {
+    "interaction": [
+     0.0015,
+     -0.0326,
+     0.0382
+    ],
+    "correct_switch": [
+     0.5875,
+     0.5375,
+     0.65
+    ],
+    "all4": [
+     0.05,
+     0.0208,
+     0.0917
+    ],
+    "n": 240
+   },
+   "none": {
+    "interaction": [
+     -0.2938,
+     -0.3226,
+     -0.259
+    ],
+    "correct_switch": [
+     0.525,
+     0.5,
+     0.5625
+    ],
+    "all4": [
+     0.0083,
+     0.0,
+     0.025
+    ],
+    "n": 240
+   },
+   "control_high_minus_none": {
+    "d_interaction": [
+     0.7168,
+     0.6857,
+     0.7472
+    ],
+    "d_all4": [
+     0.3,
+     0.2333,
+     0.3708
+    ],
+    "n": 240
+   },
+   "control_low_minus_none": {
+    "d_interaction": [
+     0.5019,
+     0.4775,
+     0.5264
+    ],
+    "d_all4": [
+     0.0958,
+     0.0542,
+     0.1458
+    ],
+    "n": 240
+   },
+   "effort_high_minus_none": {
+    "d_interaction": [
+     0.2433,
+     0.2185,
+     0.2678
+    ],
+    "d_all4": [
+     0.0375,
+     0.0167,
+     0.0667
+    ],
+    "n": 240
+   },
+   "effort_low_minus_none": {
+    "d_interaction": [
+     0.2953,
+     0.2627,
+     0.3312
+    ],
+    "d_all4": [
+     0.0417,
+     0.0167,
+     0.075
+    ],
+    "n": 240
+   }
+  }
+ }
+}

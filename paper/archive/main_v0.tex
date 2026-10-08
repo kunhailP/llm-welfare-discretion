@@ -1,0 +1,125 @@
+% Paper 1 draft v0 (2026-10-08), short paper, ACL/ARR template (acl.sty from the ARR kit; compile in Overleaf).
+% Numbers: docs/paper1/tables.md and docs/results/design_B_rules_pilot.md. Anonymous submission.
+\documentclass[11pt]{article}
+\usepackage[review]{acl}
+\usepackage{times,latexsym,booktabs,graphicx,url,amsmath,multirow}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+
+\title{Where Deservingness Leaks: Direct and Reasoning Readouts of LLM Welfare Determinations}
+\author{Anonymous ACL submission}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Language models are entering welfare eligibility work. We ask whether legally irrelevant deservingness cues (job-search effort, controllability of job loss) move their determinations, using a SNAP FY2026 rules-as-code testbed in which the statute fixes which facts a decision may use and gold labels are computed and cross-checked against an independent rules engine. The answer depends on how the verdict is read out. With direct first-token answers, four open models are at chance on income tests, any added sentence moves the verdict as much as a deservingness cue, and the one consistent signal is a controllability contrast on eligibility (+0.04 to +0.09, base-clustered CIs exclude 0 in every model). With reasoning, the same models are at ceiling, every paired cue contrast on income tests is 0 across two sampling seeds, and no residual contrast keeps its sign between seeds. A same-prompt ladder shows that asking for step-by-step computation removes most of the effect before the thinking switch is turned on; the one directional leak appears where a model is unstable on work-requirement exemptions. On a synthetic near-threshold caseload, the first-token readout reports 7k--16k verdicts per 100k that change with the cue and 4k--8k extra wrongful denials, the reasoning readout none. Audits of LLM benefit decisions must use the deployment readout and report cue effects only where the model is competent. We release the testbed.
+\end{abstract}
+
+\section{Introduction}
+Work requirements in U.S. food assistance now reach adults aged 18--64 and exempt a parent only for a child under 14 (P.L.~119-21, 2025); Medicaid work requirements follow in 2027. States are funding language-model tools to verify work hours, draft notices and decision memos, and the federal agency has warned that such tools ``may introduce bias or errors into eligibility determinations''. The social-science literature on welfare predicts a specific bias: human judgments of who deserves help are driven by \emph{control} (did the person cause their need?) and \emph{effort} (are they trying?) \citep{vanoorschot2000who,petersen2012smallscale,knotz2022recast}. A rule-bound determination must ignore both. We ask whether language models do, and we find that the answer is mostly a property of how the model's verdict is read out.
+
+Our testbed fixes what prior audits leave open. Decision audits of language models typically have no ground truth, so every cue effect is ``discrimination'' by assumption \citep{tamkin2023discrimination,kearney2025facts}; benefit-calculation benchmarks have ground truth but no social cues \citep{policybench2026,servantez2026openexempt}. We encode the FY2026 federal SNAP rules as code, sample real household structures from the SNAP Quality Control public-use file, move incomes to chosen margins of the statutory limits, and lay deservingness cues on top of otherwise identical case files. Every determination has a computed gold label, so a cue effect is a directional error, not a difference.
+
+Contributions. (1) A gold-verified, cue-manipulated welfare determination testbed (6,376 items, three determinations, four cue types with a non-moral control). (2) A readout result: with first-token answers, deservingness cues move verdicts that are at chance; with generated reasoning, verdicts are at ceiling and cue effects are zero, measured against a seed-to-seed noise floor and a same-prompt ladder. (3) Three measurement lessons for decision audits: a sentence-addition control, paired contrasts, and a polarity flip that exposes acquiescence.
+
+\section{Testbed}
+\paragraph{Rules and gold.} The prompt contains the FY2026 federal SNAP rules (no state options): gross and net income tests with the standard, earned-income, dependent-care, medical and capped excess-shelter deductions, the asset test, the benefit formula, and the ABAWD time limit with its exemptions (medical, pregnancy, child under 14, tribal membership, 30 hours of work) and the 80 hours per month requirement that independent job search does not satisfy. Gold labels come from our rules-as-code implementation, cross-checked against PolicyEngine-US on 500 random households (no mismatches within the packet's scope; 29 cases differ by \$1 from a rounding convention) and against hand-computed unit tests.
+
+\paragraph{Households and tasks.} Forty household structures (size, ages, disability, rent, utilities, deductions) are sampled from the SNAP QC FY2024 file. Incomes are rescaled so that the decisive quantity sits at $-15$, $-4$, $+4$ or $+15$\% of its limit. Three determinations: the gross income test, income eligibility (all tests), and the ABAWD determination for a focal adult with fixed paid work (40 hours, \$480) and 32 or 48 approved work-program hours (72 or 88 in total) under five exemption statuses. Each item is rendered as a structured case file and as a caseworker narrative.
+
+\paragraph{Cues.} One sentence about the focal adult, same slot and similar length, with no money facts: no cue; effort high/low (eight applications a week vs one in two months); controllability high/low (warehouse closed vs fired for missing shifts); and a non-moral negative control (car broke down). Every cue is legally irrelevant to every determination in the packet.
+
+\paragraph{Readouts.} (a) Direct: the probability of YES from first-token log-probabilities, averaged over both answer orders, thinking off. (b) Reasoning: the same step-by-step prompt with the model's thinking mode on, verdict parsed from the final line (temperature 0.6, two seeds). (c) Ladder: the same prompt with thinking off, so the visible reasoning is the only reasoning. Models: Qwen3-8B, Qwen3-14B, Qwen3-32B-AWQ, Ministral-3-8B (direct only). The reasoning runs use a stratified 1,554-item narrative subsample that keeps every cue of a group, so contrasts stay paired. All confidence intervals are percentile bootstraps clustered by household.
+
+\section{Results}
+\paragraph{Competence by readout.} Table~\ref{tab:comp} gives balanced accuracy. With direct answers, income tests are at chance for every model and accuracy does not rise with distance from the limit: the models answer from a prior. The ABAWD determination shows a different heuristic at each scale (14B applies the hours rule but ignores exemptions; 32B recognises exemptions but treats a 15-year-old child as exempting). With reasoning, gross and net tests are at 1.00 for 14B and 32B and 0.98--1.00 for 8B; the remaining ABAWD errors sit in one adversarial cell, where a checklist line ``responsible for a child: Yes'' conflicts with the stated age 15.
+
+\begin{table}[t]\centering\small
+\begin{tabular}{lcccccc}
+\toprule
+& \multicolumn{3}{c}{direct} & \multicolumn{3}{c}{reasoning} \\
+model & gross & elig & ABAWD & gross & elig & ABAWD \\
+\midrule
+Qwen3-8B & .54 & .48 & .50 & 1.00 & 1.00 & .92 \\
+Ministral-3-8B & .52 & .41 & .62 & -- & -- & -- \\
+Qwen3-14B & .58 & .42 & .80 & 1.00 & 1.00 & .96 \\
+Qwen3-32B-AWQ & .52 & .44 & .70 & .97 & 1.00 & .99 \\
+\bottomrule
+\end{tabular}
+\caption{Competence by readout: balanced accuracy (direct, first-token) and mean cell accuracy (reasoning, cue-free items).}
+\label{tab:comp}
+\end{table}
+
+\paragraph{Cue effects by readout.} Table~\ref{tab:cue} gives the paired hi--lo contrasts in P(YES). With direct answers, the controllability contrast on eligibility is positive in all four models with clustered intervals excluding zero: a blameless job loss raises the probability of a YES on a determination in which the reason for job loss plays no role. Effort has no consistent sign. With reasoning, every contrast on the income tests is exactly zero in every model and both seeds; the ABAWD contrasts are small and change sign between seeds (14B control $-0.040$ at seed 0, $+0.007$ at seed 1; 8B elig effort $+0.041$ then $-0.041$), each within the cue-free seed-to-seed flip rate of its task (Table~\ref{tab:noise}).
+
+\begin{table}[t]\centering\small
+\begin{tabular}{llcc}
+\toprule
+model & task & control hi--lo & effort hi--lo \\
+\midrule
+\multicolumn{4}{l}{\emph{direct (first-token), 95\% clustered CI}} \\
+Qwen3-8B & elig & +.081 [+.042, +.115] & +.001 \\
+Ministral-3-8B & elig & +.043 [+.032, +.056] & +.032 [+.008, +.057] \\
+Qwen3-14B & elig & +.048 [+.021, +.078] & +.069 [+.040, +.108] \\
+Qwen3-32B-AWQ & elig & +.091 [+.056, +.133] & +.015 [$-$.006, +.037] \\
+\multicolumn{4}{l}{\emph{reasoning (thinking on), seed 0 / seed 1}} \\
+Qwen3-8B & elig & .000 / .000 & +.041 / $-$.041 \\
+Qwen3-14B & elig & .000 / .000 & .000 / .000 \\
+Qwen3-32B-AWQ & elig & .000 / $-$.027 & .000 / .000 \\
+Qwen3-14B & ABAWD & $-$.040 / +.007 & .000 / .000 \\
+Qwen3-32B-AWQ & ABAWD & .000 / $-$.013 & +.007 / +.013 \\
+\bottomrule
+\end{tabular}
+\caption{Paired deservingness contrasts, $\Delta$P(YES) high minus low deservingness, same item otherwise. Gross-test contrasts under reasoning are zero in every model and seed.}
+\label{tab:cue}
+\end{table}
+
+\paragraph{Any added sentence moves a direct verdict.} Measured against the cue-free item instead of the opposite cue, every cue shifts the direct P(YES), and the non-moral control shifts it as much or more (14B: control $+0.08$, effort $+0.06$, car $+0.14$; 8B: all negative, car $-0.09$). An unpaired audit would report a deservingness effect that is a length or attention effect. Only the paired contrasts above are interpretable.
+
+\paragraph{The ladder.} Thinking off with the same step-by-step prompt gives income accuracy of 0.93--1.00 and cue contrasts at the noise floor (14B elig control $+0.014$, effort $-0.027$, both CIs touching 0). Asking for computation removes most of the effect before the thinking switch is turned on. What the switch adds is reliability on the exemption chain: without it, exemption cells degrade (child under 14 at 72 hours: 0.73; the age-15 trap: 0.15--0.55; 32B non-exempt at 72 hours: 0.83), and there the 32B model shows the one directional leak in the ladder, a controllability contrast of $+0.060$ [$+0.013$, $+0.109$] on ABAWD made of wrongful approvals of the blameless non-exempt adult and wrongful denials of an exempt pregnant adult who was fired. We report it as exploratory (one model, one seed, cue-free flip rate 0.10 on that task).
+
+\begin{table}[t]\centering\small
+\begin{tabular}{llccc}
+\toprule
+model & comparison & gross & elig & ABAWD \\
+\midrule
+Qwen3-8B & seed 0 vs 1 & .000 & .000 & .087 \\
+Qwen3-14B & seed 0 vs 1 & .000 & .000 & .047 \\
+Qwen3-32B-AWQ & seed 0 vs 1 & .033 & .000 & .027 \\
+Qwen3-14B & thinking on vs off & .000 & .013 & .107 \\
+Qwen3-32B-AWQ & thinking on vs off & .033 & .013 & .100 \\
+\bottomrule
+\end{tabular}
+\caption{Noise floor: verdict flip rate between two runs on cue-free items.}
+\label{tab:noise}
+\end{table}
+
+\paragraph{Reasoning mentions the cue without using it.} The low-effort sentence is mentioned in 38--78\% of eligibility traces, where it pulls the model into an off-question check of the work requirement; the income verdict does not change. Mention is not reliance.
+
+\paragraph{Consequence.} We apply each model to the 40 households at the four margins as a synthetic near-threshold caseload. Under the direct readout, the controllability contrast changes 6.8k (14B) to 16.2k (32B) verdicts per 100k cases, always toward denying the applicant who was fired, with 4k--8k additional wrongful denials per 100k. Under the reasoning readout the figures are zero for 14B and 32B. The direct-readout flips concentrate in 2--4 of 37 households whose P(YES) sits near 0.5. An audit that reads probabilities reports a socially patterned eligibility gap; the same models, asked to compute, produce none.
+
+\paragraph{A polarity flip exposes acquiescence.} On a discretionary variant of the task (an open hardship standard), Qwen3-14B answers NO both to ``does the agency grant?'' and ``does the agency deny?''; pooled over the two questions its P(grant) is 0.49 and looks calibrated. Cue ``effects'' reverse sign across the two polarities: every added sentence raises P(YES) to whatever is asked. A first-token readout cannot measure a judgment the model does not compute (details in Appendix~E).
+
+\section{Discussion}
+Our results agree with the formalism reported for frontier models under clear rules \citep{posner2026judgeai,posner2026silicon} and with the stability of criterion-bound eligibility judgments under identity cues \citep{soffer2026sociodemographic}, and add three things: gold-scored directional errors on multi-step statutory tests, a measured noise floor behind every zero, and a non-reasoning contrast that locates where the leakage reports in the audit literature come from. For audits of language-model decisions \citep{vohra2026audit,basu2026names} the recommendations are concrete: read the verdict the way the deployment does, pair cues, include a non-moral sentence control, flip the polarity, and report cue effects only where the model is competent. What this study does not show is what happens when the record is incomplete, when the standard is open, or in frontier models; the directional leak on unstable exemption cells suggests that is where to look next.
+
+\section{Limitations}
+One program and federal rules only; four open models of at most 32B parameters, one of them 4-bit quantised, and no frontier model; two sampling seeds; a template-based cue bank without paraphrases; the age-15 trap is a checklist-versus-age conflict that a reviewer may call adversarial, and we report it separately; the consequence caseload is near-threshold by construction and uses equal household weights (survey weights are reported as a robustness check and are unstable with 40 households); no human or caseworker baseline.
+
+\section*{Ethics statement}
+No real individuals: the Quality Control file is de-identified and names are placeholders; the file is public-domain federal data and is not redistributed. The intended use is audit methodology, not deployment. The authors have no conflict of interest with any model provider.
+
+\bibliography{references,added}
+\bibliographystyle{acl_natbib}
+
+\appendix
+\section{Rule packet}
+The verbatim packet (configs/rule\_packet\_fy2026.md in the release).
+\section{Cue sentences and an item}
+\section{Accuracy by cell, both readouts}
+\section{ABAWD exemption $\times$ hours}
+\section{Polarity results on the discretionary variant}
+\section{PolicyEngine cross-check scope}
+\end{document}

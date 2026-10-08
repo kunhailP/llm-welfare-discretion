@@ -162,6 +162,68 @@
     "n": 800
    }
   },
+  "cue_contrasts_hi_minus_lo_clustered": {
+   "elig|control_high-control_low": {
+    "dP_yes": [
+     0.0807,
+     0.0424,
+     0.1151
+    ],
+    "flip_rate": 0.0608,
+    "n": 148,
+    "n_bases": 27
+   },
+   "elig|effort_high-effort_low": {
+    "dP_yes": [
+     0.0007,
+     -0.0069,
+     0.008
+    ],
+    "flip_rate": 0.0068,
+    "n": 148,
+    "n_bases": 27
+   },
+   "gross|control_high-control_low": {
+    "dP_yes": [
+     0.0208,
+     0.0016,
+     0.0404
+    ],
+    "flip_rate": 0.0403,
+    "n": 248,
+    "n_bases": 31
+   },
+   "gross|effort_high-effort_low": {
+    "dP_yes": [
+     -0.0604,
+     -0.0815,
+     -0.0407
+    ],
+    "flip_rate": 0.0726,
+    "n": 248,
+    "n_bases": 31
+   },
+   "abawd|control_high-control_low": {
+    "dP_yes": [
+     0.0012,
+     0.001,
+     0.0015
+    ],
+    "flip_rate": 0.0,
+    "n": 800,
+    "n_bases": 40
+   },
+   "abawd|effort_high-effort_low": {
+    "dP_yes": [
+     -0.0007,
+     -0.001,
+     -0.0005
+    ],
+    "flip_rate": 0.0,
+    "n": 800,
+    "n_bases": 40
+   }
+  },
   "hours_effect_should_change": {
    "child_15_trap": [
     0.0004,
@@ -343,6 +405,412 @@
    }
   }
  },
+ "ministral3-8b": {
+  "integrity": {
+   "items": 6376,
+   "items_missing": 0,
+   "order_rows_missing": 0,
+   "greedy_invalid_rate": 0.0,
+   "greedy_agree_rate": 1.0
+  },
+  "accuracy_by_order": {
+   "abawd|nofirst": 0.473,
+   "abawd|yesfirst": 0.536,
+   "elig|nofirst": 0.378,
+   "elig|yesfirst": 0.394,
+   "gross|nofirst": 0.538,
+   "gross|yesfirst": 0.513
+  },
+  "balanced_accuracy": {
+   "abawd": 0.623,
+   "elig": 0.405,
+   "gross": 0.519
+  },
+  "yes_rate_vs_gold": {
+   "abawd": [
+    0.393,
+    0.8
+   ],
+   "elig": [
+    0.421,
+    0.622
+   ],
+   "gross": [
+    0.093,
+    0.5
+   ]
+  },
+  "accuracy_income": {
+   "elig|-0.15|narrative": 0.296,
+   "elig|-0.15|structured": 0.302,
+   "elig|-0.04|narrative": 0.439,
+   "elig|-0.04|structured": 0.404,
+   "elig|+0.04|narrative": 0.549,
+   "elig|+0.04|structured": 0.549,
+   "elig|+0.15|narrative": 0.303,
+   "elig|+0.15|structured": 0.348,
+   "gross|-0.15|narrative": 0.242,
+   "gross|-0.15|structured": 0.0,
+   "gross|-0.04|narrative": 0.199,
+   "gross|-0.04|structured": 0.005,
+   "gross|+0.04|narrative": 0.849,
+   "gross|+0.04|structured": 0.995,
+   "gross|+0.15|narrative": 0.866,
+   "gross|+0.15|structured": 0.995
+  },
+  "accuracy_abawd": {
+   "child_15_trap|72.0|narrative": 0.395,
+   "child_15_trap|72.0|structured": 0.825,
+   "child_15_trap|88.0|narrative": 0.565,
+   "child_15_trap|88.0|structured": 0.39,
+   "child_under_14|72.0|narrative": 0.71,
+   "child_under_14|72.0|structured": 0.365,
+   "child_under_14|88.0|narrative": 0.64,
+   "child_under_14|88.0|structured": 0.51,
+   "medical|72.0|narrative": 1.0,
+   "medical|72.0|structured": 0.895,
+   "medical|88.0|narrative": 1.0,
+   "medical|88.0|structured": 0.99,
+   "nonexempt|72.0|narrative": 1.0,
+   "nonexempt|72.0|structured": 1.0,
+   "nonexempt|88.0|narrative": 0.0,
+   "nonexempt|88.0|structured": 0.0,
+   "pregnant|72.0|narrative": 0.0,
+   "pregnant|72.0|structured": 0.0,
+   "pregnant|88.0|narrative": 0.005,
+   "pregnant|88.0|structured": 0.0
+  },
+  "errors": {
+   "n": 3198,
+   "wrongful_denial": 2806,
+   "wrongful_approval": 392
+  },
+  "cue_effects_should_not_change": {
+   "income|control_high": {
+    "dP_yes": [
+     -0.014,
+     -0.0268,
+     -0.0012
+    ],
+    "flip_rate": 0.053,
+    "n": 396
+   },
+   "income|control_low": {
+    "dP_yes": [
+     -0.0527,
+     -0.068,
+     -0.0361
+    ],
+    "flip_rate": 0.0732,
+    "n": 396
+   },
+   "income|effort_high": {
+    "dP_yes": [
+     -0.0271,
+     -0.0422,
+     -0.012
+    ],
+    "flip_rate": 0.0606,
+    "n": 396
+   },
+   "income|effort_low": {
+    "dP_yes": [
+     -0.0411,
+     -0.0552,
+     -0.0272
+    ],
+    "flip_rate": 0.0631,
+    "n": 396
+   },
+   "income|valence_neg": {
+    "dP_yes": [
+     -0.0317,
+     -0.0434,
+     -0.0181
+    ],
+    "flip_rate": 0.048,
+    "n": 396
+   },
+   "abawd|control_high": {
+    "dP_yes": [
+     0.0127,
+     0.0092,
+     0.0165
+    ],
+    "flip_rate": 0.1875,
+    "n": 800
+   },
+   "abawd|control_low": {
+    "dP_yes": [
+     -0.0498,
+     -0.053,
+     -0.0465
+    ],
+    "flip_rate": 0.1588,
+    "n": 800
+   },
+   "abawd|effort_high": {
+    "dP_yes": [
+     0.0449,
+     0.0403,
+     0.0498
+    ],
+    "flip_rate": 0.1263,
+    "n": 800
+   },
+   "abawd|effort_low": {
+    "dP_yes": [
+     0.0561,
+     0.0522,
+     0.0606
+    ],
+    "flip_rate": 0.1888,
+    "n": 800
+   }
+  },
+  "cue_contrasts_hi_minus_lo_clustered": {
+   "elig|control_high-control_low": {
+    "dP_yes": [
+     0.0435,
+     0.0321,
+     0.0559
+    ],
+    "flip_rate": 0.0541,
+    "n": 148,
+    "n_bases": 27
+   },
+   "elig|effort_high-effort_low": {
+    "dP_yes": [
+     0.0318,
+     0.0084,
+     0.0569
+    ],
+    "flip_rate": 0.027,
+    "n": 148,
+    "n_bases": 27
+   },
+   "gross|control_high-control_low": {
+    "dP_yes": [
+     0.0358,
+     0.0231,
+     0.0485
+    ],
+    "flip_rate": 0.0565,
+    "n": 248,
+    "n_bases": 31
+   },
+   "gross|effort_high-effort_low": {
+    "dP_yes": [
+     0.0033,
+     -0.0033,
+     0.0091
+    ],
+    "flip_rate": 0.0524,
+    "n": 248,
+    "n_bases": 31
+   },
+   "abawd|control_high-control_low": {
+    "dP_yes": [
+     0.0624,
+     0.059,
+     0.0658
+    ],
+    "flip_rate": 0.2013,
+    "n": 800,
+    "n_bases": 40
+   },
+   "abawd|effort_high-effort_low": {
+    "dP_yes": [
+     -0.0112,
+     -0.0149,
+     -0.0077
+    ],
+    "flip_rate": 0.09,
+    "n": 800,
+    "n_bases": 40
+   }
+  },
+  "hours_effect_should_change": {
+   "child_15_trap": [
+    0.0232,
+    0.0199,
+    0.0267
+   ],
+   "nonexempt": [
+    0.0117,
+    0.0109,
+    0.0125
+   ]
+  },
+  "exemption_recognition_72h": {
+   "control_high": 0.55,
+   "control_low": 0.317,
+   "effort_high": 0.55,
+   "effort_low": 0.588,
+   "none": 0.471
+  },
+  "exemption_recognition_by_status_cue": {
+   "child_under_14|control_high": 0.65,
+   "child_under_14|control_low": 0.212,
+   "child_under_14|effort_high": 0.65,
+   "child_under_14|effort_low": 0.762,
+   "child_under_14|none": 0.412,
+   "medical|control_high": 1.0,
+   "medical|control_low": 0.738,
+   "medical|effort_high": 1.0,
+   "medical|effort_low": 1.0,
+   "medical|none": 1.0,
+   "pregnant|control_high": 0.0,
+   "pregnant|control_low": 0.0,
+   "pregnant|effort_high": 0.0,
+   "pregnant|effort_low": 0.0,
+   "pregnant|none": 0.0
+  },
+  "abawd_exemption_x_hours": {
+   "control_high": {
+    "interaction": [
+     -0.0108,
+     -0.0148,
+     -0.0067
+    ],
+    "correct_switch": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "control_low": {
+    "interaction": [
+     -0.0205,
+     -0.0239,
+     -0.0173
+    ],
+    "correct_switch": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "effort_high": {
+    "interaction": [
+     -0.0337,
+     -0.0365,
+     -0.031
+    ],
+    "correct_switch": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "effort_low": {
+    "interaction": [
+     -0.0156,
+     -0.0182,
+     -0.0131
+    ],
+    "correct_switch": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "none": {
+    "interaction": [
+     -0.0159,
+     -0.0191,
+     -0.0125
+    ],
+    "correct_switch": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "control_high_minus_none": {
+    "d_interaction": [
+     0.0051,
+     0.0013,
+     0.0089
+    ],
+    "d_all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "control_low_minus_none": {
+    "d_interaction": [
+     -0.0046,
+     -0.0092,
+     -0.0001
+    ],
+    "d_all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "effort_high_minus_none": {
+    "d_interaction": [
+     -0.0178,
+     -0.0216,
+     -0.0144
+    ],
+    "d_all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "effort_low_minus_none": {
+    "d_interaction": [
+     0.0002,
+     -0.0036,
+     0.0037
+    ],
+    "d_all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   }
+  }
+ },
  "qwen3-14b": {
   "integrity": {
    "items": 6376,
@@ -504,6 +972,68 @@
     ],
     "flip_rate": 0.0975,
     "n": 800
+   }
+  },
+  "cue_contrasts_hi_minus_lo_clustered": {
+   "elig|control_high-control_low": {
+    "dP_yes": [
+     0.0479,
+     0.0214,
+     0.0779
+    ],
+    "flip_rate": 0.0608,
+    "n": 148,
+    "n_bases": 27
+   },
+   "elig|effort_high-effort_low": {
+    "dP_yes": [
+     0.0687,
+     0.0395,
+     0.1077
+    ],
+    "flip_rate": 0.0541,
+    "n": 148,
+    "n_bases": 27
+   },
+   "gross|control_high-control_low": {
+    "dP_yes": [
+     -0.0347,
+     -0.0454,
+     -0.0237
+    ],
+    "flip_rate": 0.0685,
+    "n": 248,
+    "n_bases": 31
+   },
+   "gross|effort_high-effort_low": {
+    "dP_yes": [
+     0.0686,
+     0.0426,
+     0.0932
+    ],
+    "flip_rate": 0.1815,
+    "n": 248,
+    "n_bases": 31
+   },
+   "abawd|control_high-control_low": {
+    "dP_yes": [
+     0.0191,
+     0.0152,
+     0.023
+    ],
+    "flip_rate": 0.0312,
+    "n": 800,
+    "n_bases": 40
+   },
+   "abawd|effort_high-effort_low": {
+    "dP_yes": [
+     -0.0255,
+     -0.0307,
+     -0.0198
+    ],
+    "flip_rate": 0.045,
+    "n": 800,
+    "n_bases": 40
    }
   },
   "hours_effect_should_change": {
@@ -850,6 +1380,68 @@
     "n": 800
    }
   },
+  "cue_contrasts_hi_minus_lo_clustered": {
+   "elig|control_high-control_low": {
+    "dP_yes": [
+     0.0913,
+     0.0563,
+     0.1331
+    ],
+    "flip_rate": 0.2027,
+    "n": 148,
+    "n_bases": 27
+   },
+   "elig|effort_high-effort_low": {
+    "dP_yes": [
+     0.0148,
+     -0.0063,
+     0.0373
+    ],
+    "flip_rate": 0.0541,
+    "n": 148,
+    "n_bases": 27
+   },
+   "gross|control_high-control_low": {
+    "dP_yes": [
+     0.0004,
+     -0.0091,
+     0.0115
+    ],
+    "flip_rate": 0.0161,
+    "n": 248,
+    "n_bases": 31
+   },
+   "gross|effort_high-effort_low": {
+    "dP_yes": [
+     0.0081,
+     -0.0017,
+     0.0184
+    ],
+    "flip_rate": 0.004,
+    "n": 248,
+    "n_bases": 31
+   },
+   "abawd|control_high-control_low": {
+    "dP_yes": [
+     -0.0191,
+     -0.0213,
+     -0.0169
+    ],
+    "flip_rate": 0.025,
+    "n": 800,
+    "n_bases": 40
+   },
+   "abawd|effort_high-effort_low": {
+    "dP_yes": [
+     0.0036,
+     0.0006,
+     0.007
+    ],
+    "flip_rate": 0.01,
+    "n": 800,
+    "n_bases": 40
+   }
+  },
   "hours_effect_should_change": {
    "child_15_trap": [
     0.0795,
@@ -1026,350 +1618,6 @@
      0.4625,
      0.4125,
      0.5
-    ],
-    "n": 240
-   }
-  }
- },
- "ministral3-8b": {
-  "integrity": {
-   "items": 6376,
-   "items_missing": 0,
-   "order_rows_missing": 0,
-   "greedy_invalid_rate": 0.0,
-   "greedy_agree_rate": 1.0
-  },
-  "accuracy_by_order": {
-   "abawd|nofirst": 0.473,
-   "abawd|yesfirst": 0.536,
-   "elig|nofirst": 0.378,
-   "elig|yesfirst": 0.394,
-   "gross|nofirst": 0.538,
-   "gross|yesfirst": 0.513
-  },
-  "balanced_accuracy": {
-   "abawd": 0.623,
-   "elig": 0.405,
-   "gross": 0.519
-  },
-  "yes_rate_vs_gold": {
-   "abawd": [
-    0.393,
-    0.8
-   ],
-   "elig": [
-    0.421,
-    0.622
-   ],
-   "gross": [
-    0.093,
-    0.5
-   ]
-  },
-  "accuracy_income": {
-   "elig|-0.15|narrative": 0.296,
-   "elig|-0.15|structured": 0.302,
-   "elig|-0.04|narrative": 0.439,
-   "elig|-0.04|structured": 0.404,
-   "elig|+0.04|narrative": 0.549,
-   "elig|+0.04|structured": 0.549,
-   "elig|+0.15|narrative": 0.303,
-   "elig|+0.15|structured": 0.348,
-   "gross|-0.15|narrative": 0.242,
-   "gross|-0.15|structured": 0.0,
-   "gross|-0.04|narrative": 0.199,
-   "gross|-0.04|structured": 0.005,
-   "gross|+0.04|narrative": 0.849,
-   "gross|+0.04|structured": 0.995,
-   "gross|+0.15|narrative": 0.866,
-   "gross|+0.15|structured": 0.995
-  },
-  "accuracy_abawd": {
-   "child_15_trap|72.0|narrative": 0.395,
-   "child_15_trap|72.0|structured": 0.825,
-   "child_15_trap|88.0|narrative": 0.565,
-   "child_15_trap|88.0|structured": 0.39,
-   "child_under_14|72.0|narrative": 0.71,
-   "child_under_14|72.0|structured": 0.365,
-   "child_under_14|88.0|narrative": 0.64,
-   "child_under_14|88.0|structured": 0.51,
-   "medical|72.0|narrative": 1.0,
-   "medical|72.0|structured": 0.895,
-   "medical|88.0|narrative": 1.0,
-   "medical|88.0|structured": 0.99,
-   "nonexempt|72.0|narrative": 1.0,
-   "nonexempt|72.0|structured": 1.0,
-   "nonexempt|88.0|narrative": 0.0,
-   "nonexempt|88.0|structured": 0.0,
-   "pregnant|72.0|narrative": 0.0,
-   "pregnant|72.0|structured": 0.0,
-   "pregnant|88.0|narrative": 0.005,
-   "pregnant|88.0|structured": 0.0
-  },
-  "errors": {
-   "n": 3198,
-   "wrongful_denial": 2806,
-   "wrongful_approval": 392
-  },
-  "cue_effects_should_not_change": {
-   "income|control_high": {
-    "dP_yes": [
-     -0.014,
-     -0.0268,
-     -0.0012
-    ],
-    "flip_rate": 0.053,
-    "n": 396
-   },
-   "income|control_low": {
-    "dP_yes": [
-     -0.0527,
-     -0.068,
-     -0.0361
-    ],
-    "flip_rate": 0.0732,
-    "n": 396
-   },
-   "income|effort_high": {
-    "dP_yes": [
-     -0.0271,
-     -0.0422,
-     -0.012
-    ],
-    "flip_rate": 0.0606,
-    "n": 396
-   },
-   "income|effort_low": {
-    "dP_yes": [
-     -0.0411,
-     -0.0552,
-     -0.0272
-    ],
-    "flip_rate": 0.0631,
-    "n": 396
-   },
-   "income|valence_neg": {
-    "dP_yes": [
-     -0.0317,
-     -0.0434,
-     -0.0181
-    ],
-    "flip_rate": 0.048,
-    "n": 396
-   },
-   "abawd|control_high": {
-    "dP_yes": [
-     0.0127,
-     0.0092,
-     0.0165
-    ],
-    "flip_rate": 0.1875,
-    "n": 800
-   },
-   "abawd|control_low": {
-    "dP_yes": [
-     -0.0498,
-     -0.053,
-     -0.0465
-    ],
-    "flip_rate": 0.1588,
-    "n": 800
-   },
-   "abawd|effort_high": {
-    "dP_yes": [
-     0.0449,
-     0.0403,
-     0.0498
-    ],
-    "flip_rate": 0.1263,
-    "n": 800
-   },
-   "abawd|effort_low": {
-    "dP_yes": [
-     0.0561,
-     0.0522,
-     0.0606
-    ],
-    "flip_rate": 0.1888,
-    "n": 800
-   }
-  },
-  "hours_effect_should_change": {
-   "child_15_trap": [
-    0.0232,
-    0.0199,
-    0.0267
-   ],
-   "nonexempt": [
-    0.0117,
-    0.0109,
-    0.0125
-   ]
-  },
-  "exemption_recognition_72h": {
-   "control_high": 0.55,
-   "control_low": 0.317,
-   "effort_high": 0.55,
-   "effort_low": 0.588,
-   "none": 0.471
-  },
-  "exemption_recognition_by_status_cue": {
-   "child_under_14|control_high": 0.65,
-   "child_under_14|control_low": 0.212,
-   "child_under_14|effort_high": 0.65,
-   "child_under_14|effort_low": 0.762,
-   "child_under_14|none": 0.412,
-   "medical|control_high": 1.0,
-   "medical|control_low": 0.738,
-   "medical|effort_high": 1.0,
-   "medical|effort_low": 1.0,
-   "medical|none": 1.0,
-   "pregnant|control_high": 0.0,
-   "pregnant|control_low": 0.0,
-   "pregnant|effort_high": 0.0,
-   "pregnant|effort_low": 0.0,
-   "pregnant|none": 0.0
-  },
-  "abawd_exemption_x_hours": {
-   "control_high": {
-    "interaction": [
-     -0.0108,
-     -0.0148,
-     -0.0067
-    ],
-    "correct_switch": [
-     0.0,
-     0.0,
-     0.0
-    ],
-    "all4": [
-     0.0,
-     0.0,
-     0.0
-    ],
-    "n": 240
-   },
-   "control_low": {
-    "interaction": [
-     -0.0205,
-     -0.0239,
-     -0.0173
-    ],
-    "correct_switch": [
-     0.0,
-     0.0,
-     0.0
-    ],
-    "all4": [
-     0.0,
-     0.0,
-     0.0
-    ],
-    "n": 240
-   },
-   "effort_high": {
-    "interaction": [
-     -0.0337,
-     -0.0365,
-     -0.031
-    ],
-    "correct_switch": [
-     0.0,
-     0.0,
-     0.0
-    ],
-    "all4": [
-     0.0,
-     0.0,
-     0.0
-    ],
-    "n": 240
-   },
-   "effort_low": {
-    "interaction": [
-     -0.0156,
-     -0.0182,
-     -0.0131
-    ],
-    "correct_switch": [
-     0.0,
-     0.0,
-     0.0
-    ],
-    "all4": [
-     0.0,
-     0.0,
-     0.0
-    ],
-    "n": 240
-   },
-   "none": {
-    "interaction": [
-     -0.0159,
-     -0.0191,
-     -0.0125
-    ],
-    "correct_switch": [
-     0.0,
-     0.0,
-     0.0
-    ],
-    "all4": [
-     0.0,
-     0.0,
-     0.0
-    ],
-    "n": 240
-   },
-   "control_high_minus_none": {
-    "d_interaction": [
-     0.0051,
-     0.0013,
-     0.0089
-    ],
-    "d_all4": [
-     0.0,
-     0.0,
-     0.0
-    ],
-    "n": 240
-   },
-   "control_low_minus_none": {
-    "d_interaction": [
-     -0.0046,
-     -0.0092,
-     -0.0001
-    ],
-    "d_all4": [
-     0.0,
-     0.0,
-     0.0
-    ],
-    "n": 240
-   },
-   "effort_high_minus_none": {
-    "d_interaction": [
-     -0.0178,
-     -0.0216,
-     -0.0144
-    ],
-    "d_all4": [
-     0.0,
-     0.0,
-     0.0
-    ],
-    "n": 240
-   },
-   "effort_low_minus_none": {
-    "d_interaction": [
-     0.0002,
-     -0.0036,
-     0.0037
-    ],
-    "d_all4": [
-     0.0,
-     0.0,
-     0.0
     ],
     "n": 240
    }

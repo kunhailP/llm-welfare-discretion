@@ -7,6 +7,10 @@ design notes, rules-as-code, item generators, runners, scorers, results, and the
 Target: ACL 2027 via the January 2027 ARR cycle, at EMNLP-main quality. Domain: U.S. SNAP (FY2026 federal rules,
 P.L. 119-21 ABAWD work requirement), chosen because the law says which facts a decision may use.
 
+## Status (2026-10-08): two papers
+Paper 1 (NAACL 2027, ARR Oct 2026) is written from the results in hand, in this repo. Paper 2 (ACL 2027, evidence
+sufficiency, Design D) lives in the separate repo llm-welfare-evidence. **Start with docs/TWO_PAPER_PLAN.md**, then docs/paper1/outline.md.
+
 ## Status (2026-10-05): restarting the design
 Design C (discretionary exemptions) was stopped before its primary test because the prompt left the decision
 undefined (see docs/RESTART_PLAN.md). The next design is decided on paper before any GPU time.
@@ -21,11 +25,11 @@ undefined (see docs/RESTART_PLAN.md). The next design is decided on paper before
 | Explicit need arithmetic (stage 1) | solved at 14B; 8B failures were format effects | archive/stage1_need_v1/ |
 
 ## Layout
-    docs/       RESTART_PLAN, NORTH_STAR, decisions (log), design/, results/   (index: docs/README.md)
+    docs/       TWO_PAPER_PLAN, RESTART_PLAN, NORTH_STAR, decisions (log), design/, results/, paper1/   (index: docs/README.md)
     src/rules/  SNAP rules-as-code (snap.py) + PolicyEngine-US cross-check
     src/gen/    item generator for the rule-computable set (make_rules_pilot.py)
     src/run/    first-token runner (log-probs, both answer orders), thinking runner (Qwen3 on/off, gpt-oss), model download
-    src/eval/   scorers (cluster bootstrap over bases)
+    src/eval/   scorers (cluster bootstrap over bases); make_paper1_tables.py -> docs/paper1/tables.md
     tests/      rule tests (decision table + per-item gold)
     configs/    models.yaml (pinned revisions), rule_packet_fy2026.md, requirements.lock.txt
     data/       rules_pilot items; external/ third-party data (not redistributed)

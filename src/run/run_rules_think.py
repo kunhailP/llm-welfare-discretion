@@ -88,24 +88,38 @@ def main():
     ap.add_argument("--reasoning-effort", default="medium", help="gpt-oss only")
     ap.add_argument("--seed", type=int, default=0, help="sampling seed (seed baseline for thinking runs)")
     ap.add_argument("--no-subsample", action="store_true", help="run every row of --data; order alternates by base")
+    ap.add_argument("--greedy", action="store_true", help="temperature 0 (decoding control for the protocol ladder)")
+    ap.add_argument("--only-cues", help="comma list: after subsampling, keep only these cues (group selection and order unchanged)")
+    ap.add_argument("--only-tasks", help="comma list: after subsampling, keep only these tasks")
     a = ap.parse_args()
-    assert "qwen" in a.model or "gpt-oss" in a.model, "thinking implemented for Qwen3 and gpt-oss only"
+    assert "qwen" in a.model or "gpt-oss" in a.model or a.thinking == "off", "thinking implemented for Qwen3 and gpt-oss only; other models: --thinking off"
     from vllm import LLM, SamplingParams
 
     cfg = {m["id"]: m for m in yaml.safe_load(open(f"{ROOT}/configs/models.yaml"))["models"]}[a.model]
-    llm = LLM(model=cfg["repo"], revision=cfg["revision"], max_model_len=a.max_tokens + 4096,
+    kw = dict(model=cfg["repo"], revision=cfg["revision"], max_model_len=a.max_tokens + 4096,
               gpu_memory_utilization=0.90, seed=0, enable_prefix_caching=True)
-    tmpl = {"enable_thinking": a.thinking == "on"} if "qwen" in a.model else {"reasoning_effort": a.reasoning_effort}
-    chat_kw = dict(add_generation_prompt=True, chat_template_kwargs=tmpl)
+    if "ministral" in a.model:
+        kw.update(tokenizer_mode="mistral", config_format="mistral", load_format="mistral")
+    llm = LLM(**kw)
+    tmpl = ({"enable_thinking": a.thinking == "on"} if "qwen" in a.model else
+            {"reasoning_effort": a.reasoning_effort} if "gpt-oss" in a.model else None)
+    chat_kw = dict(add_generation_prompt=True, **({"chat_template_kwargs": tmpl} if tmpl is not None else {}))
     packet = open(f"{ROOT}/{a.packet}").read().strip()
     rows = [json.loads(l) for l in open(f"{ROOT}/{a.data}")]
     if a.no_subsample:
         jobs = [(r, "yesfirst" if int(r["base"][1:]) % 2 == 0 else "nofirst") for r in rows][: a.limit]
     else:
-        jobs = subsample(rows)[: a.limit]
+        jobs = subsample(rows)
+        if a.only_cues:
+            jobs = [j for j in jobs if j[0]["cue"] in a.only_cues.split(",")]
+        if a.only_tasks:
+            jobs = [j for j in jobs if j[0]["task"] in a.only_tasks.split(",")]
+        jobs = jobs[: a.limit]
     convs = [[{"role": "user", "content": build_prompt(packet, r, o)}] for r, o in jobs]
     if "gpt-oss" in a.model:   # OpenAI's recommended sampling for gpt-oss
         sp = SamplingParams(temperature=1.0, top_p=1.0, max_tokens=a.max_tokens, seed=a.seed)
+    elif a.greedy:             # decoding control: same prompt, deterministic
+        sp = SamplingParams(temperature=0.0, max_tokens=a.max_tokens, seed=a.seed)
     else:                      # Qwen3 thinking-mode recommendation
         sp = SamplingParams(temperature=0.6, top_p=0.95, top_k=20, max_tokens=a.max_tokens, seed=a.seed)
     t0 = time.time()
@@ -115,14 +129,14 @@ def main():
     with open(a.out, "w") as f:
         for (r, order), o in zip(jobs, outs):
             text = o.outputs[0].text
-            verdict, think, ans = parse(text, thinking=not ("qwen" in a.model and a.thinking == "off"))
+            verdict, think, ans = parse(text, thinking=not (a.thinking == "off" and "gpt-oss" not in a.model))
             f.write(json.dumps(dict(model=a.model, item_id=r["item_id"], order=order, verdict=verdict,
                                     n_tokens=len(o.outputs[0].token_ids), finish=o.outputs[0].finish_reason,
                                     think=think, answer=ans)) + "\n")
     import platform, torch, transformers, vllm
     meta = dict(model=a.model, repo=cfg["repo"], revision=cfg["revision"], vllm=vllm.__version__,
                 transformers=transformers.__version__, torch=torch.__version__, python=platform.python_version(),
-                packet=a.packet, chat_kwargs=chat_kw, sampling=repr(sp), thinking=a.thinking, seed=a.seed, n=len(jobs), seconds=round(dt, 1),
+                packet=a.packet, chat_kwargs=chat_kw, sampling=repr(sp), thinking=a.thinking, greedy=a.greedy, seed=a.seed, n=len(jobs), seconds=round(dt, 1),
                 example_prompt=convs[0][0]["content"], data=a.data)
     json.dump(meta, open(a.out + ".meta.json", "w"))
     print(json.dumps({k: v for k, v in meta.items() if k != "example_prompt"}))

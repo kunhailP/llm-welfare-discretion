@@ -12,6 +12,8 @@ Reports (per model):
 - error direction: wrongful denial (gold YES -> NO) vs wrongful approval (gold NO -> YES);
 - cue effect = P(YES | cue) - P(YES | none), same base/task/margin/status/hours/style; base-clustered
   bootstrap CI; plus verdict flip rate vs none. All cues here are legally irrelevant ("should not change");
+- paired hi - lo contrasts (controllability, effort) per task with the same base-clustered bootstrap
+  (cue_contrasts_hi_minus_lo_clustered; the only contrasts not confounded by sentence addition);
 - hours effect (ABAWD, nonexempt): P(YES | 88h) - P(YES | 72h) -> "should change" (gold flips NO -> YES);
 - exemption recognition: accuracy on exempt statuses at 72h, by cue.
 
@@ -131,6 +133,21 @@ def summarize(d, ro=None):
             eff[f"{name}|{cue}"] = dict(dP_yes=boot(c, lambda t: t.dp.mean()),
                                         flip_rate=round(float(c.flip.mean()), 4), n=int(len(c)))
     out["cue_effects_should_not_change"] = eff
+    # paired hi - lo contrasts (same item otherwise), base-clustered bootstrap. Added 2026-10-08: the
+    # results doc reported these with an item bootstrap ("not yet clustered by base"); this is the clustered version.
+    con = {}
+    for name, sub, keys in (("income", inc, keys_inc), ("abawd", ab, keys_ab)):
+        for task, st in sub.groupby("task"):
+            w = st.pivot_table(index=keys, columns="cue", values="p_yes", aggfunc="first").reset_index()
+            for hi, lo in (("control_high", "control_low"), ("effort_high", "effort_low")):
+                if hi in w and lo in w:
+                    c = w.dropna(subset=[hi, lo]).copy()
+                    c["d"] = c[hi] - c[lo]
+                    c["flip"] = ((c[hi] > 0.5) != (c[lo] > 0.5)).astype(float)
+                    con[f"{task}|{hi}-{lo}"] = dict(dP_yes=boot(c, lambda t: t.d.mean()),
+                                                    flip_rate=round(float(c.flip.mean()), 4),
+                                                    n=int(len(c)), n_bases=int(c.base.nunique()))
+    out["cue_contrasts_hi_minus_lo_clustered"] = con
     # hours effect (should change) for non-exempt
     ne = ab[ab.status.isin(["nonexempt", "child_15_trap"])]
     piv = ne.pivot_table(index=["base", "status", "cue", "style"], columns="hours", values="p_yes").reset_index()

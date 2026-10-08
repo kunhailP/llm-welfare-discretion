@@ -44,7 +44,7 @@ def money(x):
 
 
 def load_structures(rng, k):
-    cols = ["FSUSIZE", "FSEARN", "FSUNEARN", "RENT", "UTIL", "FSDEPDED", "FSMEDEXP", "FSCSEXP"]
+    cols = ["FSUSIZE", "FSEARN", "FSUNEARN", "RENT", "UTIL", "FSDEPDED", "FSMEDEXP", "FSCSEXP", "HWGT"]   # HWGT: sidecar only
     cols += [f"AGE{i}" for i in range(1, 7)] + [f"DIS{i}" for i in range(1, 7)]
     d = pd.read_csv(QC, usecols=cols, low_memory=False)
     d[["FSDEPDED", "FSMEDEXP", "FSCSEXP", "UTIL"]] = d[["FSDEPDED", "FSMEDEXP", "FSCSEXP", "UTIL"]].fillna(0)
@@ -132,9 +132,17 @@ def main():
     ap.add_argument("--bases", type=int, default=40)
     ap.add_argument("--seed", type=int, default=11)
     ap.add_argument("--out", default="data/rules_pilot/pilot.jsonl")
+    ap.add_argument("--abawd-cues", default="none,effort_high,effort_low,control_high,control_low",
+                    help="cues generated for the ABAWD task; 'all' adds the hardship control valence_neg (2026-10-08, blind-review round 4)")
     a = ap.parse_args()
     rng = random.Random(a.seed)
     bases = load_structures(rng, a.bases)
+    # Sidecar for the consequence analysis (2026-10-08): source household weight per base. Items are unchanged.
+    side = ROOT / a.out
+    side = side.with_name(side.stem + "_bases_hwgt.json")
+    side.parent.mkdir(parents=True, exist_ok=True)
+    json.dump({f"b{bi:03d}": dict(hwgt=float(b["HWGT"]), size=int(b["FSUSIZE"])) for bi, b in enumerate(bases)},
+              open(side, "w"), indent=1)
     rows = []
     for bi, base in enumerate(bases):
         name = NAMES[bi % len(NAMES)]
@@ -182,7 +190,8 @@ def main():
                          f"medically certified unfit for work: {yn(status == 'medical')}; has a disability: No; "
                          f"Indian, Urban Indian, or California Indian: No; responsible for the care of a child "
                          f"who lives in the household: {yn(status in ('child_under_14', 'child_15_trap'))}."]
-                for cue in ("none", "effort_high", "effort_low", "control_high", "control_low"):
+                abawd_cues = list(CUES) if a.abawd_cues == "all" else a.abawd_cues.split(",")
+                for cue in abawd_cues:
                     for style in ("structured", "narrative"):
                         rows.append(dict(
                             item_id=f"b{bi:03d}_abawd_{status}_{hours}_{cue}_{style[0]}", base=f"b{bi:03d}",
