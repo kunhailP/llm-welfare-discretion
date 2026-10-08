@@ -2,7 +2,7 @@
 # Score the free-generation rung (queue 7, 2026-10-08) and regenerate every derived table. CPU only.
 set -u
 PY=${PY:-/workspace/venv/bin/python}
-cd /root/llm-welfare-discretion
+cd "$(dirname "$0")/../.."
 for m in qwen3-32b-awq qwen3-14b ministral3-8b; do
   f=results/rules_think/${m}_free.jsonl
   [ -f $f ] || continue
