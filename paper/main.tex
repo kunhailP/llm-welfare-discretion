@@ -10,6 +10,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{microtype}
+\makeatletter\g@addto@macro{\UrlBreaks}{\do\-\do\_}\makeatother % let long reference URLs break at hyphens
 \usepackage{listings}
 \lstset{basicstyle=\scriptsize\ttfamily,breaklines=true,breakindent=0pt,columns=fullflexible,frame=single,keepspaces=true,extendedchars=true,literate={é}{{\'e}}1}
 
