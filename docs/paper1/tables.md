@@ -77,14 +77,17 @@ Mention is a regex over the trace (src/eval/score_rules_think.py CUE_WORDS); it 
 | Qwen3-8B | seed 0 vs seed 1 | 1.000 / 0.975 / 0.904 | 0.000 / 0.000 / 0.087 | 1.000 / 0.982 / 0.920 |
 | Ministral-3-8B | thinking off, seed 0 vs seed 1 | 0.992 / 0.986 / 0.755 | 0.000 / 0.027 / 0.283 | 0.992 / 0.993 / 0.819 |
 | Ministral-3-8B | step-by-step vs free generation (thinking off) | 0.994 / 0.964 / 0.639 | 0.000 / 0.068 / 0.396 | 1.000 / 0.971 / 0.654 |
+| Ministral-3-8B | free generation, seed 0 vs seed 1 | 1.000 / 0.950 / 0.679 | 0.000 / 0.081 / 0.279 | 1.000 / 0.977 / 0.680 |
 | Qwen3-14B | seed 0 vs seed 1 | 1.000 / 1.000 / 0.952 | 0.000 / 0.000 / 0.047 | 1.000 / 1.000 / 0.973 |
 | Qwen3-14B | thinking on vs off (same prompt) | 0.997 / 0.991 / 0.899 | 0.000 / 0.013 / 0.107 | 0.997 / 0.991 / 0.904 |
 | Qwen3-14B | thinking off, seed 0 vs seed 1 | 0.997 / 0.984 / 0.845 | 0.000 / 0.027 / 0.140 | 1.000 / 0.993 / 0.872 |
 | Qwen3-14B | step-by-step vs free generation (thinking off) | 0.997 / 0.989 / 0.804 | 0.000 / 0.027 / 0.147 | 1.000 / 0.998 / 0.812 |
+| Qwen3-14B | free generation, seed 0 vs seed 1 | 1.000 / 0.993 / 0.821 | 0.000 / 0.013 / 0.147 | 1.000 / 0.996 / 0.785 |
 | Qwen3-32B-AWQ | seed 0 vs seed 1 | 0.992 / 0.996 / 0.977 | 0.033 / 0.000 / 0.027 | 1.000 / 0.996 / 0.981 |
 | Qwen3-32B-AWQ | thinking on vs off (same prompt) | 0.989 / 0.971 / 0.897 | 0.033 / 0.013 / 0.100 | 0.997 / 0.971 / 0.891 |
 | Qwen3-32B-AWQ | thinking off, seed 0 vs seed 1 | 0.997 / 0.946 / 0.891 | 0.000 / 0.027 / 0.093 | 1.000 / 0.975 / 0.885 |
 | Qwen3-32B-AWQ | step-by-step vs free generation (thinking off) | 0.997 / 0.946 / 0.872 | 0.000 / 0.027 / 0.120 | 1.000 / 0.975 / 0.861 |
+| Qwen3-32B-AWQ | free generation, seed 0 vs seed 1 | 1.000 / 0.937 / 0.871 | 0.000 / 0.027 / 0.107 | 1.000 / 0.962 / 0.881 |
 
 ## T9. Sanction check: direct-readout paired contrasts (P(YES), clustered CI) with the original packet vs the packet stating that the reason for a past job loss triggers no sanction
 
@@ -135,6 +138,10 @@ Mention is a regex over the trace (src/eval/score_rules_think.py CUE_WORDS); it 
 | ministral3-8b | free_s0 | elig | +0.000 [-0.038, +0.041] | 2/73 | -0.014 [-0.095, +0.068] | 7/73 | - |
 | ministral3-8b | free_s0 | abawd|all | +0.007 [-0.089, +0.096] | 41/143 | +0.014 [-0.104, +0.127] | 60/142 | - |
 | ministral3-8b | free_s0 | abawd|no_trap | +0.042 [-0.056, +0.138] | 33/119 | +0.035 [-0.100, +0.164] | 48/115 | - |
+| ministral3-8b | free_s1 | gross | +0.000 [+0.000, +0.000] | 0/60 | +0.000 [+0.000, +0.000] | 0/59 | 0.05 / 0.0981 |
+| ministral3-8b | free_s1 | elig | +0.000 [-0.038, +0.038] | 2/74 | -0.055 [-0.119, +0.000] | 4/73 | - |
+| ministral3-8b | free_s1 | abawd|all | +0.027 [-0.066, +0.113] | 54/146 | -0.035 [-0.134, +0.061] | 43/144 | - |
+| ministral3-8b | free_s1 | abawd|no_trap | +0.042 [-0.058, +0.149] | 45/118 | -0.044 [-0.158, +0.074] | 41/114 | - |
 | qwen3-14b | direct | gross | -0.167 [-0.298, -0.053] | 10/60 | +0.300 [+0.162, +0.448] | 18/60 | - |
 | qwen3-14b | direct | elig | +0.068 [+0.000, +0.186] | 5/74 | +0.013 [+0.000, +0.050] | 1/74 | - |
 | qwen3-14b | direct | abawd|all | +0.053 [+0.025, +0.086] | 8/150 | -0.067 [-0.106, -0.027] | 12/150 | - |
@@ -163,6 +170,10 @@ Mention is a regex over the trace (src/eval/score_rules_think.py CUE_WORDS); it 
 | qwen3-14b | free_s0 | elig | +0.000 [+0.000, +0.000] | 0/74 | +0.000 [+0.000, +0.000] | 0/74 | 0.0405 / 0.105 |
 | qwen3-14b | free_s0 | abawd|all | +0.053 [-0.019, +0.130] | 32/150 | +0.047 [-0.019, +0.115] | 27/150 | - |
 | qwen3-14b | free_s0 | abawd|no_trap | +0.083 [+0.009, +0.161] | 26/120 | +0.058 [-0.021, +0.143] | 25/120 | - |
+| qwen3-14b | free_s1 | gross | +0.000 [+0.000, +0.000] | 0/60 | +0.000 [+0.000, +0.000] | 0/60 | 0.05 / 0.0981 |
+| qwen3-14b | free_s1 | elig | +0.013 [+0.000, +0.044] | 1/74 | +0.000 [+0.000, +0.000] | 0/74 | - |
+| qwen3-14b | free_s1 | abawd|all | -0.013 [-0.093, +0.074] | 30/150 | -0.033 [-0.118, +0.050] | 41/150 | - |
+| qwen3-14b | free_s1 | abawd|no_trap | +0.000 [-0.077, +0.080] | 20/120 | -0.025 [-0.131, +0.085] | 37/120 | - |
 | qwen3-32b-awq | direct | gross | +0.000 [+0.000, +0.000] | 0/60 | +0.000 [+0.000, +0.000] | 0/60 | 0.05 / 0.0981 |
 | qwen3-32b-awq | direct | elig | +0.162 [+0.000, +0.329] | 12/74 | +0.054 [+0.000, +0.139] | 4/74 | - |
 | qwen3-32b-awq | direct | abawd|all | +0.000 [+0.000, +0.000] | 0/150 | +0.007 [+0.000, +0.022] | 1/150 | 0.02 / 0.0722 |
@@ -187,6 +198,10 @@ Mention is a regex over the trace (src/eval/score_rules_think.py CUE_WORDS); it 
 | qwen3-32b-awq | free_s0 | elig | +0.041 [+0.000, +0.094] | 5/74 | +0.000 [-0.041, +0.037] | 2/73 | - |
 | qwen3-32b-awq | free_s0 | abawd|all | +0.013 [-0.053, +0.080] | 22/150 | +0.007 [-0.036, +0.052] | 15/150 | - |
 | qwen3-32b-awq | free_s0 | abawd|no_trap | +0.000 [-0.064, +0.060] | 14/120 | -0.008 [-0.061, +0.048] | 11/120 | - |
+| qwen3-32b-awq | free_s1 | gross | +0.000 [+0.000, +0.000] | 0/60 | +0.000 [+0.000, +0.000] | 0/60 | 0.05 / 0.0981 |
+| qwen3-32b-awq | free_s1 | elig | -0.027 [-0.111, +0.049] | 8/74 | -0.013 [-0.075, +0.043] | 5/74 | - |
+| qwen3-32b-awq | free_s1 | abawd|all | +0.033 [-0.027, +0.096] | 23/150 | -0.007 [-0.055, +0.039] | 17/150 | - |
+| qwen3-32b-awq | free_s1 | abawd|no_trap | +0.033 [-0.019, +0.090] | 16/120 | -0.017 [-0.062, +0.030] | 10/120 | - |
 
 Zero bound = largest item-level flip rate (rule of three, 3/n) and largest per-base flip probability (1 - 0.05^(1/n_bases)) consistent with the observed zero at 95%. src/eval/score_common_scale.py.
 

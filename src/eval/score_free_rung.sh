@@ -8,6 +8,8 @@ for m in qwen3-32b-awq qwen3-14b ministral3-8b; do
   [ -f $f ] || continue
   $PY src/eval/score_rules_think.py $f > results/rules_think/score_${m}_free.json && echo "scored $m free"
   [ -f results/rules_think/${m}_off.jsonl ] && $PY src/eval/score_seed_agreement.py results/rules_think/${m}_off.jsonl $f > results/rules_think/agreement/${m}_off_vs_free.json && echo "agreement $m step vs free"
+  f1=results/rules_think/${m}_free_s1.jsonl
+  [ -f $f1 ] && $PY src/eval/score_rules_think.py $f1 > results/rules_think/score_${m}_free_s1.json && $PY src/eval/score_seed_agreement.py $f $f1 > results/rules_think/agreement/${m}_free_s0_vs_s1.json && echo "scored $m free seed 1 + agreement"
 done
 $PY src/eval/score_common_scale.py > /dev/null && echo "common scale"
 $PY src/eval/make_paper1_tables.py > /dev/null && $PY src/eval/make_paper1_appendix.py > /dev/null && echo "tables + appendix regenerated"

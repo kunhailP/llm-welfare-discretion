@@ -19,7 +19,7 @@ MODELS = ["qwen3-8b", "ministral3-8b", "qwen3-14b", "qwen3-32b-awq"]
 RUNS = [("direct", "results/rules_pilot/{m}.jsonl"), ("think_s0", "results/rules_think/{m}.jsonl"),
         ("think_s1", "results/rules_think/{m}_s1.jsonl"), ("think_greedy", "results/rules_think/{m}_greedy.jsonl"),
         ("off_s0", "results/rules_think/{m}_off.jsonl"), ("off_s1", "results/rules_think/{m}_off_s1.jsonl"),
-        ("free_s0", "results/rules_think/{m}_free.jsonl")]
+        ("free_s0", "results/rules_think/{m}_free.jsonl"), ("free_s1", "results/rules_think/{m}_free_s1.jsonl")]
 
 
 def items():

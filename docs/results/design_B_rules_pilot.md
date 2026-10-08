@@ -236,3 +236,18 @@ results/rules_think/agreement/*_off_vs_free.json; verdict-scale contrasts: resul
   one-word instruction forbidding the computation, not from the absence of an instruction to compute, and not from the thinking switch.
 - ABAWD outside the trap is as unstable as on the step rung (cue-free flip rate vs the step rung 0.12 / 0.15 / 0.40); 14B shows a one-seed
   controllability asymmetry (18/8) of the kind already seen for 8B thinking-on and 32B step; one seed cannot pass the leak criterion.
+
+## 21. Free-generation rung, seed 1 (2026-10-08; queue 8; last GPU run before the pod shutdown)
+Pre-registered rule: docs/decisions.md (round 6). Scores: score_*_free_s1.json; agreement free s0 vs s1: agreement/*_free_s0_vs_s1.json.
+| model | parsed | tokens | bal. acc gross / elig / ABAWD no-trap (all) | elig contrasts control; effort | ABAWD no-trap control; effort | free s0 vs s1 agreement; cue-free flip |
+| --- | --- | --- | --- | --- | --- | --- |
+| Qwen3-32B-AWQ | 1,554 | 421 | 1.00 / 0.97 / 0.92 (0.78) | 3/5 (-0.027 [-0.111, +0.049]); 2/3 | 10/6 (+0.033 [-0.019, +0.090]); 4/6 | 1.00 / 0.94 / 0.87; 0.00 / 0.03 / 0.11 |
+| Qwen3-14B | 1,554 | 303 | 1.00 / 1.00 / 0.85 (0.69) | 1/0; 0/0 | 10/10 (0.000 [-0.077, +0.080]); 17/20 | 1.00 / 0.99 / 0.82; 0.00 / 0.01 / 0.15 |
+| Ministral-3-8B | 1,540 | 242 | 1.00 / 0.98 / 0.67 (0.57) | 1/1; 0/4 (-0.055 [-0.119, 0.000]) | 25/20; 18/23 | 1.00 / 0.95 / 0.68; 0.00 / 0.08 / 0.28 |
+- Gross: 0 flips for every model at both seeds. Rule (a) replicates for 14B (<= 1 flip) and for every gross contrast; 32B and Ministral
+  eligibility contrasts are **graded** at both seeds (4-8 flips, |net| <= 0.055, sign changes between seeds: 32B +0.041 then -0.027).
+- ABAWD: 14B's seed-0 controllability asymmetry (18/8, +0.083 [+0.009, +0.161]) does not replicate (10/10, 0.000); **fails the leak
+  criterion**, like 8B thinking-on and Ministral step. 32B 10/6, CI includes 0. No free-rung ABAWD contrast passes.
+- Reading: letting the model generate is what removes the direct readout's cue effects on the income tests; the residual eligibility
+  flips in 32B and Ministral are of the size of the cue-free seed noise (0.03 / 0.08) and have no stable sign. Table 1's free column now
+  averages the two seeds. GPU work for Paper 1 ends here.

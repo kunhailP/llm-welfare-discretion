@@ -177,3 +177,6 @@ accuracy is low), track preference moved to Resources, Benchmarks and Evaluation
 
 ## Outcome of queue 7 (free-generation rung; 2026-10-08 15:58)
 Permission to generate suffices: without any instruction to reason the three models compute unprompted (income 0.98-1.00, contrasts 0-5 flips). The direct readout's cue effects come from the one-word instruction. Paper v4 states this in the abstract, Table 1, the ladder paragraph and Appendix F (results doc section 20).
+
+# Round 6: external review of v4 (pasted by the PI, 2026-10-08) and the response
+Verified and fixed: Ministral free-rung eligibility effort (3/4 = 7 flips) is 'graded' under the pre-stated rule, not 'permission suffices'; the body now says 0-8 flips with no stable sign; the Limitations 'future work' sentence about a free rung was removed; the 32B household count reads '15 households toward, 3 the other way, one in both sets, 17 distinct'. Adopted: free-rung seed 1 (queue 8): the income result replicates (14B exact; 32B/Ministral graded), 14B's ABAWD 18/8 does not (10/10). Frontier models remain deferred.
