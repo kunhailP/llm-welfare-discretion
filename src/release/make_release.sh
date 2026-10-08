@@ -10,13 +10,13 @@ cd "$HUB"
 # code and configs
 for p in src/rules src/gen/make_rules_pilot.py src/run/run_rules_pilot.py src/run/run_rules_think.py src/run/run_rules_api.py \
          src/eval/score_rules_pilot.py src/eval/score_rules_think.py src/eval/score_seed_agreement.py src/eval/consequence.py \
-         src/eval/make_paper1_tables.py src/eval/score_common_scale.py tests/test_snap_rules.py configs/rule_packet_fy2026.md configs/rule_packet_fy2026_nosanction.md configs/models.yaml \
+         src/eval/make_paper1_tables.py src/eval/score_common_scale.py src/eval/score_abawd_hardship.py src/eval/make_paper1_appendix.py tests/test_snap_rules.py configs/rule_packet_fy2026.md configs/rule_packet_fy2026_nosanction.md configs/models.yaml \
          configs/requirements.lock.txt configs/requirements_policyengine.lock.txt; do
   mkdir -p "$OUT/$(dirname "$p")"; cp -r "$p" "$OUT/$p"
 done
 # data (generated items; the QC public-use file is not redistributed, see README) and results
 mkdir -p "$OUT/data/rules_pilot" "$OUT/data/external/snap_params" "$OUT/results"
-cp data/rules_pilot/pilot.jsonl data/rules_pilot/pilot_bases_hwgt.json "$OUT/data/rules_pilot/"
+cp data/rules_pilot/pilot.jsonl data/rules_pilot/pilot_bases_hwgt.json data/rules_pilot/pilot_plus_abawd_hardship.jsonl "$OUT/data/rules_pilot/"
 cp data/external/snap_params/*.pdf "$OUT/data/external/snap_params/"
 cp -r results/rules results/rules_pilot results/rules_pilot_nosanction results/rules_think results/common_scale results/consequence "$OUT/results/"
 # tables and results notes

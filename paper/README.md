@@ -1,6 +1,6 @@
 # paper/ — Paper 1 (NAACL 2027 via ARR Oct 2026), short paper
 
-- main.tex: the draft (anonymous review mode). Numbers come from docs/paper1/tables.md and docs/results/design_B_rules_pilot.md;
+- main.tex: draft v3 (anonymous review mode; after blind-review rounds 1-4, docs/paper1/blind_reviews.md). Numbers come from docs/paper1/tables.md and docs/results/design_B_rules_pilot.md;
   regenerate the tables with `python src/eval/make_paper1_tables.py` before editing numbers by hand.
 - rule_packet_fy2026.md: copy of configs/rule_packet_fy2026.md for Appendix A (re-copy if the packet changes).
 - references.bib: copy of lit/references.bib; added.bib: citations not in lit/.

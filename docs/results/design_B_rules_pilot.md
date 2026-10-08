@@ -201,3 +201,20 @@ Ministral has no thinking mode, so its ladder is direct -> step-by-step (same sa
   rate 0.28), and a 15/4 split is within that noise. Under the leak criterion (trap excluded, clustered CI excludes 0 at every seed)
   Ministral fails; only Qwen3-32B thinking-off passes. Section 17's "second model family" reading is withdrawn; the paper reports
   Ministral as the noise-floor example (an asymmetry of the same size as the 32B leak that a second seed removes).
+
+## 19. Need (hardship) control on the ABAWD cells of the 32B leak (2026-10-08; queue 6; src/eval/score_abawd_hardship.py)
+Pre-registered rule and runs: docs/decisions.md (2026-10-08, "hardship control on the ABAWD cells"). Car sentence added to the same 150
+subsample ABAWD groups (data/rules_pilot/pilot_plus_abawd_hardship.jsonl; pilot.jsonl byte-identical; group selection and order unchanged).
+Qwen3-32B-AWQ, 150 items per run, 0 INVALID.
+| run | need (car) - baseline | fired - baseline | blameless - baseline | fired - need | blameless - need |
+| --- | --- | --- | --- | --- | --- |
+| thinking off, seed 0 | 2 up / 4 down | 2 / 6 | 5 / 2 | 2 / 4 | 6 / 1 |
+| thinking off, seed 1 | 5 / 0 | 3 / 10 | 5 / 5 | 0 / 12 | 2 / 7 |
+| thinking on, seed 0 | 0 / 1 | 0 / 0 | 0 / 0 | 1 / 0 | 1 / 0 |
+(four non-trap 72h cells, 60 pairs per sentence; the 88h cells add no flips, so all-non-trap counts are identical)
+- Rule outcome: **(iii) not separable.** (i) fails: the car sentence's down-flips (4, 0) are fewer than fired's (6, 10) at seed 1. (ii) fails: the
+  car sentence is not symmetric at seed 1 (5/0).
+- Reading: the fired sentence lowers verdicts more than the need sentence at both seeds (fired minus need 2/4, 0/12), which is what the
+  deservingness reading predicts, but the need sentence's own direction reverses between seeds (2/4 then 5/0), i.e. it behaves like the
+  cue-free noise of this cell (8/60 between seeds). One control run per seed on a cell this noisy cannot separate the two readings; the
+  paper says so and keeps the 32B cell as "one replicated cell among 36 examined". With thinking on, no sentence moves these cells.

@@ -156,3 +156,6 @@ files and found them correct. Their objections converge; verified against the re
   abstract instead.
 - A figure for the ladder (R5 W7): no page budget in the review version; revisit for camera-ready (+1 page).
 - Dropping the all-zero thinking columns from Table 2: they are not all zero (8B, 32B), and the zeros are the point.
+
+## Outcome of queue 6 (need control on the 32B ABAWD cells; 2026-10-08 14:46)
+Pre-registered rule gives (iii) not separable (results doc section 19). Paper v3 states it in the abstract, the ladder paragraph and a new appendix; the 32B cell stays 'one replicated cell among 36 examined'.
