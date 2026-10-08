@@ -8,6 +8,8 @@ Target: ACL 2027 via the January 2027 ARR cycle, at EMNLP-main quality. Domain: 
 P.L. 119-21 ABAWD work requirement), chosen because the law says which facts a decision may use.
 
 ## Status (2026-10-08): two papers
+
+Paper 1 draft v3 is in paper/ (ACL short paper, anonymous; `make` builds it). Submission bundle, ARR checklist and the blind-review record: docs/paper1/. Design D lives in github.com/kunhailP/llm-welfare-evidence.
 Paper 1 (NAACL 2027, ARR Oct 2026) is written from the results in hand, in this repo. Paper 2 (ACL 2027, evidence
 sufficiency, Design D) lives in the separate repo llm-welfare-evidence. **Start with docs/TWO_PAPER_PLAN.md**, then docs/paper1/outline.md.
 

@@ -35,15 +35,15 @@ Policy" (September 2026; in force from the October 2026 cycle per the CFP), NAAC
 | A1 limitations | Yes | Section 5 (Limitations) |
 | A2 risks | Yes | Ethics statement; Discussion (deployment readout, audit misuse); Limitations (no frontier model, no human baseline) |
 | B1 cite artifacts | Yes | Section 2 (SNAP QC FY2024 file, FNS FY2026 parameters, PolicyEngine-US 2.24.5), Appendix F (models and versions) |
-| B2 licences | Yes | Appendix F: Qwen3 family and Ministral-3 Apache-2.0; PolicyEngine-US AGPL-3.0; SNAP QC and FNS documents U.S. federal public domain; our release licence in its README (PI to choose: code MIT or Apache-2.0, data CC BY 4.0) |
-| B3 intended use | Yes | Appendix F and Ethics: QC file used for household structures only, not redistributed; models used for evaluation; release for audit methodology, not deployment |
+| B2 licences | Yes | Appendix G: Qwen3 family and Ministral-3 Apache-2.0; PolicyEngine-US AGPL-3.0; SNAP QC and FNS documents U.S. federal public domain; our release licence in its README (PI to choose: code MIT or Apache-2.0, data CC BY 4.0) |
+| B3 intended use | Yes | Appendix G and Ethics: QC file used for household structures only, not redistributed; models used for evaluation; release for audit methodology, not deployment |
 | B4 PII / offensive content | Yes | Ethics statement: QC file is de-identified; names are placeholders; items are generated text |
 | B5 documentation | Yes | Section 2 and Appendix B (domains: SNAP income tests and ABAWD; English; household-size strata); supplementary README |
 | B6 statistics | Yes | Section 2 (6,376 items; 1,554-item subsample: 60 / 74 / 150 cue-paired groups; 29 / 27 / 40 households per task); no train/dev/test split (evaluation only) |
-| C1 parameters / compute | Yes | Appendix F (8.2B / 14.8B / 32.8B 4-bit / 8B; one NVIDIA L40; about 20 GPU-hours in total) |
-| C2 setup / hyperparameters | Yes | Section 2 Readouts and Appendix F (sampling settings; no search; vendor defaults) |
+| C1 parameters / compute | Yes | Appendix G (8.2B / 14.8B / 32.8B 4-bit / 8B; one NVIDIA L40; about 20 GPU-hours in total) |
+| C2 setup / hyperparameters | Yes | Section 2 Readouts and Appendix G (sampling settings; no search; vendor defaults) |
 | C3 descriptive statistics | Yes | Sections 3, Appendix C-D (clustered bootstrap CIs, two seeds, flip counts, noise floor) |
-| C4 packages | Yes | Appendix F (vLLM 0.30.0, transformers 5.14.1, PyTorch 2.13.0, PolicyEngine-US 2.24.5); lock files in the supplementary software |
+| C4 packages | Yes | Appendix G (vLLM 0.30.0, transformers 5.14.1, PyTorch 2.13.0, PolicyEngine-US 2.24.5); lock files in the supplementary software |
 | D1-D5 human subjects | N/A | no annotators or participants |
 | E1 AI assistants | Yes | see section 4 below; text goes in the E1 field (anonymous review version has no Acknowledgements) and, at camera-ready, in Acknowledgements |
 

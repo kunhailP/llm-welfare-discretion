@@ -90,6 +90,8 @@ A. Rule packet. B. Cue sentences and item example. C. Full accuracy by cell (bot
 2x2 (interaction, correct switch, all-4-correct; cue minus none). E. Design C first-token polarity results.
 F. PolicyEngine cross-check scope.
 
+## Status 2026-10-08 (end of day): paper v3 compiled (4 pages + appendices A-H), four blind-review rounds answered, ARR checklist drafted (docs/paper1/arr_checklist.md), release split into software/data zips, submission bundle at /workspace/submission. Open: service contributor, OpenReview profiles, E1 wording, release licence, frontier replicate (deferred). GPU idle.
+
 ## To do before 2026-10-12 (no GPU)
 1. Write the paper from this outline (LaTeX, ACL template, anonymised).
 2. Anonymised release repo: src/rules, src/gen/make_rules_pilot.py, src/run, src/eval, configs, data/rules_pilot, results, tests.
