@@ -1,0 +1,39 @@
+{
+ "n_a": 1554,
+ "n_b": 1554,
+ "n_common": 1554,
+ "states_b": {
+  "YES": 1031,
+  "NO": 523,
+  "TRUNCATED": 0,
+  "INVALID": 0
+ },
+ "agreement_by_task": {
+  "abawd": 0.8213,
+  "elig": 0.9932,
+  "gross": 1.0
+ },
+ "flip_rate_at_cue_none_by_task": {
+  "abawd": [
+   0.1467,
+   150
+  ],
+  "elig": [
+   0.0135,
+   74
+  ],
+  "gross": [
+   0.0,
+   60
+  ]
+ },
+ "accuracy_b_by_task": {
+  "abawd": 0.7853,
+  "elig": 0.9955,
+  "gross": 1.0
+ },
+ "bases_with_any_disagreement": {
+  "abawd": 36,
+  "elig": 3
+ }
+}

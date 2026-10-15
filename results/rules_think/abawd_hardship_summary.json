@@ -1,0 +1,290 @@
+{
+ "off_s0": {
+  "invalid_car": 0,
+  "72h_nontrap": {
+   "valence_neg": [
+    2,
+    4,
+    60
+   ],
+   "control_low": [
+    2,
+    6,
+    60
+   ],
+   "control_high": [
+    5,
+    2,
+    60
+   ],
+   "effort_low": [
+    6,
+    2,
+    60
+   ],
+   "effort_high": [
+    4,
+    3,
+    60
+   ],
+   "control_high-control_low": [
+    8,
+    1,
+    60
+   ],
+   "control_high-valence_neg": [
+    6,
+    1,
+    60
+   ],
+   "control_low-valence_neg": [
+    2,
+    4,
+    60
+   ]
+  },
+  "all_nontrap": {
+   "valence_neg": [
+    2,
+    4,
+    120
+   ],
+   "control_low": [
+    2,
+    6,
+    120
+   ],
+   "control_high": [
+    5,
+    2,
+    120
+   ],
+   "effort_low": [
+    6,
+    2,
+    120
+   ],
+   "effort_high": [
+    4,
+    3,
+    120
+   ],
+   "control_high-control_low": [
+    8,
+    1,
+    120
+   ],
+   "control_high-valence_neg": [
+    6,
+    1,
+    120
+   ],
+   "control_low-valence_neg": [
+    2,
+    4,
+    120
+   ]
+  }
+ },
+ "off_s1": {
+  "invalid_car": 0,
+  "72h_nontrap": {
+   "valence_neg": [
+    5,
+    0,
+    60
+   ],
+   "control_low": [
+    3,
+    10,
+    60
+   ],
+   "control_high": [
+    5,
+    5,
+    60
+   ],
+   "effort_low": [
+    4,
+    5,
+    60
+   ],
+   "effort_high": [
+    2,
+    7,
+    60
+   ],
+   "control_high-control_low": [
+    9,
+    2,
+    60
+   ],
+   "control_high-valence_neg": [
+    2,
+    7,
+    60
+   ],
+   "control_low-valence_neg": [
+    0,
+    12,
+    60
+   ]
+  },
+  "all_nontrap": {
+   "valence_neg": [
+    5,
+    0,
+    120
+   ],
+   "control_low": [
+    3,
+    10,
+    120
+   ],
+   "control_high": [
+    5,
+    5,
+    120
+   ],
+   "effort_low": [
+    4,
+    5,
+    120
+   ],
+   "effort_high": [
+    2,
+    7,
+    120
+   ],
+   "control_high-control_low": [
+    9,
+    2,
+    120
+   ],
+   "control_high-valence_neg": [
+    2,
+    7,
+    120
+   ],
+   "control_low-valence_neg": [
+    0,
+    12,
+    120
+   ]
+  }
+ },
+ "on_s0": {
+  "invalid_car": 0,
+  "72h_nontrap": {
+   "valence_neg": [
+    0,
+    1,
+    60
+   ],
+   "control_low": [
+    0,
+    0,
+    60
+   ],
+   "control_high": [
+    0,
+    0,
+    60
+   ],
+   "effort_low": [
+    0,
+    0,
+    60
+   ],
+   "effort_high": [
+    0,
+    0,
+    60
+   ],
+   "control_high-control_low": [
+    0,
+    0,
+    60
+   ],
+   "control_high-valence_neg": [
+    1,
+    0,
+    60
+   ],
+   "control_low-valence_neg": [
+    1,
+    0,
+    60
+   ]
+  },
+  "all_nontrap": {
+   "valence_neg": [
+    0,
+    1,
+    120
+   ],
+   "control_low": [
+    0,
+    0,
+    120
+   ],
+   "control_high": [
+    0,
+    0,
+    120
+   ],
+   "effort_low": [
+    0,
+    0,
+    120
+   ],
+   "effort_high": [
+    0,
+    0,
+    120
+   ],
+   "control_high-control_low": [
+    0,
+    0,
+    120
+   ],
+   "control_high-valence_neg": [
+    1,
+    0,
+    120
+   ],
+   "control_low-valence_neg": [
+    1,
+    0,
+    120
+   ]
+  }
+ },
+ "reading_rule": {
+  "car_up_down": [
+   [
+    2,
+    4,
+    60
+   ],
+   [
+    5,
+    0,
+    60
+   ]
+  ],
+  "fired_up_down": [
+   [
+    2,
+    6,
+    60
+   ],
+   [
+    3,
+    10,
+    60
+   ]
+  ],
+  "verdict": "(iii) not separable"
+ }
+}

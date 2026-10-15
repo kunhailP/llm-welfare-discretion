@@ -1,0 +1,177 @@
+{
+ "kind": "direct",
+ "scale": "probability",
+ "n_items": 804,
+ "n_scored": 804,
+ "missing_or_invalid": 0,
+ "tasks": {
+  "gross": {
+   "balanced_accuracy_all": 0.992,
+   "balanced_accuracy_none": 0.967,
+   "wrongful_denial_rate_none": 0.067,
+   "contrasts": {
+    "control_high-control_low": {
+     "dPyes": {
+      "mean": 0.0,
+      "lo": -0.006,
+      "hi": 0.007,
+      "n": 60
+     },
+     "flips_toward_yes": 0,
+     "flips_toward_no": 0,
+     "pairs": 60
+    },
+    "effort_high-effort_low": {
+     "dPyes": {
+      "mean": 0.021,
+      "lo": 0.006,
+      "hi": 0.037,
+      "n": 60
+     },
+     "flips_toward_yes": 1,
+     "flips_toward_no": 0,
+     "pairs": 60
+    },
+    "valence_neg-none": {
+     "dPyes": {
+      "mean": 0.02,
+      "lo": 0.005,
+      "hi": 0.038,
+      "n": 60
+     },
+     "flips_toward_yes": 2,
+     "flips_toward_no": 0,
+     "pairs": 60
+    },
+    "control_high-none": {
+     "dPyes": {
+      "mean": 0.022,
+      "lo": 0.006,
+      "hi": 0.045,
+      "n": 60
+     },
+     "flips_toward_yes": 2,
+     "flips_toward_no": 0,
+     "pairs": 60
+    },
+    "control_low-none": {
+     "dPyes": {
+      "mean": 0.022,
+      "lo": 0.004,
+      "hi": 0.045,
+      "n": 60
+     },
+     "flips_toward_yes": 2,
+     "flips_toward_no": 0,
+     "pairs": 60
+    },
+    "effort_high-none": {
+     "dPyes": {
+      "mean": 0.022,
+      "lo": 0.005,
+      "hi": 0.046,
+      "n": 60
+     },
+     "flips_toward_yes": 2,
+     "flips_toward_no": 0,
+     "pairs": 60
+    },
+    "effort_low-none": {
+     "dPyes": {
+      "mean": 0.0,
+      "lo": -0.015,
+      "hi": 0.016,
+      "n": 60
+     },
+     "flips_toward_yes": 1,
+     "flips_toward_no": 0,
+     "pairs": 60
+    }
+   }
+  },
+  "elig": {
+   "balanced_accuracy_all": 0.969,
+   "balanced_accuracy_none": 0.978,
+   "wrongful_denial_rate_none": 0.043,
+   "contrasts": {
+    "control_high-control_low": {
+     "dPyes": {
+      "mean": 0.008,
+      "lo": 0.002,
+      "hi": 0.015,
+      "n": 74
+     },
+     "flips_toward_yes": 0,
+     "flips_toward_no": 0,
+     "pairs": 74
+    },
+    "effort_high-effort_low": {
+     "dPyes": {
+      "mean": 0.013,
+      "lo": 0.002,
+      "hi": 0.023,
+      "n": 74
+     },
+     "flips_toward_yes": 3,
+     "flips_toward_no": 0,
+     "pairs": 74
+    },
+    "valence_neg-none": {
+     "dPyes": {
+      "mean": -0.015,
+      "lo": -0.029,
+      "hi": -0.003,
+      "n": 74
+     },
+     "flips_toward_yes": 0,
+     "flips_toward_no": 0,
+     "pairs": 74
+    },
+    "control_high-none": {
+     "dPyes": {
+      "mean": 0.008,
+      "lo": 0.003,
+      "hi": 0.015,
+      "n": 74
+     },
+     "flips_toward_yes": 0,
+     "flips_toward_no": 0,
+     "pairs": 74
+    },
+    "control_low-none": {
+     "dPyes": {
+      "mean": 0.0,
+      "lo": -0.005,
+      "hi": 0.006,
+      "n": 74
+     },
+     "flips_toward_yes": 0,
+     "flips_toward_no": 0,
+     "pairs": 74
+    },
+    "effort_high-none": {
+     "dPyes": {
+      "mean": -0.023,
+      "lo": -0.04,
+      "hi": -0.009,
+      "n": 74
+     },
+     "flips_toward_yes": 0,
+     "flips_toward_no": 1,
+     "pairs": 74
+    },
+    "effort_low-none": {
+     "dPyes": {
+      "mean": -0.036,
+      "lo": -0.06,
+      "hi": -0.017,
+      "n": 74
+     },
+     "flips_toward_yes": 0,
+     "flips_toward_no": 4,
+     "pairs": 74
+    }
+   }
+  }
+ }
+}

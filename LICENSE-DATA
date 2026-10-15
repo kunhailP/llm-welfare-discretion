@@ -1,0 +1,4 @@
+Generated items, model outputs, scores, tables and notes (data/rules_pilot, results/, docs/, archive/) are released under the
+Creative Commons Attribution 4.0 International licence (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/
+The SNAP Quality Control public-use file and the FNS parameter documents are U.S. federal public-domain works; the QC file is not
+redistributed here. Model weights are not included (Qwen3 and Ministral-3 under Apache-2.0 from their publishers).

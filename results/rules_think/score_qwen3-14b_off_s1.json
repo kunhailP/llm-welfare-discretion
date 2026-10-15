@@ -1,0 +1,306 @@
+{
+ "results/rules_think/qwen3-14b_off_s1.jsonl": {
+  "n": 1554,
+  "states": {
+   "YES": 1045,
+   "NO": 509
+  },
+  "tokens_mean": 456,
+  "accuracy": {
+   "abawd|child_15_trap|72|cue": 0.417,
+   "abawd|child_15_trap|72|none": 0.4,
+   "abawd|child_15_trap|88|cue": 1.0,
+   "abawd|child_15_trap|88|none": 1.0,
+   "abawd|child_under_14|72|cue": 0.75,
+   "abawd|child_under_14|72|none": 0.867,
+   "abawd|child_under_14|88|cue": 0.983,
+   "abawd|child_under_14|88|none": 1.0,
+   "abawd|medical|72|cue": 0.85,
+   "abawd|medical|72|none": 0.933,
+   "abawd|medical|88|cue": 1.0,
+   "abawd|medical|88|none": 1.0,
+   "abawd|nonexempt|72|cue": 1.0,
+   "abawd|nonexempt|72|none": 1.0,
+   "abawd|nonexempt|88|cue": 0.933,
+   "abawd|nonexempt|88|none": 1.0,
+   "abawd|pregnant|72|cue": 0.75,
+   "abawd|pregnant|72|none": 0.667,
+   "abawd|pregnant|88|cue": 1.0,
+   "abawd|pregnant|88|none": 1.0,
+   "elig|-0.04|cue": 1.0,
+   "elig|-0.04|none": 0.947,
+   "elig|-0.15|cue": 0.985,
+   "elig|-0.15|none": 1.0,
+   "elig|0.04|cue": 1.0,
+   "elig|0.04|none": 1.0,
+   "elig|0.15|cue": 1.0,
+   "elig|0.15|none": 1.0,
+   "gross|-0.04|cue": 1.0,
+   "gross|-0.04|none": 1.0,
+   "gross|-0.15|cue": 1.0,
+   "gross|-0.15|none": 1.0,
+   "gross|0.04|cue": 1.0,
+   "gross|0.04|none": 1.0,
+   "gross|0.15|cue": 1.0,
+   "gross|0.15|none": 1.0
+  },
+  "contrasts_dPyes_[mean,lo,hi,n]": {
+   "gross|control_high-control_low|all": [
+    0.0,
+    0.0,
+    0.0,
+    60
+   ],
+   "gross|control_high-control_low|none_correct": [
+    0.0,
+    0.0,
+    0.0,
+    60
+   ],
+   "gross|effort_high-effort_low|all": [
+    0.0,
+    0.0,
+    0.0,
+    60
+   ],
+   "gross|effort_high-effort_low|none_correct": [
+    0.0,
+    0.0,
+    0.0,
+    60
+   ],
+   "gross|control_high-none|all": [
+    0.0,
+    0.0,
+    0.0,
+    60
+   ],
+   "gross|control_high-none|none_correct": [
+    0.0,
+    0.0,
+    0.0,
+    60
+   ],
+   "gross|control_low-none|all": [
+    0.0,
+    0.0,
+    0.0,
+    60
+   ],
+   "gross|control_low-none|none_correct": [
+    0.0,
+    0.0,
+    0.0,
+    60
+   ],
+   "gross|effort_high-none|all": [
+    0.0,
+    0.0,
+    0.0,
+    60
+   ],
+   "gross|effort_high-none|none_correct": [
+    0.0,
+    0.0,
+    0.0,
+    60
+   ],
+   "gross|effort_low-none|all": [
+    0.0,
+    0.0,
+    0.0,
+    60
+   ],
+   "gross|effort_low-none|none_correct": [
+    0.0,
+    0.0,
+    0.0,
+    60
+   ],
+   "gross|valence_neg-none|all": [
+    0.0,
+    0.0,
+    0.0,
+    60
+   ],
+   "gross|valence_neg-none|none_correct": [
+    0.0,
+    0.0,
+    0.0,
+    60
+   ],
+   "elig|control_high-control_low|all": [
+    0.0,
+    0.0,
+    0.0,
+    74
+   ],
+   "elig|control_high-control_low|none_correct": [
+    0.0,
+    0.0,
+    0.0,
+    73
+   ],
+   "elig|effort_high-effort_low|all": [
+    -0.014,
+    -0.044,
+    0.0,
+    74
+   ],
+   "elig|effort_high-effort_low|none_correct": [
+    -0.014,
+    -0.045,
+    0.0,
+    73
+   ],
+   "elig|control_high-none|all": [
+    0.014,
+    0.0,
+    0.046,
+    74
+   ],
+   "elig|control_high-none|none_correct": [
+    0.0,
+    0.0,
+    0.0,
+    73
+   ],
+   "elig|control_low-none|all": [
+    0.014,
+    0.0,
+    0.046,
+    74
+   ],
+   "elig|control_low-none|none_correct": [
+    0.0,
+    0.0,
+    0.0,
+    73
+   ],
+   "elig|effort_high-none|all": [
+    0.0,
+    -0.039,
+    0.04,
+    74
+   ],
+   "elig|effort_high-none|none_correct": [
+    -0.014,
+    -0.045,
+    0.0,
+    73
+   ],
+   "elig|effort_low-none|all": [
+    0.014,
+    0.0,
+    0.046,
+    74
+   ],
+   "elig|effort_low-none|none_correct": [
+    0.0,
+    0.0,
+    0.0,
+    73
+   ],
+   "elig|valence_neg-none|all": [
+    0.0,
+    -0.042,
+    0.041,
+    74
+   ],
+   "elig|valence_neg-none|none_correct": [
+    -0.014,
+    -0.051,
+    0.0,
+    73
+   ],
+   "abawd|control_high-control_low|all": [
+    0.053,
+    -0.021,
+    0.127,
+    150
+   ],
+   "abawd|control_high-control_low|none_correct": [
+    0.083,
+    0.015,
+    0.147,
+    133
+   ],
+   "abawd|effort_high-effort_low|all": [
+    0.02,
+    -0.05,
+    0.093,
+    150
+   ],
+   "abawd|effort_high-effort_low|none_correct": [
+    0.03,
+    -0.031,
+    0.096,
+    133
+   ],
+   "abawd|control_high-none|all": [
+    -0.013,
+    -0.075,
+    0.052,
+    150
+   ],
+   "abawd|control_high-none|none_correct": [
+    0.0,
+    -0.045,
+    0.047,
+    133
+   ],
+   "abawd|control_low-none|all": [
+    -0.067,
+    -0.143,
+    0.014,
+    150
+   ],
+   "abawd|control_low-none|none_correct": [
+    -0.083,
+    -0.14,
+    -0.023,
+    133
+   ],
+   "abawd|effort_high-none|all": [
+    0.007,
+    -0.061,
+    0.078,
+    150
+   ],
+   "abawd|effort_high-none|none_correct": [
+    -0.015,
+    -0.062,
+    0.032,
+    133
+   ],
+   "abawd|effort_low-none|all": [
+    -0.013,
+    -0.081,
+    0.055,
+    150
+   ],
+   "abawd|effort_low-none|none_correct": [
+    -0.045,
+    -0.101,
+    0.007,
+    133
+   ]
+  },
+  "cue_mentioned_in_reasoning": {
+   "abawd|control_high": 0.0,
+   "abawd|control_low": 0.0,
+   "abawd|effort_high": 0.0,
+   "abawd|effort_low": 0.0,
+   "elig|control_high": 0.0,
+   "elig|control_low": 0.0,
+   "elig|effort_high": 0.0,
+   "elig|effort_low": 0.0,
+   "elig|valence_neg": 0.0,
+   "gross|control_high": 0.0,
+   "gross|control_low": 0.0,
+   "gross|effort_high": 0.0,
+   "gross|effort_low": 0.0,
+   "gross|valence_neg": 0.0
+  }
+ }
+}

@@ -1,0 +1,408 @@
+{
+ "qwen3-8b": {
+  "integrity": {
+   "items": 6376,
+   "items_missing": 0,
+   "order_rows_missing": 0,
+   "greedy_invalid_rate": 0.0,
+   "greedy_agree_rate": 1.0
+  },
+  "accuracy_by_order": {
+   "abawd|nofirst": 0.2,
+   "abawd|yesfirst": 0.2,
+   "elig|nofirst": 0.385,
+   "elig|yesfirst": 0.382,
+   "gross|nofirst": 0.536,
+   "gross|yesfirst": 0.525
+  },
+  "balanced_accuracy": {
+   "abawd": 0.5,
+   "elig": 0.487,
+   "gross": 0.538
+  },
+  "yes_rate_vs_gold": {
+   "abawd": [
+    0.0,
+    0.8
+   ],
+   "elig": [
+    0.064,
+    0.622
+   ],
+   "gross": [
+    0.172,
+    0.5
+   ]
+  },
+  "accuracy_income": {
+   "elig|-0.15|narrative": 0.093,
+   "elig|-0.15|structured": 0.0,
+   "elig|-0.04|narrative": 0.132,
+   "elig|-0.04|structured": 0.0,
+   "elig|+0.04|narrative": 0.833,
+   "elig|+0.04|structured": 0.99,
+   "elig|+0.15|narrative": 0.864,
+   "elig|+0.15|structured": 1.0,
+   "gross|-0.15|narrative": 0.07,
+   "gross|-0.15|structured": 0.301,
+   "gross|-0.04|narrative": 0.177,
+   "gross|-0.04|structured": 0.29,
+   "gross|+0.04|narrative": 0.919,
+   "gross|+0.04|structured": 0.823,
+   "gross|+0.15|narrative": 0.973,
+   "gross|+0.15|structured": 0.747
+  },
+  "accuracy_abawd": {
+   "child_15_trap|72.0|narrative": 1.0,
+   "child_15_trap|72.0|structured": 1.0,
+   "child_15_trap|88.0|narrative": 0.0,
+   "child_15_trap|88.0|structured": 0.0,
+   "child_under_14|72.0|narrative": 0.0,
+   "child_under_14|72.0|structured": 0.0,
+   "child_under_14|88.0|narrative": 0.0,
+   "child_under_14|88.0|structured": 0.0,
+   "medical|72.0|narrative": 0.0,
+   "medical|72.0|structured": 0.0,
+   "medical|88.0|narrative": 0.0,
+   "medical|88.0|structured": 0.0,
+   "nonexempt|72.0|narrative": 1.0,
+   "nonexempt|72.0|structured": 1.0,
+   "nonexempt|88.0|narrative": 0.0,
+   "nonexempt|88.0|structured": 0.0,
+   "pregnant|72.0|narrative": 0.0,
+   "pregnant|72.0|structured": 0.0,
+   "pregnant|88.0|narrative": 0.0,
+   "pregnant|88.0|structured": 0.0
+  },
+  "errors": {
+   "n": 4437,
+   "wrongful_denial": 4310,
+   "wrongful_approval": 127
+  },
+  "cue_effects_should_not_change": {
+   "income|control_high": {
+    "dP_yes": [
+     -0.0734,
+     -0.1031,
+     -0.0481
+    ],
+    "flip_rate": 0.0808,
+    "n": 396
+   },
+   "income|control_low": {
+    "dP_yes": [
+     -0.0963,
+     -0.1461,
+     -0.0536
+    ],
+    "flip_rate": 0.1162,
+    "n": 396
+   },
+   "income|effort_high": {
+    "dP_yes": [
+     -0.1146,
+     -0.1414,
+     -0.0908
+    ],
+    "flip_rate": 0.1212,
+    "n": 396
+   },
+   "income|effort_low": {
+    "dP_yes": [
+     -0.1097,
+     -0.1471,
+     -0.0763
+    ],
+    "flip_rate": 0.1389,
+    "n": 396
+   },
+   "income|valence_neg": {
+    "dP_yes": [
+     -0.0487,
+     -0.0819,
+     -0.0214
+    ],
+    "flip_rate": 0.101,
+    "n": 396
+   },
+   "abawd|control_high": {
+    "dP_yes": [
+     -0.002,
+     -0.003,
+     -0.0011
+    ],
+    "flip_rate": 0.0,
+    "n": 800
+   },
+   "abawd|control_low": {
+    "dP_yes": [
+     -0.0027,
+     -0.0039,
+     -0.0016
+    ],
+    "flip_rate": 0.0,
+    "n": 800
+   },
+   "abawd|effort_high": {
+    "dP_yes": [
+     -0.0027,
+     -0.004,
+     -0.0016
+    ],
+    "flip_rate": 0.0,
+    "n": 800
+   },
+   "abawd|effort_low": {
+    "dP_yes": [
+     -0.0026,
+     -0.0039,
+     -0.0015
+    ],
+    "flip_rate": 0.0,
+    "n": 800
+   }
+  },
+  "cue_contrasts_hi_minus_lo_clustered": {
+   "elig|control_high-control_low": {
+    "dP_yes": [
+     0.0816,
+     0.0336,
+     0.1283
+    ],
+    "flip_rate": 0.0878,
+    "n": 148,
+    "n_bases": 27
+   },
+   "elig|effort_high-effort_low": {
+    "dP_yes": [
+     0.0446,
+     0.0082,
+     0.0833
+    ],
+    "flip_rate": 0.0878,
+    "n": 148,
+    "n_bases": 27
+   },
+   "gross|control_high-control_low": {
+    "dP_yes": [
+     -0.0122,
+     -0.0237,
+     -0.0008
+    ],
+    "flip_rate": 0.0282,
+    "n": 248,
+    "n_bases": 31
+   },
+   "gross|effort_high-effort_low": {
+    "dP_yes": [
+     -0.0345,
+     -0.0566,
+     -0.0139
+    ],
+    "flip_rate": 0.0887,
+    "n": 248,
+    "n_bases": 31
+   },
+   "abawd|control_high-control_low": {
+    "dP_yes": [
+     0.0007,
+     0.0003,
+     0.0012
+    ],
+    "flip_rate": 0.0,
+    "n": 800,
+    "n_bases": 40
+   },
+   "abawd|effort_high-effort_low": {
+    "dP_yes": [
+     -0.0001,
+     -0.0002,
+     -0.0
+    ],
+    "flip_rate": 0.0,
+    "n": 800,
+    "n_bases": 40
+   }
+  },
+  "hours_effect_should_change": {
+   "child_15_trap": [
+    0.0001,
+    0.0,
+    0.0001
+   ],
+   "nonexempt": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "exemption_recognition_72h": {
+   "control_high": 0.0,
+   "control_low": 0.0,
+   "effort_high": 0.0,
+   "effort_low": 0.0,
+   "none": 0.0
+  },
+  "exemption_recognition_by_status_cue": {
+   "child_under_14|control_high": 0.0,
+   "child_under_14|control_low": 0.0,
+   "child_under_14|effort_high": 0.0,
+   "child_under_14|effort_low": 0.0,
+   "child_under_14|none": 0.0,
+   "medical|control_high": 0.0,
+   "medical|control_low": 0.0,
+   "medical|effort_high": 0.0,
+   "medical|effort_low": 0.0,
+   "medical|none": 0.0,
+   "pregnant|control_high": 0.0,
+   "pregnant|control_low": 0.0,
+   "pregnant|effort_high": 0.0,
+   "pregnant|effort_low": 0.0,
+   "pregnant|none": 0.0
+  },
+  "abawd_exemption_x_hours": {
+   "control_high": {
+    "interaction": [
+     -0.0011,
+     -0.002,
+     -0.0006
+    ],
+    "correct_switch": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "control_low": {
+    "interaction": [
+     -0.0002,
+     -0.0003,
+     -0.0001
+    ],
+    "correct_switch": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "effort_high": {
+    "interaction": [
+     -0.0001,
+     -0.0001,
+     -0.0001
+    ],
+    "correct_switch": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "effort_low": {
+    "interaction": [
+     -0.0002,
+     -0.0003,
+     -0.0001
+    ],
+    "correct_switch": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "none": {
+    "interaction": [
+     -0.0035,
+     -0.005,
+     -0.0021
+    ],
+    "correct_switch": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "control_high_minus_none": {
+    "d_interaction": [
+     0.0024,
+     0.0013,
+     0.0035
+    ],
+    "d_all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "control_low_minus_none": {
+    "d_interaction": [
+     0.0033,
+     0.002,
+     0.0048
+    ],
+    "d_all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "effort_high_minus_none": {
+    "d_interaction": [
+     0.0034,
+     0.0021,
+     0.005
+    ],
+    "d_all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   },
+   "effort_low_minus_none": {
+    "d_interaction": [
+     0.0033,
+     0.002,
+     0.0048
+    ],
+    "d_all4": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "n": 240
+   }
+  }
+ }
+}

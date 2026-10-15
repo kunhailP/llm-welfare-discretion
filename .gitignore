@@ -1,0 +1,12 @@
+# Local downloads; the parameter PDFs and source instructions are versioned.
+data/external/*
+!data/external/SOURCES.md
+!data/external/snap_params/
+
+# Runtime and build products
+logs/
+models/
+release/
+__pycache__/
+*.pyc
+.venv/
